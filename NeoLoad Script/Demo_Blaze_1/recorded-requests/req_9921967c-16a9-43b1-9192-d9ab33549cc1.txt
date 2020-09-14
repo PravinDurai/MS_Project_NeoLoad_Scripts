@@ -1,0 +1,10 @@
+GET https://tapestry.tapad.com/tapestry/1?ta_partner_id=905&ta_partner_did=5ee9601f44709aa0&ta_redirect=https%3A%2F%2Fsu.addthis.com%2Fred%2Fusync%3Fpid%3D11144%26puid%3D%24%7BIDS%3Akey%7D%26ssrc%3D3 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept: image/webp,image/apng,image/*,*/*;q=0.8
+sec-fetch-site: cross-site
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: https://s7.addthis.com/static/sh.f48a1a04fe8dbf021b4cda1d.html
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+

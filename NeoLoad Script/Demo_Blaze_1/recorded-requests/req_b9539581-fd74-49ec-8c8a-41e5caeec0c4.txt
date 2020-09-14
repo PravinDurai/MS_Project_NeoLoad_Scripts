@@ -1,0 +1,13 @@
+OPTIONS https://api.demoblaze.com/check HTTP/2.0
+accept: */*
+access-control-request-method: POST
+access-control-request-headers: content-type
+origin: https://www.demoblaze.com
+sec-fetch-mode: cors
+sec-fetch-site: same-site
+sec-fetch-dest: empty
+referer: https://www.demoblaze.com/cart.html
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+

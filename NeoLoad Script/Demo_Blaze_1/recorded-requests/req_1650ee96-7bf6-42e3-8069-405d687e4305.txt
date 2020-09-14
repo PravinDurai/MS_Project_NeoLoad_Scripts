@@ -1,0 +1,14 @@
+GET https://orangehrm-demo-6x.orangehrmlive.com:443/api/employees/documentTemplates?datagroup=personal_information HTTP/1.1
+Host: orangehrm-demo-6x.orangehrmlive.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Authorization: Bearer 0547d47a4d28d4224f0e790495e5b44e70b8c8cb
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://orangehrm-demo-6x.orangehrmlive.com/client/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: orangehrmSecurityAuthentication_LoginLocationTracker=21232f297a57a5a743894a0e4a801fc3; orangehrm=b1ad1758f29acf483f12ac8ca638bde6
+

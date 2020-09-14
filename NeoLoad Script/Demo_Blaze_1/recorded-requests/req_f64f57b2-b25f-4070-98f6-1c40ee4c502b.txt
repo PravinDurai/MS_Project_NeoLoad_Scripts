@@ -1,0 +1,8 @@
+GET https://pbs.twimg.com/semantic_core_img/1287156531641761792/xdCSpZrB?format=jpg&name=120x120 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://twitter.com/explore/tabs/news
+te: trailers
+

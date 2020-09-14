@@ -1,0 +1,12 @@
+GET https://completion.amazon.co.uk:443/api/2017/suggestions?session-id=259-5549146-3116120&customer-id=&request-id=JFV5HEK7K0XH2WMF9AA2&page-type=Landing&lop=en_IN&site-variant=desktop&client-info=amazon-search-ui&mid=A21TJRUUN4KGV&alias=undefined&searchTerm=a&suggestion-type=KEYWORD&suggestion-type=WIDGET&_=1596047749402 HTTP/1.1
+Referer: https://www.amazon.in/b/?_encoding=UTF8&node=1388977031&ref_=sv_top_elec_mega_5
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: en-IN
+Origin: https://www.amazon.in
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: completion.amazon.co.uk
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+

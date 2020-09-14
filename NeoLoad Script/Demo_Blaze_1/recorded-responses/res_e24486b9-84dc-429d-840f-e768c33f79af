@@ -1,0 +1,5 @@
+jQuery(document).ready(function () {
+    if(window.self !== window.top && window.self.location.href.toString().indexOf('Legacy/reportId') !== -1) {
+        window.top.location.href = window.self.location.href.toString().replace('Legacy/','/');
+    }
+});

@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    
+    <head>
+
+        <title>OrangeHRM</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <link rel="shortcut icon" href="/webres_5e7985529ea946.31965054/themes/6x-demo-responsive/images/favicon.ico" />
+        
+        <!-- Library CSS files -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/css/header.min.css" />
+        
+        <!-- Custom CSS files -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/css/main.min.css" />
+
+        <script type="text/javascript">
+            var orangehrm = {
+                baseUrl: '/index.php'
+            };
+        </script>
+        <script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/nonmaterial_header.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/jquery/validate/messages/messages_en.js"></script>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->        
+
+        <script type="text/javascript">
+    var navigationLogConfig = {
+        enabled: true,
+        url: '/navigation/navigationLogNoncore'
+    }
+</script>
+
+    <base href="/">
+
+<link rel="stylesheet" href="/client/build/styles/noncore-ce574986e0.css">    <script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/materializeWidgetSelect.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/materializeWidgetEmployeeMultySelect.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/tinymce/jquery.tinymce.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmCorePlugin/js/ohrmWidgetTextAreaTinyMce.js"></script>
+<script type="text/javascript" src="/js/eagle-non-core/datepicker.js"></script>
+<script type="text/javascript" src="/js/lodash/lodash.js"></script>
+<script type="text/javascript" src="/js/moment/moment.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/materialize/js/materialize.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/nova.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/viewJobVacancySuccess.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/_materializeListController.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmNavigationTrackerPlugin/js/noncoreNavigationLogger.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/nova-toasts.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmPerformancePlugin/js/fixUrlsForLegacyPerformanceReportUrlsOnLoginPage.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmHelpPlugin/js/_helpButton.js"></script>
+<link rel="stylesheet" type="text/css" media="" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/materializeWidgetSelect.css" />
+<link rel="stylesheet" type="text/css" media="" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/materializeWidgetEmployeeMultySelect.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/nova.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/viewJobVacancySuccess.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/_materializeListController.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/nova.min.css" />
+</head>
+    <body>
+      
+        <div id="wrapper">
+            
+            <div id="content" style="padding-top:0">
+
+                  <!--<link rel="stylesheet" href="client/.tmp/materialize.css">;-->
+<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+<!-- Modal Structure - Delete Vacancy -->
+<div id="modal-delete-vacancy" class="modal confirm-dialog">
+    <div class="modal-content">
+        <h4></h4>
+        <p>You are about to delete data permanently. Are you sure you want to continue?</p>
+    </div>
+    
+    <div class="modal-footer">
+
+        <a style="float: none !important;text-align: center" id="vacancy-delete-cancel-button" class="modal-action modal-close waves-effect btn right cancel-btn" >no, cancel</a>
+        <a style="float: none !important;text-align: center" id="vacancy-delete-button" class="modal-action modal-close waves-effect btn right action-btn" >yes, delete</a>
+              
+            </div>
+</div>   
+
+
+<!-- Modal Structure - Max open vacancy limit reached -->
+<div id="modalVacancyLimitExceeded" class="modal modal-fixed-footer custom-height-modal" style="height:30%;">
+    <div class="customized-modal-header">
+        <h5>Maximum Open Vacancy Limit Reached</h5>
+    </div>
+
+    <div class="customized-modal-content modal-content workflow-content">
+        <p style="font-size:11pt; font-weight:300; margin-left:14px;">Maximum open vacancy limit is reached according to the license. Please close an existing vacancy or request a license upgrade.</p>
+    </div>
+
+    <div class="modal-footer">
+        <a class="waves-effect modal-close btn action-btn right">OK</a>
+    </div>
+</div>
+
+<!-- Modal Structure - Add vacancy -->
+<div id="addVacancyFormDiv" class="modal modal-fixed-footer custom-height-modal" style="height:78%;">
+    <div class="customized-modal-header">
+        <h5>Add Job Vacancy</h5>
+
+    </div>
+
+    <div class="customized-modal-content modal-content">
+        <form method="post" id="addJobVacancyForm">
+            <input type="hidden" name="addJobVacancy[_csrf_token]" value="0a98d50ed981591844d134ce12bcc339" id="addJobVacancy__csrf_token" />            <div class="row">
+                <div class="input-field col l6">
+                    <input type="text" name="addJobVacancy[name]" data-unique-values="vacancyNames" id="addJobVacancy_name" />                    <label for="addJobVacancy_name">Vacancy <em>*</em></label>                </div>
+
+                <div class="input-field col l6">
+                    <div class="materializeWidgetObjectMultySelect-container" data-id="addJobVacancy_jobTitle" data-name="addJobVacancy[jobTitle]" data-rand-id="EQT3S" ><ul id="dropdownObjectSearch_EQT3S" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="EQT3S_search_33" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="33" class="search-row searchListObjectName">Accounts Clerk</p>
+        </a></li><li id="EQT3S_search_59" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="59" class="search-row searchListObjectName">Art Director</p>
+        </a></li><li id="EQT3S_search_53" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="53" class="search-row searchListObjectName">Assistant Brand Manager</p>
+        </a></li><li id="EQT3S_search_61" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="61" class="search-row searchListObjectName">Assistant HR Manager</p>
+        </a></li><li id="EQT3S_search_64" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="64" class="search-row searchListObjectName">Assistant Manager- Customer Success</p>
+        </a></li><li id="EQT3S_search_52" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="52" class="search-row searchListObjectName">Business Manager - Advertising</p>
+        </a></li><li id="EQT3S_search_62" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="62" class="search-row searchListObjectName">CA</p>
+        </a></li><li id="EQT3S_search_24" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="24" class="search-row searchListObjectName">CEO</p>
+        </a></li><li id="EQT3S_search_47" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="47" class="search-row searchListObjectName">Community Manager</p>
+        </a></li><li id="EQT3S_search_48" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="48" class="search-row searchListObjectName">Content Writer</p>
+        </a></li><li id="EQT3S_search_25" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="25" class="search-row searchListObjectName">CTO</p>
+        </a></li><li id="EQT3S_search_65" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="65" class="search-row searchListObjectName">Customer Success Executive</p>
+        </a></li><li id="EQT3S_search_57" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="57" class="search-row searchListObjectName">Digital Marketing Manager</p>
+        </a></li><li id="EQT3S_search_26" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="26" class="search-row searchListObjectName">Finance Manager</p>
+        </a></li><li id="EQT3S_search_68" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="68" class="search-row searchListObjectName">Financial Executive</p>
+        </a></li><li id="EQT3S_search_54" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="54" class="search-row searchListObjectName">Front End Developer</p>
+        </a></li><li id="EQT3S_search_27" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="27" class="search-row searchListObjectName">Global HR Manager</p>
+        </a></li><li id="EQT3S_search_56" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="56" class="search-row searchListObjectName">Global Marketing Manager</p>
+        </a></li><li id="EQT3S_search_45" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="45" class="search-row searchListObjectName">HR Admin</p>
+        </a></li><li id="EQT3S_search_30" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="30" class="search-row searchListObjectName">HR Executive</p>
+        </a></li><li id="EQT3S_search_29" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="29" class="search-row searchListObjectName">IT Executive</p>
+        </a></li><li id="EQT3S_search_39" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="39" class="search-row searchListObjectName">IT Manager</p>
+        </a></li><li id="EQT3S_search_44" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="44" class="search-row searchListObjectName">IT technical support officer</p>
+        </a></li><li id="EQT3S_search_32" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="32" class="search-row searchListObjectName">Junior Sales Executive</p>
+        </a></li><li id="EQT3S_search_55" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="55" class="search-row searchListObjectName">Local Marketing Manager</p>
+        </a></li><li id="EQT3S_search_66" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="66" class="search-row searchListObjectName">Management Trainee</p>
+        </a></li><li id="EQT3S_search_67" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="67" class="search-row searchListObjectName">Product and Training Manager</p>
+        </a></li><li id="EQT3S_search_60" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="60" class="search-row searchListObjectName">Production Manager</p>
+        </a></li><li id="EQT3S_search_37" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="37" class="search-row searchListObjectName">QA Engineer</p>
+        </a></li><li id="EQT3S_search_41" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="41" class="search-row searchListObjectName">Regional HR Manager</p>
+        </a></li><li id="EQT3S_search_42" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="42" class="search-row searchListObjectName">Regional Sales Manager</p>
+        </a></li><li id="EQT3S_search_49" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="49" class="search-row searchListObjectName">Researcher</p>
+        </a></li><li id="EQT3S_search_31" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="31" class="search-row searchListObjectName">Sales Executive</p>
+        </a></li><li id="EQT3S_search_28" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="28" class="search-row searchListObjectName">Sales Manager</p>
+        </a></li><li id="EQT3S_search_63" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="63" class="search-row searchListObjectName">Sample Job Title</p>
+        </a></li><li id="EQT3S_search_51" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="51" class="search-row searchListObjectName">Senior Manager IT</p>
+        </a></li><li id="EQT3S_search_40" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="40" class="search-row searchListObjectName">Senior Technical Support Engineer</p>
+        </a></li><li id="EQT3S_search_46" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="46" class="search-row searchListObjectName">SEO Specialist</p>
+        </a></li><li id="EQT3S_search_58" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="58" class="search-row searchListObjectName">Social Media Editor</p>
+        </a></li><li id="EQT3S_search_35" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="35" class="search-row searchListObjectName">Software Development Manager</p>
+        </a></li><li id="EQT3S_search_36" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="36" class="search-row searchListObjectName">Software Engineer</p>
+        </a></li><li id="EQT3S_search_38" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="38" class="search-row searchListObjectName">Technical Support Engineer</p>
+        </a></li><li id="EQT3S_search_50" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="50" class="search-row searchListObjectName">Technical Support Manager</p>
+        </a></li><li id="EQT3S_search_34" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="34" class="search-row searchListObjectName">Trainee</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_addJobVacancy_jobTitle" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_EQT3S"  data-constrainwidth="true" ></div><input name="inputRepresenter_addJobVacancy[jobTitle]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="addJobVacancy_jobTitle_input" name="addJobVacancy[jobTitle]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                    <label class="label" for="addJobVacancy_jobTitle">Job Title <em>*</em></label>                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l6">
+                    <div class="materializeWidgetObjectMultySelect-container" data-id="addJobVacancy_location" data-name="addJobVacancy[location]" data-rand-id="zO1z2" ><ul id="dropdownObjectSearch_zO1z2" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; width: 280px; position: absolute; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Australia</p>
+        </a></li><li id="zO1z2_search_12" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Australian Regional HQ</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Canada</p>
+        </a></li><li id="zO1z2_search_17" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Canadian Development Center</p>
+        </a></li><li id="zO1z2_search_14" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Canadian Regional HQ</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">China</p>
+        </a></li><li id="zO1z2_search_21" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Chinese Development Center</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">France</p>
+        </a></li><li id="zO1z2_search_19" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;France Regional HQ</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Germany</p>
+        </a></li><li id="zO1z2_search_18" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;German Regional HQ</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">India</p>
+        </a></li><li id="zO1z2_search_13" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Indian Development Center</p>
+        </a></li><li id="zO1z2_search_25" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;M FAYAZ HUSSAIN BAIG</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Singapore</p>
+        </a></li><li id="zO1z2_search_20" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Singapore Regional HQ</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">South Africa</p>
+        </a></li><li id="zO1z2_search_15" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;South African Development Center</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">United Kingdom</p>
+        </a></li><li id="zO1z2_search_16" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;British Development Center</p>
+        </a></li><li id="zO1z2_search_23" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;London Office</p>
+        </a></li><li id="zO1z2_search_22" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sheffield Office</p>
+        </a></li><li id="zO1z2_search_" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">United States</p>
+        </a></li><li id="zO1z2_search_4" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;HQ - CA, USA</p>
+        </a></li><li id="zO1z2_search_10" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;New York Sales Office</p>
+        </a></li><li id="zO1z2_search_24" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sample Location</p>
+        </a></li><li id="zO1z2_search_11" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Texas R&D</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_addJobVacancy_location" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_zO1z2" ></div><input name="inputRepresenter_addJobVacancy[location]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="addJobVacancy_location_input" name="addJobVacancy[location]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                    <label class="label" for="addJobVacancy_location">Location <em>*</em></label>                </div>
+
+                <div class="input-field col l6">
+                    <div class="materializeWidgetObjectMultySelect-container" data-id="addJobVacancy_sub_unit" data-name="addJobVacancy[sub_unit]" data-rand-id="5LUrz" ><ul id="dropdownObjectSearch_5LUrz" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="5LUrz_search_12" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="12" class="search-row searchListObjectName">Architecture Team</p>
+        </a></li><li id="5LUrz_search_11" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="11" class="search-row searchListObjectName">QA Team</p>
+        </a></li><li id="5LUrz_search_4" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="4" class="search-row searchListObjectName">Engineering</p>
+        </a></li><li id="5LUrz_search_13" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="13" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Technical Support Team</p>
+        </a></li><li id="5LUrz_search_14" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="14" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Customization Team</p>
+        </a></li><li id="5LUrz_search_15" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="15" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Development Team</p>
+        </a></li><li id="5LUrz_search_5" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="5" class="search-row searchListObjectName">Finance</p>
+        </a></li><li id="5LUrz_search_6" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="6" class="search-row searchListObjectName">Sales</p>
+        </a></li><li id="5LUrz_search_25" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="25" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sales Canada</p>
+        </a></li><li id="5LUrz_search_26" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="26" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sales Australia</p>
+        </a></li><li id="5LUrz_search_27" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="27" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sales France</p>
+        </a></li><li id="5LUrz_search_28" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="28" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sales Singapore</p>
+        </a></li><li id="5LUrz_search_29" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="29" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sales Germany</p>
+        </a></li><li id="5LUrz_search_30" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="30" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sales USA</p>
+        </a></li><li id="5LUrz_search_7" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="7" class="search-row searchListObjectName">Administration</p>
+        </a></li><li id="5LUrz_search_8" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="8" class="search-row searchListObjectName">IT</p>
+        </a></li><li id="5LUrz_search_31" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="31" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Support Team</p>
+        </a></li><li id="5LUrz_search_9" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="9" class="search-row searchListObjectName">Marketing</p>
+        </a></li><li id="5LUrz_search_17" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="17" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Artwork Team</p>
+        </a></li><li id="5LUrz_search_18" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="18" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graphic Design Team</p>
+        </a></li><li id="5LUrz_search_19" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="19" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coorporate Branding Team</p>
+        </a></li><li id="5LUrz_search_20" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="20" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Website Development Team</p>
+        </a></li><li id="5LUrz_search_21" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="21" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Local Marketing Team</p>
+        </a></li><li id="5LUrz_search_22" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="22" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Global Marketing Team</p>
+        </a></li><li id="5LUrz_search_23" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="23" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Digital Marketing Team</p>
+        </a></li><li id="5LUrz_search_24" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="24" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;SEO Team</p>
+        </a></li><li id="5LUrz_search_10" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="10" class="search-row searchListObjectName">Production</p>
+        </a></li><li id="5LUrz_search_32" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="32" class="search-row searchListObjectName">Sample Sub Unit</p>
+        </a></li><li id="5LUrz_search_33" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="33" class="search-row searchListObjectName">Customer Success</p>
+        </a></li><li id="5LUrz_search_34" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="34" class="search-row searchListObjectName">Product and Training</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_addJobVacancy_sub_unit" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_5LUrz"  data-constrainwidth="true" ></div><input name="inputRepresenter_addJobVacancy[sub_unit]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="addJobVacancy_sub_unit_input" name="addJobVacancy[sub_unit]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                    <label class="label" for="addJobVacancy_sub_unit">Sub Unit</label>                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l12">
+                    <label class="active" for="addJobVacancy_hiringManagers">Hiring Managers <em>*</em></label>                    
+<div id="materializeWidgetEmployeeMultySelect_container_1jRCi"
+     class="materializeWidgetEmployeeMultySelect-container"
+     data-id="addJobVacancy_hiringManagers" data-name="addJobVacancy[hiringManagers]" data-rand-id="1jRCi">
+    <div spellcheck="false" style="height:auto;" id="textarea_addJobVacancy_hiringManagers"
+         class="dropdown-employees materialize-contenteditable materialize-textarea" type="text"
+         data-activates="dropdownEmployeeSearch_1jRCi">
+    </div>
+    <ul id="dropdownEmployeeSearch_1jRCi" class="dropdown-content dropdownEmployeeSearch"
+        style="z-index: 1000; width: 398px; position: absolute; opacity: 1">
+        <li><a class="searchEmployeeA employeeSearchBox" style="padding-bottom:0">
+                <input placeholder="Search Employee" type="text"
+                       class="employee-search employee-multiselect-input validate">
+            </a></li>
+        <div class="employee-choices" style="max-height: 150px overflow:auto;"></div>
+    </ul>
+    <input name="inputRepresenter_addJobVacancy[hiringManagers]" style="display:none"/>
+        <!--    <input class="materialize-widget-employee-hidden-input" id="-->
+    <!--"-->
+    <!--           name="--><!--" value="-->
+    <!--" style="display:none"/>-->
+    </div>
+
+<script>
+    (function () {
+        var parameters = {
+            includeSelf: true,
+            selectedEmployees: {},
+            defaultPhotoURL: '/webres_5e7985529ea946.31965054/themes/6x-demo-responsive//images/default-photo.png',
+            disabled: false        };
+
+
+        MaterializeWidgetEmployeeMultySelect($("#materializeWidgetEmployeeMultySelect_container_1jRCi"), parameters);
+    })();
+</script>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l6">
+                    <input type="text" name="addJobVacancy[noOfPositions]" id="addJobVacancy_noOfPositions" />                    <label for="addJobVacancy_noOfPositions">Number of Positions</label>                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 l6">
+                    <input type="checkbox" name="addJobVacancy[requestConsent]" class="filled-in" id="addJobVacancy_requestConsent" />                    <label for="addJobVacancy_requestConsent">Request Consent to Keep Candidate Data for Later Processing</label>                </div>
+                <div class="col s6 l6">
+                    <input type="checkbox" name="addJobVacancy[isResumeRequired]" class="filled-in" checked="checked" id="addJobVacancy_isResumeRequired" />                    <label for="addJobVacancy_isResumeRequired">Resume Required</label>                </div>
+            </div>
+            <div class="hidden-fields" style="display:none">
+                <input type="text" name="addJobVacancy[id]" id="addJobVacancy_id" />            </div>
+        </form>
+        <div class="row requiredHelperText">
+            <em>*</em> Required field        </div>
+    </div>
+    <div class="modal-footer">
+        <a id="saveVacancy" class="waves-effect btn action-btn right">Save</a>
+        <a class="modal-close waves-effect btn cancel-btn right">Cancel</a>
+    </div>
+</div>
+
+    <div id="vacancyDropDowns">
+        <ul id="stages_32" class="dropdown-content stage-dropdown" style="z-index:2; width:300px"></ul><ul id="stages_29" class="dropdown-content stage-dropdown" style="z-index:2; width:300px"></ul><ul id="stages_45" class="dropdown-content stage-dropdown" style="z-index:2; width:300px"></ul><ul id="stages_44" class="dropdown-content stage-dropdown" style="z-index:2; width:300px"></ul><ul id="stages_7" class="dropdown-content stage-dropdown" style="z-index:2; width:300px"></ul>    </div>
+    <div class="navbar-fixed">
+        <nav class="subNav">
+            <div class="nav-wrapper orange-hrm lighten-2">
+                <a href="#" data-activates="slide-out"
+                   class="button-collapse show-on-large"><i
+                        class="material-icons mdi-navigation-menu">menu</i></a>
+                <a class="brand-logo">Vacancies</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a id="vacancySearchBtn" class='tooltipped circle' data-position="bottom" data-tooltip="Search" data-delay="50"><i class="material-icons mdi-action-search">search</i></a></li>
+                </ul>
+            </div>
+            
+<style>
+    li.meterialize-menu {
+        font-weight: 700;
+    }
+
+    li.sub-menu {
+        font-weight: 400;
+    }
+
+    .collapsible-accordion{
+        width: 100%;;
+    }
+    li.logo {
+        text-align: center;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    a.logo-container {
+        height: 57px;
+        margin-bottom: 32px;
+    }
+    .displayBlock{
+        display: block !important;
+    }
+    html,body{
+        height:100%
+    }
+    #wrapper{
+        min-height: 100%;
+    }
+    nav a.button-collapse {
+        display: block;
+    }
+    .sum-menu-a{
+        height: 50px !important;
+        line-height: 50px !important;
+        vertical-align: middle;
+        padding-top: 7% !important;
+        width: 100%;
+    }
+</style>
+
+<!-- Modal - Feature not enabled -->
+<div id="decisionSupportNotEnabledNotice" class="modal white">
+    <div class="modal-content grey lighten-5" style="text-align:center; margin-top:0px; margin-bottom:10px;">
+        <h5>Decision Support System Is Disabled</h5>
+    </div>
+
+    <div class="modal-content workflow-content">
+        <p style="font-size:14pt; font-weight:300; margin-left:14px;">Decision support system is disabled in the license. Please request a license upgrade to enable the feature.</p>
+    </div>
+
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat left">Ok</a>
+    </div>
+</div>
+<div id="interviewAssistantNotEnabledNotice" class="modal white">
+    <div class="modal-content grey lighten-5" style="text-align:center; margin-top:0px; margin-bottom:10px;">
+        <h5>Interview Assistant Is Disabled</h5>
+    </div>
+
+    <div class="modal-content workflow-content">
+        <p style="font-size:14pt; font-weight:300; margin-left:14px;">Interview assistant is disabled in the license. Please request a license upgrade to enable the feature.</p>
+    </div>
+
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat left">Ok</a>
+    </div>
+</div>
+
+<ul id="slide-out" class="side-nav" style="height: 100%">
+    <li class=logo><img src="/webres_5e7985529ea946.31965054/themes/6x-demo-responsive/images/logo.png" width="100%" height="100%"></img></li>
+
+    <a href="#" id="welcome" class="left">
+        <span>Admin</span>
+        <span class="material-icons">person</span>
+        <span class="material-icons up-down-btn"></span>
+    </a>
+    <div style="height:0px; overflow:visible">
+        <div id="novaLogoutPanel" class="card z-depth-2 row hidden" style="left:10%; width:80%; z-index: 999; margin-top: -7%; display:none">
+            <div class="row center-align" style="margin-top:10%"><a>
+                    <img alt="Employee Photo" src="/pim/viewPhoto/empNumber/13" border="0" id="empPic" 
+                         width="100px" height="100px" class="image-row-style circle responsive-img"/></a></div>
+            <div class="row center-align" style="margin-top:10%; margin-bottom:0px"><a class="nova-left-menu-emp-name">Jacqueline White</a></div>
+            <div class="row center-align" style="margin-top:-10%; margin-bottom:0px"><a class="nova-left-menu-logout" href="/auth/logout">Logout</a></div>
+        </div>
+    </div>
+    <li>
+    </li>
+    <li class="meterialize-menu"><a href="/client/#/route/dashboard" target="_parent">Home</a></li>
+            <li class="novaSelected selected meterialize-menu"><a href="/recruitment/viewJobVacancy" class="waves-effect waves-orange">Vacancies</a></li>
+            <li class="meterialize-menu"><a href="/recruitment/viewCandidates" class="waves-effect waves-orange">Candidates</a></li>
+            <li class="no-padding" style="line-height: 10px;">
+            <ul class="collapsible collapsible-accordion">
+                <li class="meterialize-menu"><a class="collapsible-header waves-effect waves-orange" style="margin:0px; padding-left:30px;">Configuration</a>
+                    <div class="collapsible-body">
+                        <ul style="width: 100%;">
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/vacancyTemplates"  class="">Vacancy Templates</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/questionPool" class=" ">Question Pool</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/interviewTemplates" class=" ">Interview Templates</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/testTemplates" class="">Standard Tests</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/recruitmentAnalyticsConfiguration" class=" ">Analytics</a></li>
+                        </ul>
+                    </div></li>
+            </ul>
+        </li>
+                <li class="meterialize-menu" style="line-height: 15px;"><a style="padding-top: 10%;width: 100%;" class="successionReportMenu waves-effect waves-orange" href="/recruitment/displayVacancySuccessionReportCriteria/reportId/15">Vacancy Successions</a></li>
+            </ul>
+
+<style>
+    li.meterialize-menu li.sub-menu a.disabled {
+        color: gray;
+        cursor: default;
+    }
+</style>
+<script>
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+//    $('.modal-trigger').leanModal({
+//        dismissible: true, // Modal can be dismissed by clicking outside of the modal
+//        opacity: 0.2, // Opacity of modal background
+//        in_duration: 300, // Transition in duration
+//        out_duration: 200, // Transition out duration
+//        /*  ready: function() { alert('Ready'); }, // Callback for Modal open
+//         complete: function() { alert('Closed'); } // Callback for Modal close */
+//    });
+
+//    $('select').material_select();
+
+    // Initialize collapse button
+    $(document).ready(function () {
+        $("#interviewAssistantNotEnabledNotice").detach().appendTo('#content');
+        $("#decisionSupportNotEnabledNotice").detach().appendTo('#content');
+        $(".button-collapse").sideNav();
+        $("#welcome").off("click");
+        $("#welcome").on("click", function () {
+            if ($("#novaLogoutPanel").hasClass('hidden')) {
+                $("#novaLogoutPanel").show().removeClass('hidden');
+            } else {
+                $("#novaLogoutPanel").hide().addClass('hidden');
+            }
+        });
+
+        $(document).on("click", function (e)
+        {
+            var container = $("#novaLogoutPanel:not(.hidden)");
+
+            if (container.length > 0 && !container.is(e.target) // if the target of the click isn't the container...
+                    && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+                $("#welcome").click();
+            }
+        });
+    })
+
+
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+</script>        </nav>
+    </div>
+    <div id="vacancySearchDropDown" class="z-depth-1 row searchFormRow customHidden" style="overflow-x: hidden; overflow-y: scroll; height: 100% !important;">
+    <form method="post" id="vacancySearchForm">
+        <input type="hidden" name="vacancySearch[_csrf_token]" value="2eec63af7b0c90c3adf550210e8cea57" id="vacancySearch__csrf_token" />              <div class="input-field raw col l12 " style="margin-top:20px;">
+            <div class="input-field col l10 offset-l1">
+<!--                <input id="job_title" type="text" name="jib_title" class="validate">
+                <label for="job_title">Job Title</label>-->
+
+                <input type="text" name="vacancySearch[jobVacancy]" id="vacancySearch_jobVacancy" />                <label for="vacancySearch_jobVacancy">Job Vacancy</label>            </div>
+        </div>
+
+        <div class="input-field raw col l12 " style="margin-top:0px;">
+            <div class="input-field col l10 offset-l1">
+                
+<div id="materializeWidgetEmployeeMultySelect_container_6zzHU"
+     class="materializeWidgetEmployeeMultySelect-container"
+     data-id="vacancySearch_hiringManager" data-name="vacancySearch[hiringManager]" data-rand-id="6zzHU">
+    <div spellcheck="false" style="height:auto;" id="textarea_vacancySearch_hiringManager"
+         class="dropdown-employees materialize-contenteditable materialize-textarea" type="text"
+         data-activates="dropdownEmployeeSearch_6zzHU">
+    </div>
+    <ul id="dropdownEmployeeSearch_6zzHU" class="dropdown-content dropdownEmployeeSearch"
+        style="z-index: 1000; width: 398px; position: absolute; opacity: 1">
+        <li><a class="searchEmployeeA employeeSearchBox" style="padding-bottom:0">
+                <input placeholder="Search Employee" type="text"
+                       class="employee-search employee-multiselect-input validate">
+            </a></li>
+        <div class="employee-choices" style="max-height: 150px overflow:auto;"></div>
+    </ul>
+    <input name="inputRepresenter_vacancySearch[hiringManager]" style="display:none"/>
+        <!--    <input class="materialize-widget-employee-hidden-input" id="-->
+    <!--"-->
+    <!--           name="--><!--" value="-->
+    <!--" style="display:none"/>-->
+    </div>
+
+<script>
+    (function () {
+        var parameters = {
+            includeSelf: true,
+            selectedEmployees: {},
+            defaultPhotoURL: '/webres_5e7985529ea946.31965054/themes/6x-demo-responsive//images/default-photo.png',
+            disabled: false        };
+
+
+        MaterializeWidgetEmployeeMultySelect($("#materializeWidgetEmployeeMultySelect_container_6zzHU"), parameters);
+    })();
+</script>
+                <label class="active" for="vacancySearch_hiringManager">Hiring Manager</label>
+            </div>
+
+        </div>
+
+        <div class="input-field col l12" style="margin-top:0px;">
+            <div class="input-field col l5 offset-l1">
+                <!--                <input id="job_title" type="text" name="jib_title" class="validate">
+                                <label for="job_title">Job Title</label>-->
+
+                <div class="materializeWidgetObjectMultySelect-container" data-id="vacancySearch_jobTitle" data-name="vacancySearch[jobTitle]" data-rand-id="qKxL5" ><ul id="dropdownObjectSearch_qKxL5" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="qKxL5_search_33" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="33" class="search-row searchListObjectName">Accounts Clerk</p>
+        </a></li><li id="qKxL5_search_59" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="59" class="search-row searchListObjectName">Art Director</p>
+        </a></li><li id="qKxL5_search_53" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="53" class="search-row searchListObjectName">Assistant Brand Manager</p>
+        </a></li><li id="qKxL5_search_61" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="61" class="search-row searchListObjectName">Assistant HR Manager</p>
+        </a></li><li id="qKxL5_search_64" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="64" class="search-row searchListObjectName">Assistant Manager- Customer Success</p>
+        </a></li><li id="qKxL5_search_52" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="52" class="search-row searchListObjectName">Business Manager - Advertising</p>
+        </a></li><li id="qKxL5_search_62" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="62" class="search-row searchListObjectName">CA</p>
+        </a></li><li id="qKxL5_search_24" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="24" class="search-row searchListObjectName">CEO</p>
+        </a></li><li id="qKxL5_search_47" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="47" class="search-row searchListObjectName">Community Manager</p>
+        </a></li><li id="qKxL5_search_48" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="48" class="search-row searchListObjectName">Content Writer</p>
+        </a></li><li id="qKxL5_search_25" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="25" class="search-row searchListObjectName">CTO</p>
+        </a></li><li id="qKxL5_search_65" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="65" class="search-row searchListObjectName">Customer Success Executive</p>
+        </a></li><li id="qKxL5_search_57" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="57" class="search-row searchListObjectName">Digital Marketing Manager</p>
+        </a></li><li id="qKxL5_search_26" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="26" class="search-row searchListObjectName">Finance Manager</p>
+        </a></li><li id="qKxL5_search_68" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="68" class="search-row searchListObjectName">Financial Executive</p>
+        </a></li><li id="qKxL5_search_54" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="54" class="search-row searchListObjectName">Front End Developer</p>
+        </a></li><li id="qKxL5_search_27" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="27" class="search-row searchListObjectName">Global HR Manager</p>
+        </a></li><li id="qKxL5_search_56" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="56" class="search-row searchListObjectName">Global Marketing Manager</p>
+        </a></li><li id="qKxL5_search_45" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="45" class="search-row searchListObjectName">HR Admin</p>
+        </a></li><li id="qKxL5_search_30" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="30" class="search-row searchListObjectName">HR Executive</p>
+        </a></li><li id="qKxL5_search_29" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="29" class="search-row searchListObjectName">IT Executive</p>
+        </a></li><li id="qKxL5_search_39" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="39" class="search-row searchListObjectName">IT Manager</p>
+        </a></li><li id="qKxL5_search_44" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="44" class="search-row searchListObjectName">IT technical support officer</p>
+        </a></li><li id="qKxL5_search_32" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="32" class="search-row searchListObjectName">Junior Sales Executive</p>
+        </a></li><li id="qKxL5_search_55" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="55" class="search-row searchListObjectName">Local Marketing Manager</p>
+        </a></li><li id="qKxL5_search_66" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="66" class="search-row searchListObjectName">Management Trainee</p>
+        </a></li><li id="qKxL5_search_67" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="67" class="search-row searchListObjectName">Product and Training Manager</p>
+        </a></li><li id="qKxL5_search_60" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="60" class="search-row searchListObjectName">Production Manager</p>
+        </a></li><li id="qKxL5_search_37" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="37" class="search-row searchListObjectName">QA Engineer</p>
+        </a></li><li id="qKxL5_search_41" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="41" class="search-row searchListObjectName">Regional HR Manager</p>
+        </a></li><li id="qKxL5_search_42" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="42" class="search-row searchListObjectName">Regional Sales Manager</p>
+        </a></li><li id="qKxL5_search_49" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="49" class="search-row searchListObjectName">Researcher</p>
+        </a></li><li id="qKxL5_search_31" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="31" class="search-row searchListObjectName">Sales Executive</p>
+        </a></li><li id="qKxL5_search_28" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="28" class="search-row searchListObjectName">Sales Manager</p>
+        </a></li><li id="qKxL5_search_63" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="63" class="search-row searchListObjectName">Sample Job Title</p>
+        </a></li><li id="qKxL5_search_51" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="51" class="search-row searchListObjectName">Senior Manager IT</p>
+        </a></li><li id="qKxL5_search_40" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="40" class="search-row searchListObjectName">Senior Technical Support Engineer</p>
+        </a></li><li id="qKxL5_search_46" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="46" class="search-row searchListObjectName">SEO Specialist</p>
+        </a></li><li id="qKxL5_search_58" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="58" class="search-row searchListObjectName">Social Media Editor</p>
+        </a></li><li id="qKxL5_search_35" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="35" class="search-row searchListObjectName">Software Development Manager</p>
+        </a></li><li id="qKxL5_search_36" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="36" class="search-row searchListObjectName">Software Engineer</p>
+        </a></li><li id="qKxL5_search_38" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="38" class="search-row searchListObjectName">Technical Support Engineer</p>
+        </a></li><li id="qKxL5_search_50" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="50" class="search-row searchListObjectName">Technical Support Manager</p>
+        </a></li><li id="qKxL5_search_34" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="34" class="search-row searchListObjectName">Trainee</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_vacancySearch_jobTitle" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_qKxL5"  data-constrainwidth="true" ></div><input name="inputRepresenter_vacancySearch[jobTitle]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="vacancySearch_jobTitle_input" name="vacancySearch[jobTitle]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                <label class="label" for="vacancySearch_jobTitle">Job Title</label>            </div>
+
+            <div class="input-field col l5">
+                <!--                <input id="vacancy" name="Vacancy" type="text" class="validate">
+                                <label for="vacancy">Vacancy</label>-->
+                <div class="materializeWidgetObjectMultySelect-container" data-id="vacancySearch_sub_unit" data-name="vacancySearch[sub_unit]" data-rand-id="trgDh" ><ul id="dropdownObjectSearch_trgDh" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="trgDh_search_12" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="12" class="search-row searchListObjectName">Architecture Team</p>
+        </a></li><li id="trgDh_search_11" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="11" class="search-row searchListObjectName">QA Team</p>
+        </a></li><li id="trgDh_search_4" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="4" class="search-row searchListObjectName">Engineering</p>
+        </a></li><li id="trgDh_search_13" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="13" class="search-row searchListObjectName">&nbsp;&nbsp;Technical Support Team</p>
+        </a></li><li id="trgDh_search_14" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="14" class="search-row searchListObjectName">&nbsp;&nbsp;Customization Team</p>
+        </a></li><li id="trgDh_search_15" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="15" class="search-row searchListObjectName">&nbsp;&nbsp;Development Team</p>
+        </a></li><li id="trgDh_search_5" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="5" class="search-row searchListObjectName">Finance</p>
+        </a></li><li id="trgDh_search_6" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="6" class="search-row searchListObjectName">Sales</p>
+        </a></li><li id="trgDh_search_25" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="25" class="search-row searchListObjectName">&nbsp;&nbsp;Sales Canada</p>
+        </a></li><li id="trgDh_search_26" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="26" class="search-row searchListObjectName">&nbsp;&nbsp;Sales Australia</p>
+        </a></li><li id="trgDh_search_27" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="27" class="search-row searchListObjectName">&nbsp;&nbsp;Sales France</p>
+        </a></li><li id="trgDh_search_28" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="28" class="search-row searchListObjectName">&nbsp;&nbsp;Sales Singapore</p>
+        </a></li><li id="trgDh_search_29" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="29" class="search-row searchListObjectName">&nbsp;&nbsp;Sales Germany</p>
+        </a></li><li id="trgDh_search_30" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="30" class="search-row searchListObjectName">&nbsp;&nbsp;Sales USA</p>
+        </a></li><li id="trgDh_search_7" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="7" class="search-row searchListObjectName">Administration</p>
+        </a></li><li id="trgDh_search_8" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="8" class="search-row searchListObjectName">IT</p>
+        </a></li><li id="trgDh_search_31" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="31" class="search-row searchListObjectName">&nbsp;&nbsp;Support Team</p>
+        </a></li><li id="trgDh_search_9" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="9" class="search-row searchListObjectName">Marketing</p>
+        </a></li><li id="trgDh_search_17" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="17" class="search-row searchListObjectName">&nbsp;&nbsp;Artwork Team</p>
+        </a></li><li id="trgDh_search_18" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="18" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Graphic Design Team</p>
+        </a></li><li id="trgDh_search_19" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="19" class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coorporate Branding Team</p>
+        </a></li><li id="trgDh_search_20" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="20" class="search-row searchListObjectName">&nbsp;&nbsp;Website Development Team</p>
+        </a></li><li id="trgDh_search_21" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="21" class="search-row searchListObjectName">&nbsp;&nbsp;Local Marketing Team</p>
+        </a></li><li id="trgDh_search_22" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="22" class="search-row searchListObjectName">&nbsp;&nbsp;Global Marketing Team</p>
+        </a></li><li id="trgDh_search_23" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="23" class="search-row searchListObjectName">&nbsp;&nbsp;Digital Marketing Team</p>
+        </a></li><li id="trgDh_search_24" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="24" class="search-row searchListObjectName">&nbsp;&nbsp;SEO Team</p>
+        </a></li><li id="trgDh_search_10" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="10" class="search-row searchListObjectName">Production</p>
+        </a></li><li id="trgDh_search_32" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="32" class="search-row searchListObjectName">Sample Sub Unit</p>
+        </a></li><li id="trgDh_search_33" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="33" class="search-row searchListObjectName">Customer Success</p>
+        </a></li><li id="trgDh_search_34" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="34" class="search-row searchListObjectName">Product and Training</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_vacancySearch_sub_unit" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_trgDh"  data-constrainwidth="true" ></div><input name="inputRepresenter_vacancySearch[sub_unit]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="vacancySearch_sub_unit_input" name="vacancySearch[sub_unit]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                <label class="label" for="vacancySearch_sub_unit">Sub Unit</label>            </div>
+        </div>
+
+        <div class="input-field col l12" style="margin-top:0px;">
+            <div class="input-field col l5 offset-l1">
+                <!--                <input id="job_title" type="text" name="jib_title" class="validate">
+                                <label for="job_title">Job Title</label>-->
+                <div class="materializeWidgetObjectMultySelect-container" data-id="vacancySearch_location" data-name="vacancySearch[location]" data-rand-id="NGzJy" ><ul id="dropdownObjectSearch_NGzJy" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; width: 280px; position: absolute; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="NGzJy_search_'12'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Australia</p>
+        </a></li><li id="NGzJy_search_12" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Australian Regional HQ</p>
+        </a></li><li id="NGzJy_search_'17','14'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Canada</p>
+        </a></li><li id="NGzJy_search_17" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Canadian Development Center</p>
+        </a></li><li id="NGzJy_search_14" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Canadian Regional HQ</p>
+        </a></li><li id="NGzJy_search_'21'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">China</p>
+        </a></li><li id="NGzJy_search_21" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Chinese Development Center</p>
+        </a></li><li id="NGzJy_search_'19'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">France</p>
+        </a></li><li id="NGzJy_search_19" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;France Regional HQ</p>
+        </a></li><li id="NGzJy_search_'18'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Germany</p>
+        </a></li><li id="NGzJy_search_18" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;German Regional HQ</p>
+        </a></li><li id="NGzJy_search_'13','25'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">India</p>
+        </a></li><li id="NGzJy_search_13" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Indian Development Center</p>
+        </a></li><li id="NGzJy_search_25" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;M FAYAZ HUSSAIN BAIG</p>
+        </a></li><li id="NGzJy_search_'20'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Singapore</p>
+        </a></li><li id="NGzJy_search_20" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Singapore Regional HQ</p>
+        </a></li><li id="NGzJy_search_'15'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">South Africa</p>
+        </a></li><li id="NGzJy_search_15" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;South African Development Center</p>
+        </a></li><li id="NGzJy_search_'16','23','22'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">United Kingdom</p>
+        </a></li><li id="NGzJy_search_16" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;British Development Center</p>
+        </a></li><li id="NGzJy_search_23" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;London Office</p>
+        </a></li><li id="NGzJy_search_22" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sheffield Office</p>
+        </a></li><li id="NGzJy_search_'4','10','24','11'" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">United States</p>
+        </a></li><li id="NGzJy_search_4" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;HQ - CA, USA</p>
+        </a></li><li id="NGzJy_search_10" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;New York Sales Office</p>
+        </a></li><li id="NGzJy_search_24" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Sample Location</p>
+        </a></li><li id="NGzJy_search_11" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">&nbsp;&nbsp;&nbsp;&nbsp;Texas R&D</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_vacancySearch_location" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_NGzJy" ></div><input name="inputRepresenter_vacancySearch[location]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="vacancySearch_location_input" name="vacancySearch[location]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                <label class="label" for="vacancySearch_location">Location</label>            </div>
+
+            <div class="input-field col l5 ">
+                <!--                <input id="vacancy" name="Vacancy" type="text" class="validate">
+                                <label for="vacancy">Vacancy</label>-->
+                <div class="materializeWidgetObjectMultySelect-container" data-id="vacancySearch_status" data-name="vacancySearch[status]" data-rand-id="pCw0B" ><ul id="dropdownObjectSearch_pCw0B" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="pCw0B_search_-1" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="-1" class="search-row searchListObjectName">Closed</p>
+        </a></li><li id="pCw0B_search_1" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="1" class="search-row searchListObjectName">New</p>
+        </a></li><li id="pCw0B_search_2" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="2" class="search-row searchListObjectName">Published</p>
+        </a></li><li id="pCw0B_search_3" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="3" class="search-row searchListObjectName">Unpublished</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_vacancySearch_status" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_pCw0B"  data-constrainwidth="true" ></div><input name="inputRepresenter_vacancySearch[status]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="vacancySearch_status_input" name="vacancySearch[status]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                <label class="label" for="vacancySearch_status">Status</label>            </div>
+        </div>
+        <div class="input-field col l12" style="margin-top:0px;">
+            <div class="input-field col l5 offset-l1">
+                    <input id="publishedDateFrom" type="text" name="vacancySearch[publishedDateFrom]" class="datepicker" />            <script type="text/javascript">
+              var isIE = navigator.userAgent.indexOf("MSIE ") > -1 || navigator.userAgent.indexOf("Trident/") > -1 || navigator.userAgent.indexOf("Edge/") > -1;
+              var pickerOpened = false;
+              
+              $('.datepicker').pickadate({  
+               format: getDatePickerCompatibleDateFormat("D, d M Y"),
+                onSet: function (ele) {
+                    if(ele.select){
+                           this.close();
+                    }
+                 },
+                today: "Today",
+                clear: "Clear",
+                close: "Close",
+
+                labelMonthNext: "Next month",
+                labelMonthPrev: "Previous month",
+                labelMonthSelect: "Select a month",
+//                labelYearSelect: "Select a year",
+//                monthsFull: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+//                weekdaysFull: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+//                monthsShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+//                weekdaysShort: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+
+                selectMonths: true,
+                selectYears: '10',
+                onClose: function() {
+                    var element = this.$node;
+                    element.removeClass('active_datepicker');
+                    $('.datepicker').blur();
+                    $('.picker').blur();
+                    pickerOpened = false;
+                },
+                onOpen: function() {
+                    if (!pickerOpened && isIE) {
+                        this.close();
+                        return;
+                    }
+                    var element = this.$node;
+                    element.addClass('active_datepicker');
+                    
+                    fixDropDown(this.$root.find('.picker__select--year'));
+                    fixDropDown(this.$root.find('.picker__select--month'));
+                    
+                    this.$root.mouseup(function (e) {
+                            var containers = $(this).find(".select-dropdown");
+
+                            containers.each(function () {
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0) 
+                                {
+                                    $(this).siblings('input.select-dropdown').trigger('close');
+                                }
+                            });
+
+                        });
+                },
+                onRender: function () {
+                var pickerInstanceElement = this;
+                this.$node.bind('click', function (e) {
+                    e.stopPropagation();
+                    pickerInstanceElement.open();
+                    pickerOpened = true;
+                });
+                    var offDays={"1578096000":{"type":"weekend","duration":"8","date":"2020 01 04","original-date":"2020-01-04"},"1578182400":{"type":"weekend","duration":"8","date":"2020 01 05","original-date":"2020-01-05"},"1578700800":{"type":"weekend","duration":"8","date":"2020 01 11","original-date":"2020-01-11"},"1578787200":{"type":"weekend","duration":"8","date":"2020 01 12","original-date":"2020-01-12"},"1579305600":{"type":"weekend","duration":"8","date":"2020 01 18","original-date":"2020-01-18"},"1579392000":{"type":"weekend","duration":"8","date":"2020 01 19","original-date":"2020-01-19"},"1579910400":{"type":"weekend","duration":"8","date":"2020 01 25","original-date":"2020-01-25"},"1579996800":{"type":"weekend","duration":"8","date":"2020 01 26","original-date":"2020-01-26"},"1580515200":{"type":"weekend","duration":"8","date":"2020 02 01","original-date":"2020-02-01"},"1580601600":{"type":"weekend","duration":"8","date":"2020 02 02","original-date":"2020-02-02"},"1581120000":{"type":"weekend","duration":"8","date":"2020 02 08","original-date":"2020-02-08"},"1581206400":{"type":"weekend","duration":"8","date":"2020 02 09","original-date":"2020-02-09"},"1581724800":{"type":"weekend","duration":"8","date":"2020 02 15","original-date":"2020-02-15"},"1581811200":{"type":"weekend","duration":"8","date":"2020 02 16","original-date":"2020-02-16"},"1582329600":{"type":"weekend","duration":"8","date":"2020 02 22","original-date":"2020-02-22"},"1582416000":{"type":"weekend","duration":"8","date":"2020 02 23","original-date":"2020-02-23"},"1582934400":{"type":"weekend","duration":"8","date":"2020 02 29","original-date":"2020-02-29"},"1583020800":{"type":"weekend","duration":"8","date":"2020 03 01","original-date":"2020-03-01"},"1583539200":{"type":"weekend","duration":"8","date":"2020 03 07","original-date":"2020-03-07"},"1583625600":{"type":"weekend","duration":"8","date":"2020 03 08","original-date":"2020-03-08"},"1584144000":{"type":"weekend","duration":"8","date":"2020 03 14","original-date":"2020-03-14"},"1584230400":{"type":"weekend","duration":"8","date":"2020 03 15","original-date":"2020-03-15"},"1584748800":{"type":"weekend","duration":"8","date":"2020 03 21","original-date":"2020-03-21"},"1584835200":{"type":"weekend","duration":"8","date":"2020 03 22","original-date":"2020-03-22"},"1585353600":{"type":"weekend","duration":"8","date":"2020 03 28","original-date":"2020-03-28"},"1585440000":{"type":"weekend","duration":"8","date":"2020 03 29","original-date":"2020-03-29"},"1585958400":{"type":"weekend","duration":"8","date":"2020 04 04","original-date":"2020-04-04"},"1586044800":{"type":"weekend","duration":"8","date":"2020 04 05","original-date":"2020-04-05"},"1586563200":{"type":"weekend","duration":"8","date":"2020 04 11","original-date":"2020-04-11"},"1586649600":{"type":"weekend","duration":"8","date":"2020 04 12","original-date":"2020-04-12"},"1587168000":{"type":"weekend","duration":"8","date":"2020 04 18","original-date":"2020-04-18"},"1587254400":{"type":"weekend","duration":"8","date":"2020 04 19","original-date":"2020-04-19"},"1587772800":{"type":"weekend","duration":"8","date":"2020 04 25","original-date":"2020-04-25"},"1587859200":{"type":"weekend","duration":"8","date":"2020 04 26","original-date":"2020-04-26"},"1588377600":{"type":"weekend","duration":"8","date":"2020 05 02","original-date":"2020-05-02"},"1588464000":{"type":"weekend","duration":"8","date":"2020 05 03","original-date":"2020-05-03"},"1588982400":{"type":"weekend","duration":"8","date":"2020 05 09","original-date":"2020-05-09"},"1589068800":{"type":"holiday","duration":"0","date":"2020 05 10","original-date":"2020-05-10"},"1589587200":{"type":"weekend","duration":"8","date":"2020 05 16","original-date":"2020-05-16"},"1589673600":{"type":"weekend","duration":"8","date":"2020 05 17","original-date":"2020-05-17"},"1590192000":{"type":"weekend","duration":"8","date":"2020 05 23","original-date":"2020-05-23"},"1590278400":{"type":"weekend","duration":"8","date":"2020 05 24","original-date":"2020-05-24"},"1590796800":{"type":"weekend","duration":"8","date":"2020 05 30","original-date":"2020-05-30"},"1590883200":{"type":"weekend","duration":"8","date":"2020 05 31","original-date":"2020-05-31"},"1591401600":{"type":"weekend","duration":"8","date":"2020 06 06","original-date":"2020-06-06"},"1591488000":{"type":"weekend","duration":"8","date":"2020 06 07","original-date":"2020-06-07"},"1592006400":{"type":"weekend","duration":"8","date":"2020 06 13","original-date":"2020-06-13"},"1592092800":{"type":"weekend","duration":"8","date":"2020 06 14","original-date":"2020-06-14"},"1592611200":{"type":"weekend","duration":"8","date":"2020 06 20","original-date":"2020-06-20"},"1592697600":{"type":"holiday","duration":"0","date":"2020 06 21","original-date":"2020-06-21"},"1593216000":{"type":"weekend","duration":"8","date":"2020 06 27","original-date":"2020-06-27"},"1593302400":{"type":"weekend","duration":"8","date":"2020 06 28","original-date":"2020-06-28"},"1593820800":{"type":"holiday","duration":"0","date":"2020 07 04","original-date":"2020-07-04"},"1593907200":{"type":"weekend","duration":"8","date":"2020 07 05","original-date":"2020-07-05"},"1594425600":{"type":"weekend","duration":"8","date":"2020 07 11","original-date":"2020-07-11"},"1594512000":{"type":"weekend","duration":"8","date":"2020 07 12","original-date":"2020-07-12"},"1595030400":{"type":"weekend","duration":"8","date":"2020 07 18","original-date":"2020-07-18"},"1595116800":{"type":"weekend","duration":"8","date":"2020 07 19","original-date":"2020-07-19"},"1595635200":{"type":"weekend","duration":"8","date":"2020 07 25","original-date":"2020-07-25"},"1595721600":{"type":"weekend","duration":"8","date":"2020 07 26","original-date":"2020-07-26"},"1596240000":{"type":"weekend","duration":"8","date":"2020 08 01","original-date":"2020-08-01"},"1596326400":{"type":"weekend","duration":"8","date":"2020 08 02","original-date":"2020-08-02"},"1596844800":{"type":"weekend","duration":"8","date":"2020 08 08","original-date":"2020-08-08"},"1596931200":{"type":"weekend","duration":"8","date":"2020 08 09","original-date":"2020-08-09"},"1597449600":{"type":"weekend","duration":"8","date":"2020 08 15","original-date":"2020-08-15"},"1597536000":{"type":"weekend","duration":"8","date":"2020 08 16","original-date":"2020-08-16"},"1598054400":{"type":"weekend","duration":"8","date":"2020 08 22","original-date":"2020-08-22"},"1598140800":{"type":"weekend","duration":"8","date":"2020 08 23","original-date":"2020-08-23"},"1598659200":{"type":"weekend","duration":"8","date":"2020 08 29","original-date":"2020-08-29"},"1598745600":{"type":"weekend","duration":"8","date":"2020 08 30","original-date":"2020-08-30"},"1599264000":{"type":"weekend","duration":"8","date":"2020 09 05","original-date":"2020-09-05"},"1599350400":{"type":"weekend","duration":"8","date":"2020 09 06","original-date":"2020-09-06"},"1599868800":{"type":"weekend","duration":"8","date":"2020 09 12","original-date":"2020-09-12"},"1599955200":{"type":"weekend","duration":"8","date":"2020 09 13","original-date":"2020-09-13"},"1600473600":{"type":"weekend","duration":"8","date":"2020 09 19","original-date":"2020-09-19"},"1600560000":{"type":"weekend","duration":"8","date":"2020 09 20","original-date":"2020-09-20"},"1601078400":{"type":"weekend","duration":"8","date":"2020 09 26","original-date":"2020-09-26"},"1601164800":{"type":"weekend","duration":"8","date":"2020 09 27","original-date":"2020-09-27"},"1601683200":{"type":"weekend","duration":"8","date":"2020 10 03","original-date":"2020-10-03"},"1601769600":{"type":"weekend","duration":"8","date":"2020 10 04","original-date":"2020-10-04"},"1602288000":{"type":"weekend","duration":"8","date":"2020 10 10","original-date":"2020-10-10"},"1602374400":{"type":"weekend","duration":"8","date":"2020 10 11","original-date":"2020-10-11"},"1602892800":{"type":"weekend","duration":"8","date":"2020 10 17","original-date":"2020-10-17"},"1602979200":{"type":"weekend","duration":"8","date":"2020 10 18","original-date":"2020-10-18"},"1603497600":{"type":"weekend","duration":"8","date":"2020 10 24","original-date":"2020-10-24"},"1603584000":{"type":"weekend","duration":"8","date":"2020 10 25","original-date":"2020-10-25"},"1604102400":{"type":"weekend","duration":"8","date":"2020 10 31","original-date":"2020-10-31"},"1604188800":{"type":"weekend","duration":"8","date":"2020 11 01","original-date":"2020-11-01"},"1604707200":{"type":"weekend","duration":"8","date":"2020 11 07","original-date":"2020-11-07"},"1604793600":{"type":"weekend","duration":"8","date":"2020 11 08","original-date":"2020-11-08"},"1605312000":{"type":"weekend","duration":"8","date":"2020 11 14","original-date":"2020-11-14"},"1605398400":{"type":"weekend","duration":"8","date":"2020 11 15","original-date":"2020-11-15"},"1605916800":{"type":"weekend","duration":"8","date":"2020 11 21","original-date":"2020-11-21"},"1606003200":{"type":"weekend","duration":"8","date":"2020 11 22","original-date":"2020-11-22"},"1606521600":{"type":"weekend","duration":"8","date":"2020 11 28","original-date":"2020-11-28"},"1606608000":{"type":"weekend","duration":"8","date":"2020 11 29","original-date":"2020-11-29"},"1607126400":{"type":"weekend","duration":"8","date":"2020 12 05","original-date":"2020-12-05"},"1607212800":{"type":"weekend","duration":"8","date":"2020 12 06","original-date":"2020-12-06"},"1607731200":{"type":"weekend","duration":"8","date":"2020 12 12","original-date":"2020-12-12"},"1607817600":{"type":"weekend","duration":"8","date":"2020 12 13","original-date":"2020-12-13"},"1608336000":{"type":"weekend","duration":"8","date":"2020 12 19","original-date":"2020-12-19"},"1608422400":{"type":"weekend","duration":"8","date":"2020 12 20","original-date":"2020-12-20"},"1608940800":{"type":"weekend","duration":"8","date":"2020 12 26","original-date":"2020-12-26"},"1609027200":{"type":"weekend","duration":"8","date":"2020 12 27","original-date":"2020-12-27"},"1577836800":{"type":"holiday","duration":"0","date":"2020 01 01","original-date":"2020-01-01"},"1579478400":{"type":"holiday","duration":"0","date":"2020 01 20","original-date":"2020-01-20"},"1581897600":{"type":"holiday","duration":"0","date":"2020 02 17","original-date":"2020-02-17"},"1590364800":{"type":"holiday","duration":"0","date":"2020 05 25","original-date":"2020-05-25"},"1592524800":{"type":"holiday","duration":"0","date":"2020 06 19","original-date":"2020-06-19"},"1599436800":{"type":"holiday","duration":"0","date":"2020 09 07","original-date":"2020-09-07"},"1602460800":{"type":"holiday","duration":"0","date":"2020 10 12","original-date":"2020-10-12"},"1605052800":{"type":"holiday","duration":"0","date":"2020 11 11","original-date":"2020-11-11"},"1606348800":{"type":"holiday","duration":"0","date":"2020 11 26","original-date":"2020-11-26"},"1608854400":{"type":"holiday","duration":"0","date":"2020 12 25","original-date":"2020-12-25"}};
+                    highlightOffDays(this, offDays);
+                    
+                    fixDropDown(this.$root.find('.picker__select--year'));
+                    fixDropDown(this.$root.find('.picker__select--month'));
+                }
+             });
+             function highlightOffDays(pickerInstance, offDays) {
+                    var year = pickerInstance.$root.find('select.picker__select--year').val();
+                    var month = parseInt(pickerInstance.$root.find('select.picker__select--month').val(), 10) + 1;
+
+                    if (month < 10) {
+                        month = '0' + month;
+                    }
+
+                    if (offDays != null) {
+                        _.forEach(offDays, function (value, key) {
+                            if (value.date.indexOf(year + ' ' + month) !== -1) {
+                                var applyClass = 'pickadate--' + value.type;
+                                if (value.duration == 4) {
+                                    applyClass += '-half';
+                                }
+                                // $('[data-pick=' + key + '000]').addClass( applyClass).addClass('circle');
+                                $('[data-pick=' + moment(value.date, 'YYYY MM DD').toDate().getTime() + ']').addClass(applyClass);
+                            }
+                        });
+                    }
+                }
+                
+                function fixDropDown(element) {
+                    if (!element.hasClass('initialized') && !element.is(':disabled')) {
+
+
+                        element.removeClass('browser-default').material_select(function () {
+                            element.siblings('input.select-dropdown').trigger('close');
+                        });
+
+                        var onMouseDown = function (e) {
+                            if (e.clientX >= e.target.clientWidth || e.clientY >= e.target.clientHeight) {
+                                e.preventDefault();
+                            }
+                        };
+                        
+                        var onMouseClick = function () {
+                            if($(this).closest("div.select-wrapper").length){
+                                var dropDown = $(this).closest("div.select-wrapper").find("ul.select-dropdown");
+                                dropDown.find('li:nth-child('+parseInt(dropDown.find('li').length/2 + 1)+')')[0].scrollIntoView();
+                            }
+                        };
+
+                        element.siblings('input.select-dropdown').on('click', onMouseClick);                        
+                        element.siblings('input.select-dropdown').on('mousedown', onMouseDown);
+                    }
+                }
+                
+           </script>                    <label class="label" for="vacancySearch_publishedDateFrom">From</label>            </div>
+            <div class="input-field col l5 ">
+                <input id="publishedDateTo" type="text" name="vacancySearch[publishedDateTo]" class="datepicker" />            <script type="text/javascript">
+              var isIE = navigator.userAgent.indexOf("MSIE ") > -1 || navigator.userAgent.indexOf("Trident/") > -1 || navigator.userAgent.indexOf("Edge/") > -1;
+              var pickerOpened = false;
+              
+              $('.datepicker').pickadate({  
+               format: getDatePickerCompatibleDateFormat("D, d M Y"),
+                onSet: function (ele) {
+                    if(ele.select){
+                           this.close();
+                    }
+                 },
+                today: "Today",
+                clear: "Clear",
+                close: "Close",
+
+                labelMonthNext: "Next month",
+                labelMonthPrev: "Previous month",
+                labelMonthSelect: "Select a month",
+//                labelYearSelect: "Select a year",
+//                monthsFull: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+//                weekdaysFull: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+//                monthsShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+//                weekdaysShort: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+
+                selectMonths: true,
+                selectYears: '10',
+                onClose: function() {
+                    var element = this.$node;
+                    element.removeClass('active_datepicker');
+                    $('.datepicker').blur();
+                    $('.picker').blur();
+                    pickerOpened = false;
+                },
+                onOpen: function() {
+                    if (!pickerOpened && isIE) {
+                        this.close();
+                        return;
+                    }
+                    var element = this.$node;
+                    element.addClass('active_datepicker');
+                    
+                    fixDropDown(this.$root.find('.picker__select--year'));
+                    fixDropDown(this.$root.find('.picker__select--month'));
+                    
+                    this.$root.mouseup(function (e) {
+                            var containers = $(this).find(".select-dropdown");
+
+                            containers.each(function () {
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0) 
+                                {
+                                    $(this).siblings('input.select-dropdown').trigger('close');
+                                }
+                            });
+
+                        });
+                },
+                onRender: function () {
+                var pickerInstanceElement = this;
+                this.$node.bind('click', function (e) {
+                    e.stopPropagation();
+                    pickerInstanceElement.open();
+                    pickerOpened = true;
+                });
+                    var offDays={"1578096000":{"type":"weekend","duration":"8","date":"2020 01 04","original-date":"2020-01-04"},"1578182400":{"type":"weekend","duration":"8","date":"2020 01 05","original-date":"2020-01-05"},"1578700800":{"type":"weekend","duration":"8","date":"2020 01 11","original-date":"2020-01-11"},"1578787200":{"type":"weekend","duration":"8","date":"2020 01 12","original-date":"2020-01-12"},"1579305600":{"type":"weekend","duration":"8","date":"2020 01 18","original-date":"2020-01-18"},"1579392000":{"type":"weekend","duration":"8","date":"2020 01 19","original-date":"2020-01-19"},"1579910400":{"type":"weekend","duration":"8","date":"2020 01 25","original-date":"2020-01-25"},"1579996800":{"type":"weekend","duration":"8","date":"2020 01 26","original-date":"2020-01-26"},"1580515200":{"type":"weekend","duration":"8","date":"2020 02 01","original-date":"2020-02-01"},"1580601600":{"type":"weekend","duration":"8","date":"2020 02 02","original-date":"2020-02-02"},"1581120000":{"type":"weekend","duration":"8","date":"2020 02 08","original-date":"2020-02-08"},"1581206400":{"type":"weekend","duration":"8","date":"2020 02 09","original-date":"2020-02-09"},"1581724800":{"type":"weekend","duration":"8","date":"2020 02 15","original-date":"2020-02-15"},"1581811200":{"type":"weekend","duration":"8","date":"2020 02 16","original-date":"2020-02-16"},"1582329600":{"type":"weekend","duration":"8","date":"2020 02 22","original-date":"2020-02-22"},"1582416000":{"type":"weekend","duration":"8","date":"2020 02 23","original-date":"2020-02-23"},"1582934400":{"type":"weekend","duration":"8","date":"2020 02 29","original-date":"2020-02-29"},"1583020800":{"type":"weekend","duration":"8","date":"2020 03 01","original-date":"2020-03-01"},"1583539200":{"type":"weekend","duration":"8","date":"2020 03 07","original-date":"2020-03-07"},"1583625600":{"type":"weekend","duration":"8","date":"2020 03 08","original-date":"2020-03-08"},"1584144000":{"type":"weekend","duration":"8","date":"2020 03 14","original-date":"2020-03-14"},"1584230400":{"type":"weekend","duration":"8","date":"2020 03 15","original-date":"2020-03-15"},"1584748800":{"type":"weekend","duration":"8","date":"2020 03 21","original-date":"2020-03-21"},"1584835200":{"type":"weekend","duration":"8","date":"2020 03 22","original-date":"2020-03-22"},"1585353600":{"type":"weekend","duration":"8","date":"2020 03 28","original-date":"2020-03-28"},"1585440000":{"type":"weekend","duration":"8","date":"2020 03 29","original-date":"2020-03-29"},"1585958400":{"type":"weekend","duration":"8","date":"2020 04 04","original-date":"2020-04-04"},"1586044800":{"type":"weekend","duration":"8","date":"2020 04 05","original-date":"2020-04-05"},"1586563200":{"type":"weekend","duration":"8","date":"2020 04 11","original-date":"2020-04-11"},"1586649600":{"type":"weekend","duration":"8","date":"2020 04 12","original-date":"2020-04-12"},"1587168000":{"type":"weekend","duration":"8","date":"2020 04 18","original-date":"2020-04-18"},"1587254400":{"type":"weekend","duration":"8","date":"2020 04 19","original-date":"2020-04-19"},"1587772800":{"type":"weekend","duration":"8","date":"2020 04 25","original-date":"2020-04-25"},"1587859200":{"type":"weekend","duration":"8","date":"2020 04 26","original-date":"2020-04-26"},"1588377600":{"type":"weekend","duration":"8","date":"2020 05 02","original-date":"2020-05-02"},"1588464000":{"type":"weekend","duration":"8","date":"2020 05 03","original-date":"2020-05-03"},"1588982400":{"type":"weekend","duration":"8","date":"2020 05 09","original-date":"2020-05-09"},"1589068800":{"type":"holiday","duration":"0","date":"2020 05 10","original-date":"2020-05-10"},"1589587200":{"type":"weekend","duration":"8","date":"2020 05 16","original-date":"2020-05-16"},"1589673600":{"type":"weekend","duration":"8","date":"2020 05 17","original-date":"2020-05-17"},"1590192000":{"type":"weekend","duration":"8","date":"2020 05 23","original-date":"2020-05-23"},"1590278400":{"type":"weekend","duration":"8","date":"2020 05 24","original-date":"2020-05-24"},"1590796800":{"type":"weekend","duration":"8","date":"2020 05 30","original-date":"2020-05-30"},"1590883200":{"type":"weekend","duration":"8","date":"2020 05 31","original-date":"2020-05-31"},"1591401600":{"type":"weekend","duration":"8","date":"2020 06 06","original-date":"2020-06-06"},"1591488000":{"type":"weekend","duration":"8","date":"2020 06 07","original-date":"2020-06-07"},"1592006400":{"type":"weekend","duration":"8","date":"2020 06 13","original-date":"2020-06-13"},"1592092800":{"type":"weekend","duration":"8","date":"2020 06 14","original-date":"2020-06-14"},"1592611200":{"type":"weekend","duration":"8","date":"2020 06 20","original-date":"2020-06-20"},"1592697600":{"type":"holiday","duration":"0","date":"2020 06 21","original-date":"2020-06-21"},"1593216000":{"type":"weekend","duration":"8","date":"2020 06 27","original-date":"2020-06-27"},"1593302400":{"type":"weekend","duration":"8","date":"2020 06 28","original-date":"2020-06-28"},"1593820800":{"type":"holiday","duration":"0","date":"2020 07 04","original-date":"2020-07-04"},"1593907200":{"type":"weekend","duration":"8","date":"2020 07 05","original-date":"2020-07-05"},"1594425600":{"type":"weekend","duration":"8","date":"2020 07 11","original-date":"2020-07-11"},"1594512000":{"type":"weekend","duration":"8","date":"2020 07 12","original-date":"2020-07-12"},"1595030400":{"type":"weekend","duration":"8","date":"2020 07 18","original-date":"2020-07-18"},"1595116800":{"type":"weekend","duration":"8","date":"2020 07 19","original-date":"2020-07-19"},"1595635200":{"type":"weekend","duration":"8","date":"2020 07 25","original-date":"2020-07-25"},"1595721600":{"type":"weekend","duration":"8","date":"2020 07 26","original-date":"2020-07-26"},"1596240000":{"type":"weekend","duration":"8","date":"2020 08 01","original-date":"2020-08-01"},"1596326400":{"type":"weekend","duration":"8","date":"2020 08 02","original-date":"2020-08-02"},"1596844800":{"type":"weekend","duration":"8","date":"2020 08 08","original-date":"2020-08-08"},"1596931200":{"type":"weekend","duration":"8","date":"2020 08 09","original-date":"2020-08-09"},"1597449600":{"type":"weekend","duration":"8","date":"2020 08 15","original-date":"2020-08-15"},"1597536000":{"type":"weekend","duration":"8","date":"2020 08 16","original-date":"2020-08-16"},"1598054400":{"type":"weekend","duration":"8","date":"2020 08 22","original-date":"2020-08-22"},"1598140800":{"type":"weekend","duration":"8","date":"2020 08 23","original-date":"2020-08-23"},"1598659200":{"type":"weekend","duration":"8","date":"2020 08 29","original-date":"2020-08-29"},"1598745600":{"type":"weekend","duration":"8","date":"2020 08 30","original-date":"2020-08-30"},"1599264000":{"type":"weekend","duration":"8","date":"2020 09 05","original-date":"2020-09-05"},"1599350400":{"type":"weekend","duration":"8","date":"2020 09 06","original-date":"2020-09-06"},"1599868800":{"type":"weekend","duration":"8","date":"2020 09 12","original-date":"2020-09-12"},"1599955200":{"type":"weekend","duration":"8","date":"2020 09 13","original-date":"2020-09-13"},"1600473600":{"type":"weekend","duration":"8","date":"2020 09 19","original-date":"2020-09-19"},"1600560000":{"type":"weekend","duration":"8","date":"2020 09 20","original-date":"2020-09-20"},"1601078400":{"type":"weekend","duration":"8","date":"2020 09 26","original-date":"2020-09-26"},"1601164800":{"type":"weekend","duration":"8","date":"2020 09 27","original-date":"2020-09-27"},"1601683200":{"type":"weekend","duration":"8","date":"2020 10 03","original-date":"2020-10-03"},"1601769600":{"type":"weekend","duration":"8","date":"2020 10 04","original-date":"2020-10-04"},"1602288000":{"type":"weekend","duration":"8","date":"2020 10 10","original-date":"2020-10-10"},"1602374400":{"type":"weekend","duration":"8","date":"2020 10 11","original-date":"2020-10-11"},"1602892800":{"type":"weekend","duration":"8","date":"2020 10 17","original-date":"2020-10-17"},"1602979200":{"type":"weekend","duration":"8","date":"2020 10 18","original-date":"2020-10-18"},"1603497600":{"type":"weekend","duration":"8","date":"2020 10 24","original-date":"2020-10-24"},"1603584000":{"type":"weekend","duration":"8","date":"2020 10 25","original-date":"2020-10-25"},"1604102400":{"type":"weekend","duration":"8","date":"2020 10 31","original-date":"2020-10-31"},"1604188800":{"type":"weekend","duration":"8","date":"2020 11 01","original-date":"2020-11-01"},"1604707200":{"type":"weekend","duration":"8","date":"2020 11 07","original-date":"2020-11-07"},"1604793600":{"type":"weekend","duration":"8","date":"2020 11 08","original-date":"2020-11-08"},"1605312000":{"type":"weekend","duration":"8","date":"2020 11 14","original-date":"2020-11-14"},"1605398400":{"type":"weekend","duration":"8","date":"2020 11 15","original-date":"2020-11-15"},"1605916800":{"type":"weekend","duration":"8","date":"2020 11 21","original-date":"2020-11-21"},"1606003200":{"type":"weekend","duration":"8","date":"2020 11 22","original-date":"2020-11-22"},"1606521600":{"type":"weekend","duration":"8","date":"2020 11 28","original-date":"2020-11-28"},"1606608000":{"type":"weekend","duration":"8","date":"2020 11 29","original-date":"2020-11-29"},"1607126400":{"type":"weekend","duration":"8","date":"2020 12 05","original-date":"2020-12-05"},"1607212800":{"type":"weekend","duration":"8","date":"2020 12 06","original-date":"2020-12-06"},"1607731200":{"type":"weekend","duration":"8","date":"2020 12 12","original-date":"2020-12-12"},"1607817600":{"type":"weekend","duration":"8","date":"2020 12 13","original-date":"2020-12-13"},"1608336000":{"type":"weekend","duration":"8","date":"2020 12 19","original-date":"2020-12-19"},"1608422400":{"type":"weekend","duration":"8","date":"2020 12 20","original-date":"2020-12-20"},"1608940800":{"type":"weekend","duration":"8","date":"2020 12 26","original-date":"2020-12-26"},"1609027200":{"type":"weekend","duration":"8","date":"2020 12 27","original-date":"2020-12-27"},"1577836800":{"type":"holiday","duration":"0","date":"2020 01 01","original-date":"2020-01-01"},"1579478400":{"type":"holiday","duration":"0","date":"2020 01 20","original-date":"2020-01-20"},"1581897600":{"type":"holiday","duration":"0","date":"2020 02 17","original-date":"2020-02-17"},"1590364800":{"type":"holiday","duration":"0","date":"2020 05 25","original-date":"2020-05-25"},"1592524800":{"type":"holiday","duration":"0","date":"2020 06 19","original-date":"2020-06-19"},"1599436800":{"type":"holiday","duration":"0","date":"2020 09 07","original-date":"2020-09-07"},"1602460800":{"type":"holiday","duration":"0","date":"2020 10 12","original-date":"2020-10-12"},"1605052800":{"type":"holiday","duration":"0","date":"2020 11 11","original-date":"2020-11-11"},"1606348800":{"type":"holiday","duration":"0","date":"2020 11 26","original-date":"2020-11-26"},"1608854400":{"type":"holiday","duration":"0","date":"2020 12 25","original-date":"2020-12-25"}};
+                    highlightOffDays(this, offDays);
+                    
+                    fixDropDown(this.$root.find('.picker__select--year'));
+                    fixDropDown(this.$root.find('.picker__select--month'));
+                }
+             });
+             function highlightOffDays(pickerInstance, offDays) {
+                    var year = pickerInstance.$root.find('select.picker__select--year').val();
+                    var month = parseInt(pickerInstance.$root.find('select.picker__select--month').val(), 10) + 1;
+
+                    if (month < 10) {
+                        month = '0' + month;
+                    }
+
+                    if (offDays != null) {
+                        _.forEach(offDays, function (value, key) {
+                            if (value.date.indexOf(year + ' ' + month) !== -1) {
+                                var applyClass = 'pickadate--' + value.type;
+                                if (value.duration == 4) {
+                                    applyClass += '-half';
+                                }
+                                // $('[data-pick=' + key + '000]').addClass( applyClass).addClass('circle');
+                                $('[data-pick=' + moment(value.date, 'YYYY MM DD').toDate().getTime() + ']').addClass(applyClass);
+                            }
+                        });
+                    }
+                }
+                
+                function fixDropDown(element) {
+                    if (!element.hasClass('initialized') && !element.is(':disabled')) {
+
+
+                        element.removeClass('browser-default').material_select(function () {
+                            element.siblings('input.select-dropdown').trigger('close');
+                        });
+
+                        var onMouseDown = function (e) {
+                            if (e.clientX >= e.target.clientWidth || e.clientY >= e.target.clientHeight) {
+                                e.preventDefault();
+                            }
+                        };
+                        
+                        var onMouseClick = function () {
+                            if($(this).closest("div.select-wrapper").length){
+                                var dropDown = $(this).closest("div.select-wrapper").find("ul.select-dropdown");
+                                dropDown.find('li:nth-child('+parseInt(dropDown.find('li').length/2 + 1)+')')[0].scrollIntoView();
+                            }
+                        };
+
+                        element.siblings('input.select-dropdown').on('click', onMouseClick);                        
+                        element.siblings('input.select-dropdown').on('mousedown', onMouseDown);
+                    }
+                }
+                
+           </script>                <label class="label" for="vacancySearch_publishedDateTo">To</label>            </div>
+        </div>
+        <div class="input-field col l12 " style="margin-top:0px;">
+            <div class="col l5 offset-l1">
+                <p>
+                                            <input type="checkbox" class="filled-in" name="includeClosedVacancies" id="includeClosedVacancies" />
+                                        <label for="includeClosedVacancies" style="left:0px;">Include Closed Vacancies</label>
+                </p>
+            </div>
+        </div>
+    </form>
+    <div class="col l12">
+        <div style="padding:0px; margin-top:15px;">
+            <a id="searchVacancyFormBtn" class="waves-effect btn action-btn right">Search</a>
+            <a id="resetVacancyFormBtn" class="waves-effect btn cancel-btn right">Reset</a>
+        </div>
+    </div>
+</div>
+<script>
+
+    // Initialize collapse button
+//		$(".mdi-action-search").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+</script>    <div class="gap-below-navbar"></div>
+    <div class="row">
+        <div id="vacancyTableContainer" class="col l12 pageholder">
+            
+    <div class="fixed-action-btn"  id="list_item_delete"
+         style="bottom: 10%; right: 1%; top: unset; display:none">
+        <a id="deleteItemBtn" class="btn-floating btn-large tooltipped" data-position="left"
+           data-delay="50" data-tooltip="Delete Selected Vacancies"> <i
+                class="large mdi-action-delete material-icons">delete</i>
+        </a>
+    </div>
+<div class="nova-content-wrap">
+    <table class="hoverable pagedata ohrm-card">
+                                    <col style="width:5%">
+                            <col style="width:18%">
+                            <col style="width:auto">
+                            <col style="width:20%">
+                            <col style="width:auto">
+                            <col style="width:auto">
+                            <col style="width:15%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <thead>
+            <tr>                                        <th class="material-checkbox"><input type="checkbox" class="filled-in"
+                                                         id="selectAll" /><label for="selectAll" style="margin-bottom:-5px;"></label></th>
+                                                                            <th class="sortableHeader curserPointer sortable"
+                        sortValue="name">vacancy                        <i class="material-icons">arrow_upward</i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="job_title">Job Title                        <i class="material-icons"></i>
+                    </th>
+                                        <th class=""
+                        sortValue="hiring_manager">Hiring Manager                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="location">Location                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="subunit">sub-unit                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="published_time">Published Date                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="status">status                        <i class="material-icons"></i>
+                    </th>
+                                        <th class=""
+                        sortValue="">                         <i class="material-icons"></i>
+                    </th>
+                                </tr>
+        </thead>
+        <tbody>
+    
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-manager-names="Fiona Grace"  data-manager-ids="26"  data-job-title-id="65"  data-sub-unit-id="33"  data-location-id="4"  data-no-of-positions="1"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_32"/><label
+                            for="checkbox_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Fiona Grace</td>
+                                <td class="dataColumn truncatedListData ">HQ - CA, USA</td>
+                                <td class="dataColumn truncatedListData ">Customer Success</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData ">PUBLISHED</td>
+                                <td class="dataColumn truncatedListData "><div style="width:100px"><i class=" small mdi-social-group waves-effect waves-circle waves-light dropdown-button candidate-comparison-link material-icons tooltipped"
+							data-position="top" data-delay="50" data-activates="stages_32"
+							data-tooltip="View Candidates" style="margin-top:-5px; margin-bottom:-5px">group</i> <i
+							class="small mdi-action-settings waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Settings" style="margin-top:-5px; margin-bottom:-5px">settings</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-manager-names="Odis Adalwin"  data-manager-ids="44"  data-job-title-id="60"  data-sub-unit-id="10"  data-location-id="16"  data-no-of-positions="1"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_29"/><label
+                            for="checkbox_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Odis Adalwin</td>
+                                <td class="dataColumn truncatedListData ">British Development Center</td>
+                                <td class="dataColumn truncatedListData ">Production</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData ">PUBLISHED</td>
+                                <td class="dataColumn truncatedListData "><div style="width:100px"><i class=" small mdi-social-group waves-effect waves-circle waves-light dropdown-button candidate-comparison-link material-icons tooltipped"
+							data-position="top" data-delay="50" data-activates="stages_29"
+							data-tooltip="View Candidates" style="margin-top:-5px; margin-bottom:-5px">group</i> <i
+							class="small mdi-action-settings waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Settings" style="margin-top:-5px; margin-bottom:-5px">settings</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-manager-names="Nina Patel,Luke Wright"  data-manager-ids="12,19"  data-job-title-id="28"  data-sub-unit-id="6"  data-location-id="13"  data-no-of-positions="2"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_45"/><label
+                            for="checkbox_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">Nina Patel, Luke Wright</td>
+                                <td class="dataColumn truncatedListData ">Indian Development Center</td>
+                                <td class="dataColumn truncatedListData ">Sales</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData ">PUBLISHED</td>
+                                <td class="dataColumn truncatedListData "><div style="width:100px"><i class=" small mdi-social-group waves-effect waves-circle waves-light dropdown-button candidate-comparison-link material-icons tooltipped"
+							data-position="top" data-delay="50" data-activates="stages_45"
+							data-tooltip="View Candidates" style="margin-top:-5px; margin-bottom:-5px">group</i> <i
+							class="small mdi-action-settings waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Settings" style="margin-top:-5px; margin-bottom:-5px">settings</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-manager-names="Julian Taylor,Maggie Manning"  data-manager-ids="24,34"  data-job-title-id="37"  data-sub-unit-id="11"  data-location-id="11"  data-no-of-positions="3"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_44"/><label
+                            for="checkbox_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Julian Taylor, Maggie Manning</td>
+                                <td class="dataColumn truncatedListData ">Texas R&amp;D</td>
+                                <td class="dataColumn truncatedListData ">QA Team</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData ">PUBLISHED</td>
+                                <td class="dataColumn truncatedListData "><div style="width:100px"><i class=" small mdi-social-group waves-effect waves-circle waves-light dropdown-button candidate-comparison-link material-icons tooltipped"
+							data-position="top" data-delay="50" data-activates="stages_44"
+							data-tooltip="View Candidates" style="margin-top:-5px; margin-bottom:-5px">group</i> <i
+							class="small mdi-action-settings waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Settings" style="margin-top:-5px; margin-bottom:-5px">settings</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-manager-names="Kevin Mathews"  data-manager-ids="1"  data-job-title-id="38"  data-sub-unit-id="8"  data-location-id="4"  data-no-of-positions="1"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_7"/><label
+                            for="checkbox_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Kevin Mathews</td>
+                                <td class="dataColumn truncatedListData ">HQ - CA, USA</td>
+                                <td class="dataColumn truncatedListData ">IT</td>
+                                <td class="dataColumn truncatedListData ">Mon, 29 Jul 2019</td>
+                                <td class="dataColumn truncatedListData ">PUBLISHED</td>
+                                <td class="dataColumn truncatedListData "><div style="width:100px"><i class=" small mdi-social-group waves-effect waves-circle waves-light dropdown-button candidate-comparison-link material-icons tooltipped"
+							data-position="top" data-delay="50" data-activates="stages_7"
+							data-tooltip="View Candidates" style="margin-top:-5px; margin-bottom:-5px">group</i> <i
+							class="small mdi-action-settings waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Settings" style="margin-top:-5px; margin-bottom:-5px">settings</i></div></td>
+                </tr>
+
+<script>
+    $pageHolder = $('.pageholder');
+    if ($pageHolder.find("[id^='checkbox']").length == 0) {
+        $("label[for='selectAll']").css("visibility", "hidden");
+//        $pageHolder.find("#selectAll").closest(".material-checkbox").css("visibility", "hidden")
+    }
+</script>
+        </tbody>
+    </table>
+    <form hidden="hidden" method="post" id="defaultMaterialListForm">
+            <input type="hidden" name="defaultMaterialList[_csrf_token]" value="7344a6f1cd0ba2800ba0705a41787a6e" id="defaultMaterialList__csrf_token" />    </form>
+    <div class="right-align pagination-config" data-rows-per-page="50"
+         accesskey="" data-page-no="1"
+         style="height: 56px; cursor: initial; margin: 0px; padding: 0px; font-size:15px">
+        <div id="nextPageTrigger" style="width: 24px; margin-right: 60px; padding-top: 26px;" class="right">
+            <i class="small mdi-hardware-keyboard-arrow-right handCuser material-icons" style="font-size:30px">chevron_right</i>
+        </div>
+        <div id="previousPageTrigger" style="width: 24px; margin-right: 24px; padding-top: 26px;" class="right">
+            <i class="small mdi-hardware-keyboard-arrow-left handCuser material-icons" style="font-size:30px">chevron_left</i>
+        </div>
+        <div id="fromToOf" style="width: 12%; margin-right: 32px; margin-top:15px" class="right">
+            <div class="pagination">1 - 5 of 5</div>
+        </div>
+        <div style="width: 24px; margin-right: 32px;padding-top: 28px;" class="right">
+            <i data-activates='dropdown1' class="small mdi-navigation-arrow-drop-down dropdown-button-noOfRows handCuser material-icons"
+               style="font-size:30px;">arrow_drop_down</i>
+        </div>
+        <div style="width: 40px;" class="right">
+            <div class="pagination" id="rowsperpage" style="margin-top:15px">50</div>
+            <ul id='dropdown1' class='dropdown-content rowsperpage-dropdown' style="width: 70px;">
+                <li class="rowsperpageLi "><a>10</a></li>
+                <li class="rowsperpageLi "><a>20</a></li>
+                <li class="rowsperpageLi selected"><a>50</a></li>
+                <li class="rowsperpageLi "><a>100</a></li>
+            </ul>
+        </div>
+        <div style="width: 150px; margin-top:15px" class="right" >
+            <div class="pagination">Rows per page</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var noRecordsFoundString = "No records found";
+    var pageConfig = {"headers":{"name":{"name":"vacancy","order":"arrow_upward","isSortable":true,"sortValue":"name"},"job_title":{"name":"Job Title","order":"","isSortable":true,"sortValue":"job_title"},"hiring_manager":{"name":"Hiring Manager","order":"","isSortable":false,"sortValue":"hiring_manager"},"location":{"name":"Location","order":"","isSortable":true,"sortValue":"location"},"subunit":{"name":"sub-unit","order":"","isSortable":true,"sortValue":"subunit"},"published_time":{"name":"Published Date","order":"","isSortable":true,"sortValue":"published_time"},"status":{"name":"status","order":"","isSortable":true,"sortValue":"status"},"settings":{"name":" ","order":"","isSortable":false,"sortValue":""}},"rowCount":5,"rowsPerPage":50,"pageNo":1,"from":1,"to":5,"total":5,"url":"\/recruitment\/viewJobVacancy","addButtonTooltip":"Add Job Vacancy","deleteButtonTooltip":"Delete Selected Vacancies","columnWidths":["5%","18%","","20%","","","15%","10%","10%"]};
+    var selectAll_id = '';
+    var deselectAll_id = '';
+    var configureList_id = '';
+    var menuDropDownId = '';
+    var viewCandidateList = '';
+
+    $(document).ready(function () {
+//        var arrow_downward = "arrow_downward";
+//        $("th.sortableHeader").click(function() {
+//            var sortField = $(this).attr('sortValue');
+//            var pageNo = 1;
+//            var arrow = $(this).find("i").html();
+//            var sortOrder = "ASC";
+//            if (trim(arrow) == arrow_downward) {
+//                sortOrder = "DESC";
+//            }
+//            $("#vacancyTableContainer").innerHTML($("#preloderHiddneDiv").innerHTML());
+////            window.location.href = viewJobVacancyUrl + "?pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder;
+//        });
+        var selectAllAnchorId = "#" + selectAll_id;
+        var deselectAllAnchorId = "#" + deselectAll_id;
+        var configureListAnchorId = "#" + configureList_id;
+        $('.dropdown-button-menuList').dropdown({constrain_width: false});
+        $(deselectAllAnchorId).parent().hide();
+    });
+</script>        </div>
+        <div id="preloderHiddneDiv" class="col l12 center customHidden">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="fixed-action-btn addVacancyBtn" id="list_item_add"
+     style="bottom: 10%; right: 1%; top: unset;">
+    <a id="addItemBtn" class="btn-floating btn-large tooltipped" data-position="left"
+       data-delay="50" data-hover="false" data-tooltip="Add or Import Vacancy"> <i
+            class="material-icons">add</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating blue tooltipped" data-position="left" id="addFromTemplateButton"
+               data-delay="50" data-tooltip="Add From a Template"><i class="material-icons mdi-action-receipt">receipt</i></a>
+        </li>
+        <li><a class="btn-floating green darken-1 tooltipped" data-position="left"
+               data-delay="50" data-tooltip="Add New Vacancy"><i
+                    class="material-icons mdi-content-add secondLevelAddButton">add</i></a>
+        </li>
+    </ul>
+</div>
+
+
+<div id="preloderDiv" class="col l12 center overlay">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modal-add-vacancy-from-template" class="modal custom-height-modal modal-fixed-footer" style="height:70%; width:50%">
+    <div class="customized-modal-header">
+        <h5>Import Vacancy Information From Template</h5>
+    </div>
+    <div class="modal-content">
+            <form id="importFromVacancyTemplateForm">
+            <div class="col l12 row">
+                <div id="addVacancyTemplateSelectDiv" class="input-field col l12">
+                    <div class="materializeWidgetObjectMultySelect-container" data-id="selectVacancyTemplate_vacancyTemplate" data-name="selectVacancyTemplate[vacancyTemplate]" data-rand-id="eGES5" ><ul id="dropdownObjectSearch_eGES5" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="eGES5_search_31" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="31" class="search-row searchListObjectName">Vacancy Template for Sales Manager </p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_selectVacancyTemplate_vacancyTemplate" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_eGES5"  data-constrainwidth="true" ></div><input name="inputRepresenter_selectVacancyTemplate[vacancyTemplate]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="selectVacancyTemplate_vacancyTemplate_input" name="selectVacancyTemplate[vacancyTemplate]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                    <label class="label" for="selectVacancyTemplate_vacancyTemplate">Template Name <em>*</em></label>                </div>
+            </div>
+            <div id="vacancyTemplateDescriptionDiv" class="col l12 row">
+                <div class="input-field col s12">
+                    <label for="vacancyTemplateDescription" class="active">Description</label>
+                    <p id="vacancyTemplateDescription" name="vacancyTemplateDescription" style="margin-top: 5px;"></p>
+                </div>
+            </div>
+            <div id="customVacancyNameDiv" class="col l12 row">
+                <div class="input-field col s12">
+                    <input id="customVacancyName" name="customVacancyName" type="text" data-unique-values="vacancyNames" class="validate">
+                    <label for="customVacancyName">Vacancy Name <em>*</em></label>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <input type="checkbox" class="filled-in" id="importWorkflowToVacancyCheckbox" name="importWorkflowToVacancy"/>
+                <label for="importWorkflowToVacancyCheckbox">Import workflow information</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="checkbox"  class="filled-in" id="importJobPostingToVacancyCheckbox"
+                       name="importJobPostingToVacancy"/>
+                <label
+                    for="importJobPostingToVacancyCheckbox">Import job posting to information</label>
+            </div>
+            </form>
+            <div class="row requiredHelperText">
+                <em>*</em> Required field            </div>
+    </div>
+    <div class="modal-footer">
+        <a id="saveTemplateASVacancyBtn"
+           class="waves-effect btn action-btn right">Import</a>
+        <a id="saveTemplateASVacancyCancelBtn"
+           class="waves-effect modal-close btn cancel-btn right">Cancel</a>
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    var screenName = "vacancies";
+    var addJobVacancyHeader = "Add Job Vacancy";
+    var editJobVacancyHeader = "Edit Job Vacancy";
+    var vacancyPermission = {"createPermission":true,"deletePermission":true,"updatePermission":true};
+    var IsSessionTimedOutAjaxAction = '/recruitment/IsSessionTimedOutAjax';
+    var IsAllowedToAddNewVacancyAction = '/recruitment/IsAllowedToAddNewVacancy';
+    var saveVacancyUrl = "/recruitment/addJobVacancy";
+    var msgSuccessfullySaved = 'Successfully Saved';
+    var getVacancyStageDropDownAjaxUrl = '/recruitment/getVacancyStageDropDownAjax';
+    var addJobVacancyUrl = '/recruitment/addJobVacancy';
+    var getVacancyTemplateDetailUrl = '/getVacancyTemplateInfoAjax';
+    var vacancyListUrl = '/recruitment/getVacancyListForJobTitleJson/mode/vacancies/jobTitle/';
+    var hiringManagerListUrlForJobTitle = '/recruitment/getHiringManagerListJson/mode/vacancies/jobTitle/';
+    var hiringManagerListUrlForVacancyId = '/recruitment/getHiringManagerListJson/mode/vacancies/vacancyId/';
+    var lang_all = 'All';
+    var viewJobVacancyUrl = '/recruitment/viewJobVacancy';
+    var settingsIconUrl = '/recruitment/manageVacancyWorkflow/vacancyId/'
+    var candidateComparisonUrl = '/recruitment/candidatePipelineStageComparison'
+    var photoUrl = "/pim/viewPhoto/empNumber/";
+    var deleteContentUrl = "/recruitment/deleteJobVacancy";
+    var viewCandidatesUrl = "/recruitment/viewCandidates";
+    var msgSuccessfullyDeleted = "Successfully Deleted";
+    var lang_required = 'Required';
+    var lang_tooLargeVacancyName = "Should be less than 100 characters";
+    var lang_onlyDigits = "Please enter only digits";
+    var lang_unique = "Vacancy name already exists";
+    var vacancyNames = ["accountant","assistant architect","assistant community manager","associate software engineer","brand manager","business manager - advertising","customer success executive","digital marketing manager","front end developer","global marketing manager","gui developper","hr admin","local marketing manager","management sector","production manager","qa","sales manager","senior manager it position","social media editor","software qa engineer","technical support engineer","vacancies for front end developers","vacancies for marketing managers","vacancy - management trainee","vacancy for controller","vacancy for engineer","vacancy for finance manager","vacancy for hr admin","vacancy for hr manager","vacancy for manager it","vacancy for qa engineer","vacancy for sales manager","vacancy for skilled finance manager","vacancy for software engineer","vacancy for training manager"];
+    var datepickerDateFormat = 'D, dd M yy';
+    var displayDateFormat = 'D, dd M yyyy';
+    var lang_fromDateInvalid = 'From date should be before to date';
+    var lang_dateValidationError = 'To date should be after from date';
+    var lang_no_location_for_template = 'Selected Vacancy Template Does Not Have a Location';
+    //]]>
+</script>
+                  
+<div id="helpButtonHolder"></div>
+
+<script>
+    var restrictHelpButton =  ""==1;
+    var actionName = "viewJobVacancy";
+    var moduleName = "recruitment";
+    var helpText = 'Help';
+    var helpUrl = '/help/help';
+</script>
+            </div> <!-- content -->
+          
+        </div> <!-- wrapper -->
+        <script>
+            localizedDateTextObject = JSON.parse('{"Today":"Today","Tomorrow":"Tomorrow","Yesterday":"Yesterday","Monday":"Monday","Tuesday":"Tuesday","Wednesday":"Wednesday","Thursday":"Thursday","Friday":"Friday","Saturday":"Saturday","Sunday":"Sunday","Jan":"Jan","Feb":"Feb","Mar":"Mar","Apr":"Apr","May":"May","Jun":"Jun","Jul":"Jul","Aug":"Aug","Sep":"Sep","Oct":"Oct","Nov":"Nov","Dec":"Dec","Sun":"Sun","Mon":"Mon","Tue":"Tue","Wed":"Wed","Thu":"Thu","Fri":"Fri","Sat":"Sat","January":"January","February":"February","March":"March","April":"April","June":"June","July":"July","August":"August","September":"September","October":"October","November":"November","December":"December"}');
+        </script>
+ 
+        <script type="text/javascript">
+
+            jQuery(document).ready(function() {                            
+                
+                /* Enabling tooltips */
+                jQuery(".tiptip").tipTip();
+
+                /* Toggling header menus */
+                jQuery("#welcome").click(function () {
+                    jQuery("#welcome-menu").slideToggle("fast");
+                    jQuery(this).toggleClass("activated-welcome");
+                    return false;
+                });
+                
+                jQuery("#help").click(function () {
+                    jQuery("#help-menu").slideToggle("fast");
+                    jQuery(this).toggleClass("activated-help");
+                    return false;
+                });
+                
+                jQuery('.panelTrigger').outside('click', function() {
+                    jQuery('.panelContainer').stop(true, true).slideUp('fast');
+                });                
+
+                /* 
+                 * Button hovering effects 
+                 * Note: we are not using pure css using :hover because :hover applies to even disabled elements.
+                 * The pseudo class :enabled is not supported in IE < 9.
+                 */                
+                jQuery(document).on({
+                    mouseenter: function () {
+                        jQuery(this).addClass('hover');                        
+                    },
+                    mouseleave: function () {
+                        jQuery(this).removeClass('hover');                        
+                    }
+
+                }, 'input[type=button], input[type=submit], input[type=reset]'); 
+  
+                /* Fading out main messages */
+                jQuery(document).on({
+                    click: function() {
+                        jQuery(this).parent('div.message').fadeOut("slow");
+                    }
+                }, '.message a.messageCloseButton');
+
+                jQuery(document).on({
+                    click: function() {
+                        jQuery(this).parent('div.message').find('div.detailedMessage').toggle();
+                        if (jQuery('#showDetailedMessageTick').hasClass('ui-icon-triangle-1-e')){
+                         jQuery('#showDetailedMessageTick').removeClass('ui-icon-triangle-1-e');
+                         jQuery('#showDetailedMessageTick').addClass('ui-icon-triangle-1-s');
+                       } else if(jQuery('#showDetailedMessageTick').hasClass('ui-icon-triangle-1-s')){
+                         jQuery('#showDetailedMessageTick').removeClass('ui-icon-triangle-1-s');
+                         jQuery('#showDetailedMessageTick').addClass('ui-icon-triangle-1-e');
+                       }
+                    }
+                }, '.message a.showDetailedMessage');
+
+                /* Toggling search form: Begins */
+                //jQuery(".toggableForm .inner").hide(); // Disabling this makes search forms to be expanded by default.
+
+                jQuery(document).on("click",".toggableForm .toggle",function () {
+                    jQuery(this).parents('.toggableForm').find('.inner').slideToggle('slow', function() {
+//                    jQuery(".toggableForm .inner").slideToggle('slow', function() {
+                        if(jQuery(this).is(':hidden')) {
+                            jQuery(this).parents('.toggableForm').find('.tiptip').tipTip({content:'Expand for Options'});
+                        } else {
+                            jQuery(this).parents('.toggableForm').find('.tiptip').tipTip({content:'Hide Options'});
+                        }
+                    });
+                    
+                    jQuery(this).toggleClass("activated");
+                });
+                /* Toggling search form: Ends */
+
+                /* Enabling/disabling form fields: Begin */
+                
+                jQuery('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').attr('disabled', 'disabled');
+                jQuery('form.clickToEditForm input.calendar').datepicker('disable');
+                jQuery('form.clickToEditForm input[type=button]').removeAttr('disabled');
+                
+                jQuery('form input.editButton').click(function(){
+                    jQuery('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').removeAttr('disabled');
+                    jQuery('form.clickToEditForm input.calendar').datepicker('enable');
+                });
+                
+                /* Enabling/disabling form fields: End */
+                
+            });
+            
+        </script>        
+
+    </body>
+    
+</html>
+

@@ -1,0 +1,212 @@
+/**
+ * OrangeHRM Enterprise is a closed sourced comprehensive Human Resource Management (HRM)
+ * System that captures all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM Inc is the owner of the patent, copyright, trade secrets, trademarks and any
+ * other intellectual property rights which subsist in the Licensed Materials. OrangeHRM Inc
+ * is the owner of the media / downloaded OrangeHRM Enterprise software files on which the
+ * Licensed Materials are received. Title to the Licensed Materials and media shall remain
+ * vested in OrangeHRM Inc. For the avoidance of doubt title and all intellectual property
+ * rights to any design, new software, new protocol, new interface, enhancement, update,
+ * derivative works, revised screen text or any other items that OrangeHRM Inc creates for
+ * Customer shall remain vested in OrangeHRM Inc. Any rights not expressly granted herein are
+ * reserved to OrangeHRM Inc.
+ *
+ * Please refer http://www.orangehrm.com/Files/OrangeHRM_Commercial_License.pdf for the license which includes terms and conditions on using this software.
+ *
+ */ 
+.dropdownEmployeeSearch{
+    max-height: 185px !important;
+}
+.dropdown-content.select-dropdown {
+    max-height: 250px !important;
+}
+.dropdown-content li > span{
+    display: block;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.dropdown-content li.unclickable *{
+    cursor:default !important;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
+}
+div.gap-below-navbar {
+    height: 20px;
+}
+.waves-circle {
+    /* padding-top:3px; */
+    height: 1.5em;
+    line-height: 1.5em;
+    width: 1.5em;
+}
+i.small {
+    margin-top: 5px;
+    font-size: 1.5em;
+    border-radius: 45px;
+}
+p.search-row {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 0;
+    margin-right: 0;
+}
+img.search-row {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.searchManagerImg{
+    width: 30px;
+    height: 30px;
+}
+.materialize-contenteditable {
+    color: inherit;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+    margin: 0;
+    /* 3 */ }
+
+.materialize-contenteditable {
+    overflow: auto; }
+
+.materialize-contenteditable {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    transition: all .3s; }
+
+.materialize-contenteditable:disabled, .materialize-contenteditable[readonly="readonly"] {
+    color: rgba(0, 0, 0, 0.26);
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.26); }
+
+.materialize-contenteditable:disabled+label, .materialize-contenteditable[readonly="readonly"]+label {
+    color: rgba(0, 0, 0, 0.26);}
+
+.materialize-contenteditable:focus:not([readonly]){
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a; }
+
+.materialize-contenteditable:focus:not([readonly])+label{
+    color: #26a69a; }
+
+.materialize-contenteditable.valid, .materialize-contenteditable:focus.valid {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50; }
+
+.materialize-contenteditable.invalid, .materialize-contenteditable:focus.invalid {
+    border-bottom: 1px solid #F44336;
+    box-shadow: 0 1px 0 0 #F44336; }
+
+.materialize-contenteditable {
+    width: 100%;
+    height: 3rem;
+    background-color: transparent; }
+
+.materialize-contenteditable {
+    overflow-y: hidden;
+    /* prevents scroll bar flash */
+    padding: 0.6rem 0;
+    /* prevents text jump on Enter keypress */
+    resize: none;
+    min-height: 1.4rem; }
+
+.selected-employee {
+    margin:3px;
+}
+div.custom-height-modal {
+    max-height: 95%;
+    width: 800px;
+    overflow: hidden;
+    margin-top: -40px;
+}
+#preloderHiddneDiv{
+    margin-top: 20%;
+}
+.customHidden {
+    display: none;
+}
+.searchFormRow {
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 600px;
+    padding-bottom: 15px;
+}
+
+a.search-button {
+    color: #ffab40;
+    margin: 10px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: normal;
+}
+a.reset-button {
+    color: #4a5764;
+    margin: 10px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: normal;
+}
+#searchCandidatesFormBtn {
+    cursor: pointer;
+}
+
+.overlay {
+    background: black;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 189%;
+    left: 0;
+    opacity: 0.5;
+    z-index: 999;
+}
+.preloader-wrapper{
+    margin-top: 22%;
+}
+.vacancyStageDropDownA{
+    display: flex !important;
+}
+.vacancyStageDropDownCandidateCount{
+    text-align: right;
+}
+#modal-add-vacancy-from-template{
+    overflow: hidden;
+}
+.modal-add-vacancy-from-template-modal-content{
+    overflow-y: auto;
+    max-height: 252px;
+}
+
+.picker__table td:first-child {
+    padding-left: 0px !important;
+}
+
+.truncatedListData{
+    white-space: inherit;
+}

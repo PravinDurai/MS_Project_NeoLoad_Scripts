@@ -1,0 +1,12 @@
+POST https://api2.branch.io/v1/cpid HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+content-type: application/x-www-form-urlencoded
+content-length: 497
+origin: https://twitter.com
+referer: https://twitter.com/
+te: trailers
+
+user_data=%7B%22http_origin%22%3A%22https%3A%2F%2Ftwitter.com%2Fexplore%22%2C%22user_agent%22%3A%22Mozilla%2F5.0%20(Windows%20NT%206.3%3B%20Win64%3B%20x64%3B%20rv%3A78.0)%20Gecko%2F20100101%20Firefox%2F78.0%22%2C%22language%22%3A%22EN%22%2C%22screen_width%22%3A1366%2C%22screen_height%22%3A768%2C%22http_referrer%22%3A%22%22%2C%22browser_fingerprint_id%22%3A%22815917046602375585%22%2C%22sdk%22%3A%22web%22%2C%22sdk_version%22%3A%222.52.3%22%7D&branch_key=key_live_knJAF6W45vSHVJiP0wn8figpqFePX59K

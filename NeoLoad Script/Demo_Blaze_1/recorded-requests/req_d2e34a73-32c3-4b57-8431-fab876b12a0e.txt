@@ -1,0 +1,15 @@
+POST http://opencart.abstracta.us/index.php?route=checkout/cart/add HTTP/1.1
+Host: opencart.abstracta.us
+Proxy-Connection: keep-alive
+Content-Length: 24
+Accept: application/json, text/javascript, */*; q=0.01
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://opencart.abstracta.us
+Referer: http://opencart.abstracta.us/index.php?route=product/product&path=33&product_id=31
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=40l6ead24llvu0mf2msi4fhbm5; default=cdcq37f2j8vvgo8jvfrgvk9c64; language=en-gb; currency=USD; __atuvc=3%7C25; __atuvs=5ee96022cce8ea2d002
+
+quantity=2&product_id=31

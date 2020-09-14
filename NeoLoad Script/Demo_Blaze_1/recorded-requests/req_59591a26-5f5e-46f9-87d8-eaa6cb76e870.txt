@@ -1,0 +1,8 @@
+GET https://www.gstatic.com/og/_/js/k=og.qtm.en_US.RRvjrq5nyko.O/rt=j/m=qabr,q_d,qcwid,qmutsd,qapid/exm=qaaw,qadd,qaid,qein,qhaw,qhbr,qhch,qhga,qhid,qhin,qhpr/d=1/ed=1/rs=AA2YrTt_OJqbWnkMjMONweMkFGu-2q-ILg HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://www.google.com/
+te: trailers
+

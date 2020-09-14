@@ -1,0 +1,8 @@
+GET https://pbs.twimg.com/ext_tw_video_thumb/1286534262330519552/pu/img/7M4QklxABkglSjQj?format=jpg&name=120x120 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+accept: image/webp,*/*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://twitter.com/explore/tabs/entertainment
+te: trailers
+

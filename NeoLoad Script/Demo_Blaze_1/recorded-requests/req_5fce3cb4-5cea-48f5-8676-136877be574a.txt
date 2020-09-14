@@ -1,0 +1,12 @@
+GET https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+if-none-match: "TTo8pA"
+accept: */*
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: https://www.demoblaze.com/
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: user=dd941a80-ce1d-e5dd-72fd-2c4165a2ff64; tokenp_=cHJhdmluX3NfbV85XzRAeWFob28uY29tMTU5Mjk1MQ==
+

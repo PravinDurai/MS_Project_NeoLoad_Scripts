@@ -1,0 +1,11 @@
+POST https://www.googleapis.com/spelling/v2/spelling/check?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw HTTP/2.0
+content-length: 55
+content-type: application/json
+sec-fetch-site: none
+sec-fetch-mode: no-cors
+sec-fetch-dest: empty
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+
+{"text":"Pravin","language":"en","originCountry":"USA"}

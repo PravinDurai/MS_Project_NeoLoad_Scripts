@@ -1,0 +1,12 @@
+POST https://api2.branch.io/v1/open HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://twitter.com/explore
+content-type: application/x-www-form-urlencoded
+content-length: 202
+origin: https://twitter.com
+te: trailers
+
+browser_fingerprint_id=815917046602375585&sdk=web2.52.3&options=%7B%22tracking_disabled%22%3Afalse%7D&current_url=https%3A%2F%2Ftwitter.com%2Fexplore&branch_key=key_live_knJAF6W45vSHVJiP0wn8figpqFePX59K

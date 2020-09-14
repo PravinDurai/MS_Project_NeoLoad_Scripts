@@ -1,0 +1,10 @@
+GET https://m.media-amazon.com:443/images/I/51gJ+9s6bpL._AA210_.jpg HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/Books/b/?ie=UTF8&node=976389031&ref_=nav_cs_books
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: m.media-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

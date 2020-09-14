@@ -1,0 +1,9 @@
+GET https://twitter.com/i/js_inst?c_name=ui_metrics HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://twitter.com/login
+cookie: personalization_id="v1_g/va0h8xH2P/NTcSMMWIGA=="; guest_id=v1%3A159576800009951976; gt=1287370416399331328; ct0=2c4047c7fffc08090de9a4867b55e1dc; _ga=GA1.2.1618188819.1595768008; _gid=GA1.2.1485472748.1595768008; _twitter_sess=BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7AA%253D%253D--1164b91ac812d853b877e93ddb612b7471bebc74
+te: trailers
+

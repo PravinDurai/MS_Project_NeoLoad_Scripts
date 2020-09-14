@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    
+    <head>
+
+        <title>OrangeHRM</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <link rel="shortcut icon" href="/webres_5e7985529ea946.31965054/themes/6x-demo-responsive/images/favicon.ico" />
+        
+        <!-- Library CSS files -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/css/header.min.css" />
+        
+        <!-- Custom CSS files -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/css/main.min.css" />
+
+        <script type="text/javascript">
+            var orangehrm = {
+                baseUrl: '/index.php'
+            };
+        </script>
+        <script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/nonmaterial_header.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/jquery/validate/messages/messages_en.js"></script>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->        
+
+        <script type="text/javascript">
+    var navigationLogConfig = {
+        enabled: true,
+        url: '/navigation/navigationLogNoncore'
+    }
+</script>
+
+    <base href="/">
+
+<link rel="stylesheet" href="/client/build/styles/noncore-ce574986e0.css">    <script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/orangehrm.datepicker.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/tinymce/jquery.tinymce.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmCorePlugin/js/ohrmWidgetTextAreaTinyMce.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/materializeWidgetMultySelect.js"></script>
+<script type="text/javascript" src="/js/eagle-non-core/datepicker.js"></script>
+<script type="text/javascript" src="/js/lodash/lodash.js"></script>
+<script type="text/javascript" src="/js/moment/moment.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/materializeWidgetSelect.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/viewCandidatesSuccess.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/nova.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/orangehrm.librarycustomizations.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/js/_materializeListController.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmNavigationTrackerPlugin/js/noncoreNavigationLogger.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/js/nova-toasts.min.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmPerformancePlugin/js/fixUrlsForLegacyPerformanceReportUrlsOnLoginPage.js"></script>
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmHelpPlugin/js/_helpButton.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/webres_5e7985529ea946.31965054/themes/6x-demo-responsive/css/orangehrm.datepicker.css" />
+<link rel="stylesheet" type="text/css" media="" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/materializeWidgetMultySelect.css" />
+<link rel="stylesheet" type="text/css" media="" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/materializeWidgetSelect.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/nova.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/viewCandidatesSuccess.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/_materializeListController.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/webres_5e7985529ea946.31965054/orangehrmRecruitmentPlugin/css/nova.min.css" />
+</head>
+    <body>
+      
+        <div id="wrapper">
+            
+            <div id="content" style="padding-top:0">
+
+                  
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Modal Structure - Delete Candidate -->
+<div id="modal-delete-candidate" class="modal confirm-dialog">
+    <div class="modal-content">
+        <h4></h4>
+        <p>You are about to delete data permanently. Are you sure you want to continue?</p>
+    </div>
+    
+    <div class="modal-footer">
+
+        <a style="float: none !important;text-align: center" id="candidate-delete-cancel-button" class="modal-action modal-close waves-effect btn right cancel-btn" >no, cancel</a>
+        <a style="float: none !important;text-align: center" id="candidate-delete-button" class="modal-action modal-close waves-effect btn right action-btn" >yes, delete</a>
+              
+            </div>
+</div>   
+
+
+<div id="modal-archive-candidate" class="modal confirm-dialog">
+    <div class="modal-content">
+        <h4></h4>
+        <p>You are about to archive data. Are you sure you want to continue?</p>
+    </div>
+
+    <div class="modal-footer">
+
+        <a style="float: none !important;text-align: center" id="candidate-archive-cancel-button"
+           class="modal-action modal-close waves-effect btn right cancel-btn">no, cancel</a>
+        <a style="float: none !important;text-align: center" id="candidate-archive-button"
+           class="modal-action modal-close waves-effect btn right action-btn">yes, archive</a>
+
+            </div>
+</div>
+
+
+<!-- Modal Structure - Add Candidate -->
+<div id="modalAddCandidate" class="modal modal-fixed-footer custom-height-modal">
+    <div class="customized-modal-header">
+        <h5>Add Candidate</h5>
+    </div>
+
+    <div class="customized-modal-content modal-content row">
+        <form id="frmAddCandidate" method="post" action="/recruitment/addCandidate"
+              enctype="multipart/form-data">
+            <input type="hidden" name="addCandidate[_csrf_token]" value="d3aecdf50c0acf840c844abd3bad527d" id="addCandidate__csrf_token" />            
+            <div class="file-field input-field col l12" style="margin-top: 0px;">
+                <div class="left-align col l3">
+                    <div class="btn" style="left:2%">
+                        <span style="white-space: nowrap" id="selectResumeText">Select Resume</span> <input id="addCandidate_resume"
+                                                                              name="addCandidate[resume]"
+                                                                              type="file"/>
+                    </div>
+                    <br><br><span
+                            style="font-size: 0.8rem;">Accepts .docx, .doc, .odt, .pdf, .rtf, .txt up to 5MB</span>
+                </div>
+                <div class="col l6" style="margin-left: 2%">
+                    <input id="resumeFileName" name="resume_path" class="file-path validate" type="text"
+                           style="margin-left: 0px; width:100%" readonly/>
+                </div>
+
+            </div>
+            <div class="col l12">
+                <div class="input-field col l4">
+                    <input type="text" name="addCandidate[firstName]" id="addCandidate_firstName" />                    <label for="addCandidate_firstName">First Name <em>*</em></label>                </div>
+                <div class="input-field col l4">
+                    <input type="text" name="addCandidate[middleName]" id="addCandidate_middleName" />                    <label for="addCandidate_middleName">Middle Name</label>                </div>
+                <div class="input-field col l4">
+                    <input type="text" name="addCandidate[lastName]" id="addCandidate_lastName" />                    <label for="addCandidate_lastName">Last Name <em>*</em></label>                </div>
+            </div>
+
+            <div class="col l12">
+                <div class="input-field col l4">
+                    <input type="text" name="addCandidate[email]" id="addCandidate_email" />                    <label for="addCandidate_email">E-mail <em>*</em></label>                </div>
+                <div class="input-field col l4">
+                    <input type="text" name="addCandidate[contactNo]" id="addCandidate_contactNo" />                    <label for="addCandidate_contactNo">Contact Number</label>                </div>
+            </div>
+            
+                <div class="col l12">
+                    <div class="col l12" style="padding: 0px;">
+                        <div class="input-field col l4">
+                            <input type="text" name="addCandidate[facebook]" id="addCandidate_facebook" />                            <label for="addCandidate_facebook">Facebook</label>                        </div>
+                        <div class="input-field col l4">
+                            <input type="text" name="addCandidate[twitter]" id="addCandidate_twitter" />                            <label for="addCandidate_twitter">Twitter</label>                        </div>
+                        <div class="input-field col l4">
+                            <input type="text" name="addCandidate[linkedin]" id="addCandidate_linkedin" />                            <label for="addCandidate_linkedin">LinkedIn</label>                        </div>
+                    </div>
+                </div>
+                        <div class="col l12">
+
+                <div class="input-field col l8">
+                    <div id="add-candidate-vacancy-widget-container">
+                        <div class="materializeWidgetObjectMultySelect-container" data-id="addCandidate_vacancy" data-name="addCandidate[vacancy]" data-rand-id="i2GdE" ><ul id="dropdownObjectSearch_i2GdE" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="i2GdE_search_32" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="32" class="search-row searchListObjectName">Customer Success Executive</p>
+        </a></li><li id="i2GdE_search_29" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="29" class="search-row searchListObjectName">Production Manager</p>
+        </a></li><li id="i2GdE_search_45" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="45" class="search-row searchListObjectName">Sales Manager</p>
+        </a></li><li id="i2GdE_search_48" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="48" class="search-row searchListObjectName">Software Engineer</p>
+        </a></li><li id="i2GdE_search_44" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="44" class="search-row searchListObjectName">Software QA Engineer</p>
+        </a></li><li id="i2GdE_search_7" class="searchSingleObjectLi not-selected"
+            style=""><a class="searchObjectA">
+                <p competancy-id="7" class="search-row searchListObjectName">Technical Support Engineer</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_addCandidate_vacancy" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_i2GdE"  data-constrainwidth="true" ></div><input name="inputRepresenter_addCandidate[vacancy]" style="display:none"/><input class="materialize-widget-employee-hidden-input" id="addCandidate_vacancy_input" name="addCandidate[vacancy]" value="" style="display:none"></input></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                        <label class="label" for="addCandidate_vacancy">Vacancy</label>                    </div>
+                </div>
+
+                <div class="input-field col l4">
+                    <label for="addCandidate_appliedDate">Date of Application</label>                    <input id="applied_date" class="formDateInput datepicker datepicker" type="text" name="addCandidate[appliedDate]" value="Wed, 17 Jun 2020" />            <script type="text/javascript">
+              var isIE = navigator.userAgent.indexOf("MSIE ") > -1 || navigator.userAgent.indexOf("Trident/") > -1 || navigator.userAgent.indexOf("Edge/") > -1;
+              var pickerOpened = false;
+              
+              $('.datepicker').pickadate({  
+               format: getDatePickerCompatibleDateFormat("D, d M Y"),
+                onSet: function (ele) {
+                    if(ele.select){
+                           this.close();
+                    }
+                 },
+                today: "Today",
+                clear: "Clear",
+                close: "Close",
+
+                labelMonthNext: "Next month",
+                labelMonthPrev: "Previous month",
+                labelMonthSelect: "Select a month",
+//                labelYearSelect: "Select a year",
+//                monthsFull: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+//                weekdaysFull: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+//                monthsShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+//                weekdaysShort: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+
+                selectMonths: true,
+                selectYears: '10',
+                onClose: function() {
+                    var element = this.$node;
+                    element.removeClass('active_datepicker');
+                    $('.datepicker').blur();
+                    $('.picker').blur();
+                    pickerOpened = false;
+                },
+                onOpen: function() {
+                    if (!pickerOpened && isIE) {
+                        this.close();
+                        return;
+                    }
+                    var element = this.$node;
+                    element.addClass('active_datepicker');
+                    
+                    fixDropDown(this.$root.find('.picker__select--year'));
+                    fixDropDown(this.$root.find('.picker__select--month'));
+                    
+                    this.$root.mouseup(function (e) {
+                            var containers = $(this).find(".select-dropdown");
+
+                            containers.each(function () {
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0) 
+                                {
+                                    $(this).siblings('input.select-dropdown').trigger('close');
+                                }
+                            });
+
+                        });
+                },
+                onRender: function () {
+                var pickerInstanceElement = this;
+                this.$node.bind('click', function (e) {
+                    e.stopPropagation();
+                    pickerInstanceElement.open();
+                    pickerOpened = true;
+                });
+                    var offDays={"1578096000":{"type":"weekend","duration":"8","date":"2020 01 04","original-date":"2020-01-04"},"1578182400":{"type":"weekend","duration":"8","date":"2020 01 05","original-date":"2020-01-05"},"1578700800":{"type":"weekend","duration":"8","date":"2020 01 11","original-date":"2020-01-11"},"1578787200":{"type":"weekend","duration":"8","date":"2020 01 12","original-date":"2020-01-12"},"1579305600":{"type":"weekend","duration":"8","date":"2020 01 18","original-date":"2020-01-18"},"1579392000":{"type":"weekend","duration":"8","date":"2020 01 19","original-date":"2020-01-19"},"1579910400":{"type":"weekend","duration":"8","date":"2020 01 25","original-date":"2020-01-25"},"1579996800":{"type":"weekend","duration":"8","date":"2020 01 26","original-date":"2020-01-26"},"1580515200":{"type":"weekend","duration":"8","date":"2020 02 01","original-date":"2020-02-01"},"1580601600":{"type":"weekend","duration":"8","date":"2020 02 02","original-date":"2020-02-02"},"1581120000":{"type":"weekend","duration":"8","date":"2020 02 08","original-date":"2020-02-08"},"1581206400":{"type":"weekend","duration":"8","date":"2020 02 09","original-date":"2020-02-09"},"1581724800":{"type":"weekend","duration":"8","date":"2020 02 15","original-date":"2020-02-15"},"1581811200":{"type":"weekend","duration":"8","date":"2020 02 16","original-date":"2020-02-16"},"1582329600":{"type":"weekend","duration":"8","date":"2020 02 22","original-date":"2020-02-22"},"1582416000":{"type":"weekend","duration":"8","date":"2020 02 23","original-date":"2020-02-23"},"1582934400":{"type":"weekend","duration":"8","date":"2020 02 29","original-date":"2020-02-29"},"1583020800":{"type":"weekend","duration":"8","date":"2020 03 01","original-date":"2020-03-01"},"1583539200":{"type":"weekend","duration":"8","date":"2020 03 07","original-date":"2020-03-07"},"1583625600":{"type":"weekend","duration":"8","date":"2020 03 08","original-date":"2020-03-08"},"1584144000":{"type":"weekend","duration":"8","date":"2020 03 14","original-date":"2020-03-14"},"1584230400":{"type":"weekend","duration":"8","date":"2020 03 15","original-date":"2020-03-15"},"1584748800":{"type":"weekend","duration":"8","date":"2020 03 21","original-date":"2020-03-21"},"1584835200":{"type":"weekend","duration":"8","date":"2020 03 22","original-date":"2020-03-22"},"1585353600":{"type":"weekend","duration":"8","date":"2020 03 28","original-date":"2020-03-28"},"1585440000":{"type":"weekend","duration":"8","date":"2020 03 29","original-date":"2020-03-29"},"1585958400":{"type":"weekend","duration":"8","date":"2020 04 04","original-date":"2020-04-04"},"1586044800":{"type":"weekend","duration":"8","date":"2020 04 05","original-date":"2020-04-05"},"1586563200":{"type":"weekend","duration":"8","date":"2020 04 11","original-date":"2020-04-11"},"1586649600":{"type":"weekend","duration":"8","date":"2020 04 12","original-date":"2020-04-12"},"1587168000":{"type":"weekend","duration":"8","date":"2020 04 18","original-date":"2020-04-18"},"1587254400":{"type":"weekend","duration":"8","date":"2020 04 19","original-date":"2020-04-19"},"1587772800":{"type":"weekend","duration":"8","date":"2020 04 25","original-date":"2020-04-25"},"1587859200":{"type":"weekend","duration":"8","date":"2020 04 26","original-date":"2020-04-26"},"1588377600":{"type":"weekend","duration":"8","date":"2020 05 02","original-date":"2020-05-02"},"1588464000":{"type":"weekend","duration":"8","date":"2020 05 03","original-date":"2020-05-03"},"1588982400":{"type":"weekend","duration":"8","date":"2020 05 09","original-date":"2020-05-09"},"1589068800":{"type":"holiday","duration":"0","date":"2020 05 10","original-date":"2020-05-10"},"1589587200":{"type":"weekend","duration":"8","date":"2020 05 16","original-date":"2020-05-16"},"1589673600":{"type":"weekend","duration":"8","date":"2020 05 17","original-date":"2020-05-17"},"1590192000":{"type":"weekend","duration":"8","date":"2020 05 23","original-date":"2020-05-23"},"1590278400":{"type":"weekend","duration":"8","date":"2020 05 24","original-date":"2020-05-24"},"1590796800":{"type":"weekend","duration":"8","date":"2020 05 30","original-date":"2020-05-30"},"1590883200":{"type":"weekend","duration":"8","date":"2020 05 31","original-date":"2020-05-31"},"1591401600":{"type":"weekend","duration":"8","date":"2020 06 06","original-date":"2020-06-06"},"1591488000":{"type":"weekend","duration":"8","date":"2020 06 07","original-date":"2020-06-07"},"1592006400":{"type":"weekend","duration":"8","date":"2020 06 13","original-date":"2020-06-13"},"1592092800":{"type":"weekend","duration":"8","date":"2020 06 14","original-date":"2020-06-14"},"1592611200":{"type":"weekend","duration":"8","date":"2020 06 20","original-date":"2020-06-20"},"1592697600":{"type":"holiday","duration":"0","date":"2020 06 21","original-date":"2020-06-21"},"1593216000":{"type":"weekend","duration":"8","date":"2020 06 27","original-date":"2020-06-27"},"1593302400":{"type":"weekend","duration":"8","date":"2020 06 28","original-date":"2020-06-28"},"1593820800":{"type":"holiday","duration":"0","date":"2020 07 04","original-date":"2020-07-04"},"1593907200":{"type":"weekend","duration":"8","date":"2020 07 05","original-date":"2020-07-05"},"1594425600":{"type":"weekend","duration":"8","date":"2020 07 11","original-date":"2020-07-11"},"1594512000":{"type":"weekend","duration":"8","date":"2020 07 12","original-date":"2020-07-12"},"1595030400":{"type":"weekend","duration":"8","date":"2020 07 18","original-date":"2020-07-18"},"1595116800":{"type":"weekend","duration":"8","date":"2020 07 19","original-date":"2020-07-19"},"1595635200":{"type":"weekend","duration":"8","date":"2020 07 25","original-date":"2020-07-25"},"1595721600":{"type":"weekend","duration":"8","date":"2020 07 26","original-date":"2020-07-26"},"1596240000":{"type":"weekend","duration":"8","date":"2020 08 01","original-date":"2020-08-01"},"1596326400":{"type":"weekend","duration":"8","date":"2020 08 02","original-date":"2020-08-02"},"1596844800":{"type":"weekend","duration":"8","date":"2020 08 08","original-date":"2020-08-08"},"1596931200":{"type":"weekend","duration":"8","date":"2020 08 09","original-date":"2020-08-09"},"1597449600":{"type":"weekend","duration":"8","date":"2020 08 15","original-date":"2020-08-15"},"1597536000":{"type":"weekend","duration":"8","date":"2020 08 16","original-date":"2020-08-16"},"1598054400":{"type":"weekend","duration":"8","date":"2020 08 22","original-date":"2020-08-22"},"1598140800":{"type":"weekend","duration":"8","date":"2020 08 23","original-date":"2020-08-23"},"1598659200":{"type":"weekend","duration":"8","date":"2020 08 29","original-date":"2020-08-29"},"1598745600":{"type":"weekend","duration":"8","date":"2020 08 30","original-date":"2020-08-30"},"1599264000":{"type":"weekend","duration":"8","date":"2020 09 05","original-date":"2020-09-05"},"1599350400":{"type":"weekend","duration":"8","date":"2020 09 06","original-date":"2020-09-06"},"1599868800":{"type":"weekend","duration":"8","date":"2020 09 12","original-date":"2020-09-12"},"1599955200":{"type":"weekend","duration":"8","date":"2020 09 13","original-date":"2020-09-13"},"1600473600":{"type":"weekend","duration":"8","date":"2020 09 19","original-date":"2020-09-19"},"1600560000":{"type":"weekend","duration":"8","date":"2020 09 20","original-date":"2020-09-20"},"1601078400":{"type":"weekend","duration":"8","date":"2020 09 26","original-date":"2020-09-26"},"1601164800":{"type":"weekend","duration":"8","date":"2020 09 27","original-date":"2020-09-27"},"1601683200":{"type":"weekend","duration":"8","date":"2020 10 03","original-date":"2020-10-03"},"1601769600":{"type":"weekend","duration":"8","date":"2020 10 04","original-date":"2020-10-04"},"1602288000":{"type":"weekend","duration":"8","date":"2020 10 10","original-date":"2020-10-10"},"1602374400":{"type":"weekend","duration":"8","date":"2020 10 11","original-date":"2020-10-11"},"1602892800":{"type":"weekend","duration":"8","date":"2020 10 17","original-date":"2020-10-17"},"1602979200":{"type":"weekend","duration":"8","date":"2020 10 18","original-date":"2020-10-18"},"1603497600":{"type":"weekend","duration":"8","date":"2020 10 24","original-date":"2020-10-24"},"1603584000":{"type":"weekend","duration":"8","date":"2020 10 25","original-date":"2020-10-25"},"1604102400":{"type":"weekend","duration":"8","date":"2020 10 31","original-date":"2020-10-31"},"1604188800":{"type":"weekend","duration":"8","date":"2020 11 01","original-date":"2020-11-01"},"1604707200":{"type":"weekend","duration":"8","date":"2020 11 07","original-date":"2020-11-07"},"1604793600":{"type":"weekend","duration":"8","date":"2020 11 08","original-date":"2020-11-08"},"1605312000":{"type":"weekend","duration":"8","date":"2020 11 14","original-date":"2020-11-14"},"1605398400":{"type":"weekend","duration":"8","date":"2020 11 15","original-date":"2020-11-15"},"1605916800":{"type":"weekend","duration":"8","date":"2020 11 21","original-date":"2020-11-21"},"1606003200":{"type":"weekend","duration":"8","date":"2020 11 22","original-date":"2020-11-22"},"1606521600":{"type":"weekend","duration":"8","date":"2020 11 28","original-date":"2020-11-28"},"1606608000":{"type":"weekend","duration":"8","date":"2020 11 29","original-date":"2020-11-29"},"1607126400":{"type":"weekend","duration":"8","date":"2020 12 05","original-date":"2020-12-05"},"1607212800":{"type":"weekend","duration":"8","date":"2020 12 06","original-date":"2020-12-06"},"1607731200":{"type":"weekend","duration":"8","date":"2020 12 12","original-date":"2020-12-12"},"1607817600":{"type":"weekend","duration":"8","date":"2020 12 13","original-date":"2020-12-13"},"1608336000":{"type":"weekend","duration":"8","date":"2020 12 19","original-date":"2020-12-19"},"1608422400":{"type":"weekend","duration":"8","date":"2020 12 20","original-date":"2020-12-20"},"1608940800":{"type":"weekend","duration":"8","date":"2020 12 26","original-date":"2020-12-26"},"1609027200":{"type":"weekend","duration":"8","date":"2020 12 27","original-date":"2020-12-27"},"1577836800":{"type":"holiday","duration":"0","date":"2020 01 01","original-date":"2020-01-01"},"1579478400":{"type":"holiday","duration":"0","date":"2020 01 20","original-date":"2020-01-20"},"1581897600":{"type":"holiday","duration":"0","date":"2020 02 17","original-date":"2020-02-17"},"1590364800":{"type":"holiday","duration":"0","date":"2020 05 25","original-date":"2020-05-25"},"1592524800":{"type":"holiday","duration":"0","date":"2020 06 19","original-date":"2020-06-19"},"1599436800":{"type":"holiday","duration":"0","date":"2020 09 07","original-date":"2020-09-07"},"1602460800":{"type":"holiday","duration":"0","date":"2020 10 12","original-date":"2020-10-12"},"1605052800":{"type":"holiday","duration":"0","date":"2020 11 11","original-date":"2020-11-11"},"1606348800":{"type":"holiday","duration":"0","date":"2020 11 26","original-date":"2020-11-26"},"1608854400":{"type":"holiday","duration":"0","date":"2020 12 25","original-date":"2020-12-25"}};
+                    highlightOffDays(this, offDays);
+                    
+                    fixDropDown(this.$root.find('.picker__select--year'));
+                    fixDropDown(this.$root.find('.picker__select--month'));
+                }
+             });
+             function highlightOffDays(pickerInstance, offDays) {
+                    var year = pickerInstance.$root.find('select.picker__select--year').val();
+                    var month = parseInt(pickerInstance.$root.find('select.picker__select--month').val(), 10) + 1;
+
+                    if (month < 10) {
+                        month = '0' + month;
+                    }
+
+                    if (offDays != null) {
+                        _.forEach(offDays, function (value, key) {
+                            if (value.date.indexOf(year + ' ' + month) !== -1) {
+                                var applyClass = 'pickadate--' + value.type;
+                                if (value.duration == 4) {
+                                    applyClass += '-half';
+                                }
+                                // $('[data-pick=' + key + '000]').addClass( applyClass).addClass('circle');
+                                $('[data-pick=' + moment(value.date, 'YYYY MM DD').toDate().getTime() + ']').addClass(applyClass);
+                            }
+                        });
+                    }
+                }
+                
+                function fixDropDown(element) {
+                    if (!element.hasClass('initialized') && !element.is(':disabled')) {
+
+
+                        element.removeClass('browser-default').material_select(function () {
+                            element.siblings('input.select-dropdown').trigger('close');
+                        });
+
+                        var onMouseDown = function (e) {
+                            if (e.clientX >= e.target.clientWidth || e.clientY >= e.target.clientHeight) {
+                                e.preventDefault();
+                            }
+                        };
+                        
+                        var onMouseClick = function () {
+                            if($(this).closest("div.select-wrapper").length){
+                                var dropDown = $(this).closest("div.select-wrapper").find("ul.select-dropdown");
+                                dropDown.find('li:nth-child('+parseInt(dropDown.find('li').length/2 + 1)+')')[0].scrollIntoView();
+                            }
+                        };
+
+                        element.siblings('input.select-dropdown').on('click', onMouseClick);                        
+                        element.siblings('input.select-dropdown').on('mousedown', onMouseDown);
+                    }
+                }
+                
+           </script>                </div>
+
+            </div>
+
+
+            <div class="col l12">
+                <div class="input-field col l4">
+                    <input type="text" name="addCandidate[keyWords]" placeholder="Enter comma separated words ..." id="addCandidate_keyWords" />                    <label for="addCandidate_keyWords">Keywords</label>                </div>
+                <div class="input-field col l8">
+                    <textarea rows="4" cols="30" name="addCandidate[managerNote]" placeholder="Enter any other notes about the candidate" class="materialize-textarea" style="margin-bottom:0px; padding-bottom:0px;" id="addCandidate_managerNote"></textarea>                    <label for="addCandidate_managerNote">Notes</label>                </div>
+            </div>
+        </form>
+        <div class="row requiredHelperText">
+            <em>*</em> Required field        </div>
+    </div>
+    <div class="modal-footer" style="overflow:hidden; height:50px">
+        <a id="saveCandidateButton"
+           class="modal-action action-btn waves-effect btn ohrm-modal-submit-btn right">Save</a>
+        <a class="modal-action modal-close cancel-btn waves-effect btn right">Cancel</a>
+    </div>
+</div>
+
+<div id="candidateDropDowns">
+
+    <ul id="stages_130_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_115_44" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_118_45" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_120_45" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_116_44" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_121_45" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_111_44" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_112_44" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_113_44" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_114_44" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_117_45" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_119_45" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_122_45" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Interview</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Rejected</a></li></ul><ul id="stages_68_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_69_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_70_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_71_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_72_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_73_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_74_32" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Managers</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview- CEO</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_59_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_60_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_61_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_62_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_63_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_64_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_65_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_66_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_67_29" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">Job Knowledge Test</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Shortlisted</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Interview with Supervisor</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Final Interview</a></li><li class="candidateStageDropDownOption" value="6"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="7"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="8"><a href="#!">Rejected</a></li></ul><ul id="stages_7_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_8_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_14_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_15_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_16_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_13_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_12_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul><ul id="stages_11_7" class="dropdown-content candidate-stage-dropdown" style="z-index:2; width:300px"><li class="candidateStageDropDownOption" value="1"><a href="#!">Application Received</a></li><li class="candidateStageDropDownOption" value="2"><a href="#!">1st interview  , IQ Test , 1st interview - IT , First Interview</a></li><li class="candidateStageDropDownOption" value="3"><a href="#!">Job Offer</a></li><li class="candidateStageDropDownOption" value="4"><a href="#!">Hired</a></li><li class="candidateStageDropDownOption" value="5"><a href="#!">Rejected</a></li></ul></div>
+
+<div class="navbar-fixed">
+    <nav class="subNav">
+        <div class="nav-wrapper orange-hrm lighten-2">
+            <a href="#" data-activates="slide-out"
+               class="button-collapse show-on-large"><i
+                        class="mdi-navigation-menu material-icons">menu</i></a>
+            <a id="navBarHeading" class="brand-logo">Candidates</a>
+            <ul class="right hide-on-med-and-down handCuser">
+                <li><a class="tooltipped circle" data-position="bottom" data-delay="50"
+                       data-tooltip="Search" id="candidateSearchBtn"><i
+                                class="mdi-action-search material-icons">search</i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down handCuser">
+                <li><a class="tooltipped circle" data-position="bottom" data-delay="50"
+                       data-tooltip="Export To CSV" id="candidateCsvExportBtn"><i
+                                class="mdi-content-content-copy material-icons">ohrm_file_csv</i></a></li>
+            </ul>
+
+        </div>
+        
+<style>
+    li.meterialize-menu {
+        font-weight: 700;
+    }
+
+    li.sub-menu {
+        font-weight: 400;
+    }
+
+    .collapsible-accordion{
+        width: 100%;;
+    }
+    li.logo {
+        text-align: center;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    a.logo-container {
+        height: 57px;
+        margin-bottom: 32px;
+    }
+    .displayBlock{
+        display: block !important;
+    }
+    html,body{
+        height:100%
+    }
+    #wrapper{
+        min-height: 100%;
+    }
+    nav a.button-collapse {
+        display: block;
+    }
+    .sum-menu-a{
+        height: 50px !important;
+        line-height: 50px !important;
+        vertical-align: middle;
+        padding-top: 7% !important;
+        width: 100%;
+    }
+</style>
+
+<!-- Modal - Feature not enabled -->
+<div id="decisionSupportNotEnabledNotice" class="modal white">
+    <div class="modal-content grey lighten-5" style="text-align:center; margin-top:0px; margin-bottom:10px;">
+        <h5>Decision Support System Is Disabled</h5>
+    </div>
+
+    <div class="modal-content workflow-content">
+        <p style="font-size:14pt; font-weight:300; margin-left:14px;">Decision support system is disabled in the license. Please request a license upgrade to enable the feature.</p>
+    </div>
+
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat left">Ok</a>
+    </div>
+</div>
+<div id="interviewAssistantNotEnabledNotice" class="modal white">
+    <div class="modal-content grey lighten-5" style="text-align:center; margin-top:0px; margin-bottom:10px;">
+        <h5>Interview Assistant Is Disabled</h5>
+    </div>
+
+    <div class="modal-content workflow-content">
+        <p style="font-size:14pt; font-weight:300; margin-left:14px;">Interview assistant is disabled in the license. Please request a license upgrade to enable the feature.</p>
+    </div>
+
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat left">Ok</a>
+    </div>
+</div>
+
+<ul id="slide-out" class="side-nav" style="height: 100%">
+    <li class=logo><img src="/webres_5e7985529ea946.31965054/themes/6x-demo-responsive/images/logo.png" width="100%" height="100%"></img></li>
+
+    <a href="#" id="welcome" class="left">
+        <span>Admin</span>
+        <span class="material-icons">person</span>
+        <span class="material-icons up-down-btn"></span>
+    </a>
+    <div style="height:0px; overflow:visible">
+        <div id="novaLogoutPanel" class="card z-depth-2 row hidden" style="left:10%; width:80%; z-index: 999; margin-top: -7%; display:none">
+            <div class="row center-align" style="margin-top:10%"><a>
+                    <img alt="Employee Photo" src="/pim/viewPhoto/empNumber/13" border="0" id="empPic" 
+                         width="100px" height="100px" class="image-row-style circle responsive-img"/></a></div>
+            <div class="row center-align" style="margin-top:10%; margin-bottom:0px"><a class="nova-left-menu-emp-name">Jacqueline White</a></div>
+            <div class="row center-align" style="margin-top:-10%; margin-bottom:0px"><a class="nova-left-menu-logout" href="/auth/logout">Logout</a></div>
+        </div>
+    </div>
+    <li>
+    </li>
+    <li class="meterialize-menu"><a href="/client/#/route/dashboard" target="_parent">Home</a></li>
+            <li class="meterialize-menu"><a href="/recruitment/viewJobVacancy" class="waves-effect waves-orange">Vacancies</a></li>
+            <li class="novaSelected selected meterialize-menu"><a href="/recruitment/viewCandidates" class="waves-effect waves-orange">Candidates</a></li>
+            <li class="no-padding" style="line-height: 10px;">
+            <ul class="collapsible collapsible-accordion">
+                <li class="meterialize-menu"><a class="collapsible-header waves-effect waves-orange" style="margin:0px; padding-left:30px;">Configuration</a>
+                    <div class="collapsible-body">
+                        <ul style="width: 100%;">
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/vacancyTemplates"  class="">Vacancy Templates</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/questionPool" class=" ">Question Pool</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/interviewTemplates" class=" ">Interview Templates</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/testTemplates" class="">Standard Tests</a></li>
+                            <li class="sub-menu "><a class="sum-menu-a waves-effect waves-orange" href="/recruitment/recruitmentAnalyticsConfiguration" class=" ">Analytics</a></li>
+                        </ul>
+                    </div></li>
+            </ul>
+        </li>
+                <li class="meterialize-menu" style="line-height: 15px;"><a style="padding-top: 10%;width: 100%;" class="successionReportMenu waves-effect waves-orange" href="/recruitment/displayVacancySuccessionReportCriteria/reportId/15">Vacancy Successions</a></li>
+            </ul>
+
+<style>
+    li.meterialize-menu li.sub-menu a.disabled {
+        color: gray;
+        cursor: default;
+    }
+</style>
+<script>
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+//    $('.modal-trigger').leanModal({
+//        dismissible: true, // Modal can be dismissed by clicking outside of the modal
+//        opacity: 0.2, // Opacity of modal background
+//        in_duration: 300, // Transition in duration
+//        out_duration: 200, // Transition out duration
+//        /*  ready: function() { alert('Ready'); }, // Callback for Modal open
+//         complete: function() { alert('Closed'); } // Callback for Modal close */
+//    });
+
+//    $('select').material_select();
+
+    // Initialize collapse button
+    $(document).ready(function () {
+        $("#interviewAssistantNotEnabledNotice").detach().appendTo('#content');
+        $("#decisionSupportNotEnabledNotice").detach().appendTo('#content');
+        $(".button-collapse").sideNav();
+        $("#welcome").off("click");
+        $("#welcome").on("click", function () {
+            if ($("#novaLogoutPanel").hasClass('hidden')) {
+                $("#novaLogoutPanel").show().removeClass('hidden');
+            } else {
+                $("#novaLogoutPanel").hide().addClass('hidden');
+            }
+        });
+
+        $(document).on("click", function (e)
+        {
+            var container = $("#novaLogoutPanel:not(.hidden)");
+
+            if (container.length > 0 && !container.is(e.target) // if the target of the click isn't the container...
+                    && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+                $("#welcome").click();
+            }
+        });
+    })
+
+
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+</script>    </nav>
+</div>
+<div id="candidateSearchDropDown" class="z-depth-1 row searchFormRow customHidden" style="overflow-x: hidden; overflow-y: scroll; height: 100% !important;">
+    <form method="post" id="candidateSearchForm" action="/recruitment/viewCandidates">
+                <div class="input-field col l12" style="padding: 10px;">
+            <!-- <div class="col l1" style="padding: 0px;">
+                    <i class="small mdi-navigation-arrow-back left"
+                            style="color: rgba(0, 0, 0, 0.54);"></i>
+            </div> -->
+            <div class="col l10 offset-l1">
+                <input placeholder="Search Text" name="nameTxt" id="first_name" type="text" class="validate">
+            </div>
+        </div>
+
+        <div class="input-field col l12" style="margin-top:0px;">
+            <div id="candidateSearchJobTitleMultySelectDiv" class="input-field col l5 offset-l1">
+<!--                <input id="job_title" type="text" name="jib_title" class="validate">
+                <label for="job_title">Job Title</label>-->
+                <div class="materializeWidgetObjectMultySelect-container" data-id="candidateSearch_jobTitle" data-name="candidateSearch[jobTitle]" data-rand-id="LkHaK" ><ul id="dropdownObjectSearch_LkHaK" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; width: 280px; position: absolute; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="LkHaK_search_33" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Accounts Clerk</p>
+        </a></li><li id="LkHaK_search_59" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Art Director</p>
+        </a></li><li id="LkHaK_search_53" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Assistant Brand Manager</p>
+        </a></li><li id="LkHaK_search_61" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Assistant HR Manager</p>
+        </a></li><li id="LkHaK_search_64" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Assistant Manager- Customer Success</p>
+        </a></li><li id="LkHaK_search_52" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Business Manager - Advertising</p>
+        </a></li><li id="LkHaK_search_62" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">CA</p>
+        </a></li><li id="LkHaK_search_24" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">CEO</p>
+        </a></li><li id="LkHaK_search_47" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Community Manager</p>
+        </a></li><li id="LkHaK_search_48" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Content Writer</p>
+        </a></li><li id="LkHaK_search_25" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">CTO</p>
+        </a></li><li id="LkHaK_search_65" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Customer Success Executive</p>
+        </a></li><li id="LkHaK_search_57" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Digital Marketing Manager</p>
+        </a></li><li id="LkHaK_search_26" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Finance Manager</p>
+        </a></li><li id="LkHaK_search_68" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Financial Executive</p>
+        </a></li><li id="LkHaK_search_54" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Front End Developer</p>
+        </a></li><li id="LkHaK_search_27" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Global HR Manager</p>
+        </a></li><li id="LkHaK_search_56" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Global Marketing Manager</p>
+        </a></li><li id="LkHaK_search_45" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">HR Admin</p>
+        </a></li><li id="LkHaK_search_30" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">HR Executive</p>
+        </a></li><li id="LkHaK_search_29" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">IT Executive</p>
+        </a></li><li id="LkHaK_search_39" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">IT Manager</p>
+        </a></li><li id="LkHaK_search_44" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">IT technical support officer</p>
+        </a></li><li id="LkHaK_search_32" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Junior Sales Executive</p>
+        </a></li><li id="LkHaK_search_55" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Local Marketing Manager</p>
+        </a></li><li id="LkHaK_search_66" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Management Trainee</p>
+        </a></li><li id="LkHaK_search_67" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Product and Training Manager</p>
+        </a></li><li id="LkHaK_search_60" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Production Manager</p>
+        </a></li><li id="LkHaK_search_37" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">QA Engineer</p>
+        </a></li><li id="LkHaK_search_41" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Regional HR Manager</p>
+        </a></li><li id="LkHaK_search_42" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Regional Sales Manager</p>
+        </a></li><li id="LkHaK_search_49" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Researcher</p>
+        </a></li><li id="LkHaK_search_31" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Sales Executive</p>
+        </a></li><li id="LkHaK_search_28" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Sales Manager</p>
+        </a></li><li id="LkHaK_search_63" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Sample Job Title</p>
+        </a></li><li id="LkHaK_search_51" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Senior Manager IT</p>
+        </a></li><li id="LkHaK_search_40" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Senior Technical Support Engineer</p>
+        </a></li><li id="LkHaK_search_46" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">SEO Specialist</p>
+        </a></li><li id="LkHaK_search_58" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Social Media Editor</p>
+        </a></li><li id="LkHaK_search_35" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Software Development Manager</p>
+        </a></li><li id="LkHaK_search_36" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Software Engineer</p>
+        </a></li><li id="LkHaK_search_38" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Technical Support Engineer</p>
+        </a></li><li id="LkHaK_search_50" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Technical Support Manager</p>
+        </a></li><li id="LkHaK_search_34" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Trainee</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_candidateSearch_jobTitle" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_LkHaK" ></div></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                <label class="active" for="candidateSearch_jobTitle">Job Title</label>            </div>
+
+            <div  id="candidateSearchJobVacancyMultySelectDiv" class="input-field col l5">
+<!--                <input id="vacancy" name="Vacancy" type="text" class="validate">
+                <label for="vacancy">Vacancy</label>-->
+                <div class="materializeWidgetObjectMultySelect-container" data-id="candidateSearch_jobVacancy" data-name="candidateSearch[jobVacancy]" data-rand-id="rfI7s" ><ul id="dropdownObjectSearch_rfI7s" class="dropdown-content dropdownObjectSearch" style="z-index: 1000; width: 280px; position: absolute; opacity: 1">
+                            <li><a class="searchObjectA employeeSearchBox" style="padding-bottom:0"> <input  placeholder="" type="text" class="employee-search validate">
+                            </a></li><div style="max-height: 150px overflow:auto;"><li id="rfI7s_search_38" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Accountant</p>
+        </a></li><li id="rfI7s_search_36" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Assistant Architect</p>
+        </a></li><li id="rfI7s_search_27" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Assistant Community Manager</p>
+        </a></li><li id="rfI7s_search_47" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Associate Software Engineer</p>
+        </a></li><li id="rfI7s_search_21" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Brand Manager</p>
+        </a></li><li id="rfI7s_search_20" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Business manager - Advertising</p>
+        </a></li><li id="rfI7s_search_32" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Customer Success Executive</p>
+        </a></li><li id="rfI7s_search_25" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Digital Marketing Manager</p>
+        </a></li><li id="rfI7s_search_22" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Front End Developer</p>
+        </a></li><li id="rfI7s_search_24" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Global Marketing Manager</p>
+        </a></li><li id="rfI7s_search_12" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">GUI Developper</p>
+        </a></li><li id="rfI7s_search_16" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">HR Admin</p>
+        </a></li><li id="rfI7s_search_23" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Local Marketing Manager</p>
+        </a></li><li id="rfI7s_search_40" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Management Sector</p>
+        </a></li><li id="rfI7s_search_29" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Production Manager</p>
+        </a></li><li id="rfI7s_search_13" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">QA</p>
+        </a></li><li id="rfI7s_search_45" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Sales Manager</p>
+        </a></li><li id="rfI7s_search_19" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Senior Manager IT Position</p>
+        </a></li><li id="rfI7s_search_26" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Social Media Editor</p>
+        </a></li><li id="rfI7s_search_48" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Software Engineer</p>
+        </a></li><li id="rfI7s_search_44" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Software QA Engineer</p>
+        </a></li><li id="rfI7s_search_7" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Technical Support Engineer</p>
+        </a></li><li id="rfI7s_search_43" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancies for front End Developers</p>
+        </a></li><li id="rfI7s_search_41" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancies for Marketing Managers</p>
+        </a></li><li id="rfI7s_search_34" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy - Management Trainee</p>
+        </a></li><li id="rfI7s_search_2" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Controller</p>
+        </a></li><li id="rfI7s_search_6" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Engineer</p>
+        </a></li><li id="rfI7s_search_1" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Finance Manager</p>
+        </a></li><li id="rfI7s_search_5" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for HR Admin</p>
+        </a></li><li id="rfI7s_search_9" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for HR Manager</p>
+        </a></li><li id="rfI7s_search_3" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Manager IT</p>
+        </a></li><li id="rfI7s_search_10" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for QA Engineer</p>
+        </a></li><li id="rfI7s_search_11" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Sales Manager</p>
+        </a></li><li id="rfI7s_search_42" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for skilled Finance Manager</p>
+        </a></li><li id="rfI7s_search_8" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Software Engineer</p>
+        </a></li><li id="rfI7s_search_35" class="searchObjectLi not-selected" 
+            style=""><a class="searchObjectA">
+                <p class="search-row searchListObjectName">Vacancy for Training Manager</p>
+        </a></li></div></ul><div  spellcheck="false" style="height:auto;" id="textarea_candidateSearch_jobVacancy" class="dropdown-employees materialize-contenteditable materialize-textarea" type="text" data-activates="dropdownObjectSearch_rfI7s" ></div></div><script>$(".dropdown-employees").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, 
+            hover: false, 
+            gutter: 200, 
+            belowOrigin: false
+          });</script>                <label class="active" for="candidateSearch_jobVacancy">Job Vacancy</label>            </div>
+
+        </div>
+
+        <div class="input-field col l12" style="margin-top:0px;">
+            <div class="col l11 offset-l1">
+                <span style="font-size:1rem;">Date Applied</span>
+            </div>
+
+            <div class="input-field col l5 offset-l1">
+                <input id="from_date" name="from_date" type="date" class="fromdatepicker">
+                <label id="from_date_lable" for="from_date">From</label>
+            </div>
+
+            <div class="input-field col l5">
+                <input id="to_date" name="to_date" type="date" class="todatepicker">
+                <label id="to_date_lable" for="to_date">To</label>
+            </div>
+        </div>
+
+        <div class="input-field col l12" style="margin-top:0px; padding-bottom:10px;">
+            <div class="col l5 offset-l1">
+                <p>
+                    <input type="checkbox" class="filled-in" name="searchActiveVacancies" id="searchActiveVacancies" checked="checked"/> <label for="searchActiveVacancies" style="left:0px;">Active Vacancies Only</label>
+                </p>
+            </div>
+
+            <div class="col l5">
+                <p>
+                    <input type="checkbox" class="filled-in" name="searchInsideResume" id="searchInsideResume" /> <label for="searchInsideResume" style="left:0px;">Search Inside Resume</label>
+                </p>
+            </div>
+        </div>
+        <div class="input-field col l12" style="margin-top:0px; padding-bottom:10px;">
+            <div class="col l5 offset-l1">
+                <p>
+                    <input type="checkbox" class="filled-in" name="includeArchived" id="includeArchived" /> <label for="includeArchived" style="left:0px;">Archived Candidates Only</label>
+                </p>
+            </div>
+        </div>
+    </form>
+    <div class="col l12">
+        <div style="padding:0px; margin-top:15px;">
+            <a id="searchCandidatesFormBtn" class="waves-effect btn action-btn right">Search</a>
+            <a id="resetCandidatesFormBtn" class="waves-effect btn cancel-btn right">Reset</a>
+        </div>
+    </div>
+</div>
+<script>
+
+    // Initialize collapse button
+//		$(".mdi-action-search").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+</script>
+<div class="gap-below-navbar"></div>
+
+<div class="row">
+    <div class="col l12 pageholder">
+        
+    <div class="fixed-action-btn"  id="list_item_add"
+         style="bottom: 10%; right: 1%; top: unset;">
+        <a id="addItemBtn" class="btn-floating btn-large tooltipped" data-position="left"
+           data-delay="50" data-tooltip="Add Candidate"> <i
+                class="large mdi-content-add material-icons">add</i>
+        </a>
+    </div>
+<div class="nova-content-wrap">
+    <table class="hoverable pagedata ohrm-card">
+                                    <col style="width:5%">
+                            <col style="width:15%">
+                            <col style="width:auto">
+                            <col style="width:15%">
+                            <col style="width:12%">
+                            <col style="width:13%">
+                            <col style="width:15%">
+                            <col style="width:10%">
+                            <thead>
+            <tr>                                        <th rowspan="1" class="list-options"><a id="ohrmList_Menu" class="dropdown-button-menuList grey-text text-darken-3" data-activates="ohrmList_dropDownMenu"><i class="material-icons icons-color handCurser">more_horiz</i></a><ul id="ohrmList_dropDownMenu" class="dropdown-content" style="white-space: nowrap;"><li ><a id="selectAll" class="" href="javascript:;" style="" init-activity="true">Select All</a></li>
+<li ><a id="deselectAll" class="" href="javascript:;" style="" init-activity="true">Deselect All</a></li>
+<li ><a id="deleteItemBtn" class="mdi-action-delete" href="javascript:;" style="" init-activity="">Delete</a></li>
+
+<li ><a id="archiveItemBtn" class="mdi-action-archive" href="javascript:;" style="" init-activity="">Archive</a></li>
+
+</ul></th>
+                                                                            <th class="sortableHeader curserPointer sortable"
+                        sortValue="vacancy">Vacancy                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="candidate">Candidate                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="email">Email                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="contact_number">Contact Number                        <i class="material-icons"></i>
+                    </th>
+                                        <th class="sortableHeader curserPointer sortable"
+                        sortValue="date_applied">Date applied                        <i class="material-icons">arrow_upward</i>
+                    </th>
+                                        <th class=""
+                        sortValue="stage">Stage                        <i class="material-icons"></i>
+                    </th>
+                                        <th class=""
+                        sortValue="resume">                         <i class="material-icons"></i>
+                    </th>
+                                </tr>
+        </thead>
+        <tbody>
+    
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="130"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_130_32"/><label
+                            for="checkbox_130_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Test  Test</td>
+                                <td class="dataColumn truncatedListData ">Test123@test.me</td>
+                                <td class="dataColumn truncatedListData "></td>
+                                <td class="dataColumn truncatedListData ">Sun, 23 Feb 2020</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_130_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_130_32" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/128'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=130'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/130'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-candidate-id="115"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_115_44"/><label
+                            for="checkbox_115_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Peter  Smith</td>
+                                <td class="dataColumn truncatedListData ">petersmith@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 876-345-1505</td>
+                                <td class="dataColumn truncatedListData ">Tue, 30 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_115_44" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_115_44" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/113'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=115'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/44/candidateId/115'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-candidate-id="118"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_118_45"/><label
+                            for="checkbox_118_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">Jo  Denton</td>
+                                <td class="dataColumn truncatedListData ">jodentan@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 888-452-2314</td>
+                                <td class="dataColumn truncatedListData ">Tue, 30 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_118_45" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_118_45" href="#!" style="display:inline-flex">Shortlisted<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/116'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=118'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/45/candidateId/118'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-candidate-id="120"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_120_45"/><label
+                            for="checkbox_120_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">Richard  Holmes</td>
+                                <td class="dataColumn truncatedListData ">richardholmes@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 453-452-2354</td>
+                                <td class="dataColumn truncatedListData ">Tue, 30 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_120_45" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_120_45" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/118'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=120'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/45/candidateId/120'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-candidate-id="116"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_116_44"/><label
+                            for="checkbox_116_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Sara  Tencrady</td>
+                                <td class="dataColumn truncatedListData ">saraten@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 888-654-3245</td>
+                                <td class="dataColumn truncatedListData ">Mon, 29 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_116_44" class="defaultPointer editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_116_44" href="#!" style="display:inline-flex">Hired<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/114'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=116'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/44/candidateId/116'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-candidate-id="121"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_121_45"/><label
+                            for="checkbox_121_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">John  Smith</td>
+                                <td class="dataColumn truncatedListData ">johnhsmith@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 888-452-2365</td>
+                                <td class="dataColumn truncatedListData ">Mon, 29 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_121_45" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_121_45" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/119'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=121'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/45/candidateId/121'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-candidate-id="111"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_111_44"/><label
+                            for="checkbox_111_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Garry  White</td>
+                                <td class="dataColumn truncatedListData ">garrywhite@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 788-482-1505</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_111_44" class="defaultPointer editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_111_44" href="#!" style="display:inline-flex">Hired<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/109'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=111'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/44/candidateId/111'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-candidate-id="112"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_112_44"/><label
+                            for="checkbox_112_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Joe  Root</td>
+                                <td class="dataColumn truncatedListData ">joeroo@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 889-452-1506</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_112_44" class="defaultPointer editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_112_44" href="#!" style="display:inline-flex">Hired<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/110'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=112'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/44/candidateId/112'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-candidate-id="113"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_113_44"/><label
+                            for="checkbox_113_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Martine  Tennat</td>
+                                <td class="dataColumn truncatedListData ">martinetennat@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 848-452-1305</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_113_44" class="defaultPointer editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_113_44" href="#!" style="display:inline-flex">Hired<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/111'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=113'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/44/candidateId/113'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="44"  data-candidate-id="114"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_114_44"/><label
+                            for="checkbox_114_44" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Software QA Engineer</td>
+                                <td class="dataColumn truncatedListData ">Maxine  Curry</td>
+                                <td class="dataColumn truncatedListData ">maxinecurr@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 342-452-5643</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_114_44" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_114_44" href="#!" style="display:inline-flex">Interview<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/112'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=114'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/44/candidateId/114'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-candidate-id="117"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_117_45"/><label
+                            for="checkbox_117_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">Charles  Haywire</td>
+                                <td class="dataColumn truncatedListData ">charleshey@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 876-452-1342</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_117_45" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_117_45" href="#!" style="display:inline-flex">Interview<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/115'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=117'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/45/candidateId/117'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-candidate-id="119"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_119_45"/><label
+                            for="checkbox_119_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">John  Abruzzi</td>
+                                <td class="dataColumn truncatedListData ">johnabruzzi@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 888-342-1505</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_119_45" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_119_45" href="#!" style="display:inline-flex">Shortlisted<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/117'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=119'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/45/candidateId/119'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="45"  data-candidate-id="122"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_122_45"/><label
+                            for="checkbox_122_45" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Sales Manager</td>
+                                <td class="dataColumn truncatedListData ">John  Sherlock</td>
+                                <td class="dataColumn truncatedListData ">johnsherlock@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">+1 543-452-1505</td>
+                                <td class="dataColumn truncatedListData ">Fri, 26 Apr 2019</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_122_45" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_122_45" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/120'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=122'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/45/candidateId/122'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="68"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_68_32"/><label
+                            for="checkbox_68_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Sania  Shaheen</td>
+                                <td class="dataColumn truncatedListData ">sania@hotmail.com</td>
+                                <td class="dataColumn truncatedListData ">1234566789012</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_68_32" class="defaultPointer editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_68_32" href="#!" style="display:inline-flex">Hired<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/66'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=68'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/68'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="69"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_69_32"/><label
+                            for="checkbox_69_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Tara  Webster</td>
+                                <td class="dataColumn truncatedListData ">tara12@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">12345678909</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_69_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_69_32" href="#!" style="display:inline-flex">Final Interview- CEO<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/67'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=69'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/69'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="70"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_70_32"/><label
+                            for="checkbox_70_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Amy  Archie</td>
+                                <td class="dataColumn truncatedListData ">amy@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">8846746588</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_70_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_70_32" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/68'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=70'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/70'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="71"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_71_32"/><label
+                            for="checkbox_71_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Latona  Kambock</td>
+                                <td class="dataColumn truncatedListData ">latona@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">75434226473</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_71_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_71_32" href="#!" style="display:inline-flex">Job Knowledge Test<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/69'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=71'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/71'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="72"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_72_32"/><label
+                            for="checkbox_72_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Krystyna  Malkovich</td>
+                                <td class="dataColumn truncatedListData ">kryst27@yahoo.com</td>
+                                <td class="dataColumn truncatedListData ">53657846698</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_72_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_72_32" href="#!" style="display:inline-flex">Interview with Managers<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/70'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=72'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/72'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="73"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_73_32"/><label
+                            for="checkbox_73_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Mingy lu Pixie</td>
+                                <td class="dataColumn truncatedListData ">mingming@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">456789808765</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_73_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_73_32" href="#!" style="display:inline-flex">Shortlisted<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/71'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=73'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/73'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="32"  data-candidate-id="74"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_74_32"/><label
+                            for="checkbox_74_32" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Customer Success Executive</td>
+                                <td class="dataColumn truncatedListData ">Bob  Linkon</td>
+                                <td class="dataColumn truncatedListData ">bobby@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">1234567</td>
+                                <td class="dataColumn truncatedListData ">Wed, 23 May 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_74_32" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_74_32" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/72'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=74'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/32/candidateId/74'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="59"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_59_29"/><label
+                            for="checkbox_59_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Archie  Augustine</td>
+                                <td class="dataColumn truncatedListData ">archieA@hotmail.com</td>
+                                <td class="dataColumn truncatedListData ">8886434532</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_59_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_59_29" href="#!" style="display:inline-flex">Final Interview<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/57'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=59'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/59'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="60"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_60_29"/><label
+                            for="checkbox_60_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Elizabeth  Scott</td>
+                                <td class="dataColumn truncatedListData ">beth.scott@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">23456789078</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_60_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_60_29" href="#!" style="display:inline-flex">Interview with Supervisor<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/58'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=60'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/60'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="61"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_61_29"/><label
+                            for="checkbox_61_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Johan  Conell</td>
+                                <td class="dataColumn truncatedListData ">johan.connell@gmail.com</td>
+                                <td class="dataColumn truncatedListData "></td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_61_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_61_29" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/59'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=61'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/61'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="62"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_62_29"/><label
+                            for="checkbox_62_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Joshua  Malfoy</td>
+                                <td class="dataColumn truncatedListData ">josh@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">99999998765</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_62_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_62_29" href="#!" style="display:inline-flex">Job Offer<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/60'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=62'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/62'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="63"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_63_29"/><label
+                            for="checkbox_63_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Mason  Jenson</td>
+                                <td class="dataColumn truncatedListData ">mason@hotmail.com</td>
+                                <td class="dataColumn truncatedListData ">771112342</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_63_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_63_29" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/61'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=63'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/63'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="64"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_64_29"/><label
+                            for="checkbox_64_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Elizabeth  Scott</td>
+                                <td class="dataColumn truncatedListData ">elizabeth@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">666781123</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_64_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_64_29" href="#!" style="display:inline-flex">Job Knowledge Test<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/62'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=64'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/64'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="65"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_65_29"/><label
+                            for="checkbox_65_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Sienna  Miller</td>
+                                <td class="dataColumn truncatedListData ">sienna@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">1122788544</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_65_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_65_29" href="#!" style="display:inline-flex">Interview with Supervisor<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/63'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=65'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/65'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="66"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_66_29"/><label
+                            for="checkbox_66_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Muhammed  Nabeel</td>
+                                <td class="dataColumn truncatedListData ">nabeel@hotmail.com</td>
+                                <td class="dataColumn truncatedListData ">11321211123</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_66_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_66_29" href="#!" style="display:inline-flex">Hired<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/64'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=66'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/66'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="29"  data-candidate-id="67"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_67_29"/><label
+                            for="checkbox_67_29" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Production Manager</td>
+                                <td class="dataColumn truncatedListData ">Matilda  Fleenor</td>
+                                <td class="dataColumn truncatedListData ">matilda@gmail.com</td>
+                                <td class="dataColumn truncatedListData ">6623221123</td>
+                                <td class="dataColumn truncatedListData ">Fri, 06 Apr 2018</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_67_29" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_67_29" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/65'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=67'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/29/candidateId/67'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="7"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_7_7"/><label
+                            for="checkbox_7_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Anne  Clinton</td>
+                                <td class="dataColumn truncatedListData ">anne@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">5756521089</td>
+                                <td class="dataColumn truncatedListData ">Mon, 14 Mar 2016</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_7_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_7_7" href="#!" style="display:inline-flex">Rejected<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/13'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=7'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/7'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="8"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_8_7"/><label
+                            for="checkbox_8_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Daniel  Nolan</td>
+                                <td class="dataColumn truncatedListData ">daniel@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">789857567</td>
+                                <td class="dataColumn truncatedListData ">Mon, 14 Mar 2016</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_8_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_8_7" href="#!" style="display:inline-flex">IQ Test, 1st interview , 1st interview - IT, First Interview<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/12'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=8'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/8'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="14"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_14_7"/><label
+                            for="checkbox_14_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Gerad  Butler</td>
+                                <td class="dataColumn truncatedListData ">gerad@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">1-456-8695</td>
+                                <td class="dataColumn truncatedListData ">Mon, 14 Mar 2016</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_14_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_14_7" href="#!" style="display:inline-flex">First Interview, 1st interview , IQ Test, 1st interview - IT<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/18'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=14'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/14'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="15"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_15_7"/><label
+                            for="checkbox_15_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Chris  Harris</td>
+                                <td class="dataColumn truncatedListData ">chris@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">1-456-8745</td>
+                                <td class="dataColumn truncatedListData ">Thu, 04 Dec 2014</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_15_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_15_7" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/19'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=15'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/15'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="16"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_16_7"/><label
+                            for="checkbox_16_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Mike  Copeland</td>
+                                <td class="dataColumn truncatedListData ">mike@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">1-456-8745</td>
+                                <td class="dataColumn truncatedListData ">Thu, 04 Dec 2014</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_16_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_16_7" href="#!" style="display:inline-flex">1st interview , IQ Test, 1st interview - IT, First Interview<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/20'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=16'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/16'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="13"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_13_7"/><label
+                            for="checkbox_13_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Phil  Hughes</td>
+                                <td class="dataColumn truncatedListData ">ryan@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">1-456-8965</td>
+                                <td class="dataColumn truncatedListData ">Fri, 10 Jan 2014</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_13_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_13_7" href="#!" style="display:inline-flex">1st interview - IT, 1st interview , IQ Test, First Interview<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/17'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=13'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/13'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="12"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_12_7"/><label
+                            for="checkbox_12_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">Jennifer  Clinton</td>
+                                <td class="dataColumn truncatedListData ">jen@orangehrm.com</td>
+                                <td class="dataColumn truncatedListData ">1-456-8965</td>
+                                <td class="dataColumn truncatedListData ">Thu, 09 Jan 2014</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_12_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_12_7" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/10'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=12'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/12'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+    <tr class="dataDefaultRaw dataRaw handCuser"  data-vacancy-id="7"  data-candidate-id="11"  >                            <td class="material-checkbox" style="width:100px"><input type="checkbox" class="filled-in"
+                                                                         id="checkbox_11_7"/><label
+                            for="checkbox_11_7" style="margin-bottom:-11px;"></label></td>
+
+                                            <td class="dataColumn truncatedListData ">Technical Support Engineer</td>
+                                <td class="dataColumn truncatedListData ">andrew  Keller</td>
+                                <td class="dataColumn truncatedListData ">andrew@orangehrm.com.com</td>
+                                <td class="dataColumn truncatedListData ">1-456-8965</td>
+                                <td class="dataColumn truncatedListData ">Fri, 03 Jan 2014</td>
+                                <td class="dataColumn truncatedListData "><a id="currentSelectedStage_11_7" class="dropdown-button editable candidateStageColumn" data-constrainwidth="false" data-alignment="left" data-gutter="0" data-activates="stages_11_7" href="#!" style="display:inline-flex">Application Received<i class="candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons">arrow_drop_down</i></a></td>
+                            <td class="dataColumn truncatedListData "><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/viewCandidateAttachment/attachId/11'" data-position="top" data-delay="50"  data-tooltip="Download Resume" style="margin-left:-14px; margin-top:-5px; margin-bottom:-5px; max-width: 35px">file_download</i><i class=" mdi-file-file-download waves-effect waves-circle waves-light tooltipped material-icons" onclick="window.location.href = '/recruitment/exportCandidateApplicationFormPdf?candidateId=11'" data-position="top" data-delay="50"  data-tooltip="Download Application Form" style="margin-left:-9px; margin-top:-5px; margin-bottom:-5px; max-width: 26px">form_download</i><i
+							class=" mdi-social-group waves-effect waves-circle waves-light tooltipped material-icons"
+							data-position="top" data-delay="50" data-tooltip="Compare With Other Candidates" onclick="window.location.href = '/recruitment/forwardToCandidatePipelineAjax/vacancyId/7/candidateId/11'" style="margin-left:-1px; margin-top:-5px; margin-bottom:-5px; max-width:23px">group</i></div></td>
+                </tr>
+
+<script>
+    $pageHolder = $('.pageholder');
+    if ($pageHolder.find("[id^='checkbox']").length == 0) {
+        $("label[for='selectAll']").css("visibility", "hidden");
+//        $pageHolder.find("#selectAll").closest(".material-checkbox").css("visibility", "hidden")
+    }
+</script>
+        </tbody>
+    </table>
+    <form hidden="hidden" method="post" id="defaultMaterialListForm">
+            <input type="hidden" name="defaultMaterialList[_csrf_token]" value="7344a6f1cd0ba2800ba0705a41787a6e" id="defaultMaterialList__csrf_token" />    </form>
+    <div class="right-align pagination-config" data-rows-per-page="50"
+         accesskey="" data-page-no="1"
+         style="height: 56px; cursor: initial; margin: 0px; padding: 0px; font-size:15px">
+        <div id="nextPageTrigger" style="width: 24px; margin-right: 60px; padding-top: 26px;" class="right">
+            <i class="small mdi-hardware-keyboard-arrow-right handCuser material-icons" style="font-size:30px">chevron_right</i>
+        </div>
+        <div id="previousPageTrigger" style="width: 24px; margin-right: 24px; padding-top: 26px;" class="right">
+            <i class="small mdi-hardware-keyboard-arrow-left handCuser material-icons" style="font-size:30px">chevron_left</i>
+        </div>
+        <div id="fromToOf" style="width: 12%; margin-right: 32px; margin-top:15px" class="right">
+            <div class="pagination">1 - 37 of 37</div>
+        </div>
+        <div style="width: 24px; margin-right: 32px;padding-top: 28px;" class="right">
+            <i data-activates='dropdown1' class="small mdi-navigation-arrow-drop-down dropdown-button-noOfRows handCuser material-icons"
+               style="font-size:30px;">arrow_drop_down</i>
+        </div>
+        <div style="width: 40px;" class="right">
+            <div class="pagination" id="rowsperpage" style="margin-top:15px">50</div>
+            <ul id='dropdown1' class='dropdown-content rowsperpage-dropdown' style="width: 70px;">
+                <li class="rowsperpageLi "><a>10</a></li>
+                <li class="rowsperpageLi "><a>20</a></li>
+                <li class="rowsperpageLi selected"><a>50</a></li>
+                <li class="rowsperpageLi "><a>100</a></li>
+            </ul>
+        </div>
+        <div style="width: 150px; margin-top:15px" class="right" >
+            <div class="pagination">Rows per page</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var noRecordsFoundString = "No records found";
+    var pageConfig = {"headers":{"vacancy":{"name":"Vacancy","order":"","isSortable":true,"sortValue":"vacancy"},"candidate":{"name":"Candidate","order":"","isSortable":true,"sortValue":"candidate"},"email":{"name":"Email","order":"","isSortable":true,"sortValue":"email"},"contact_number":{"name":"Contact Number","order":"","isSortable":true,"sortValue":"contact_number"},"date_applied":{"name":"Date applied","order":"arrow_upward","isSortable":true,"sortValue":"date_applied"},"stage":{"name":"Stage","order":"","isSortable":false,"sortValue":"stage"},"resume":{"name":" ","order":"","isSortable":false,"sortValue":"resume"}},"rowCount":37,"rowsPerPage":50,"pageNo":1,"from":1,"to":37,"total":"37","url":"\/recruitment\/viewCandidates","form":"candidateSearchForm","addButtonTooltip":"Add Candidate","deleteButtonTooltip":"Delete Candidates","columnWidths":["5%","15%","","15%","12%","13%","15%","10%"]};
+    var selectAll_id = 'selectAll';
+    var deselectAll_id = 'deselectAll';
+    var configureList_id = 'ohrmList_configList';
+    var menuDropDownId = 'ohrmList_dropDownMenu';
+    var viewCandidateList = '1';
+
+    $(document).ready(function () {
+//        var arrow_downward = "arrow_downward";
+//        $("th.sortableHeader").click(function() {
+//            var sortField = $(this).attr('sortValue');
+//            var pageNo = 1;
+//            var arrow = $(this).find("i").html();
+//            var sortOrder = "ASC";
+//            if (trim(arrow) == arrow_downward) {
+//                sortOrder = "DESC";
+//            }
+//            $("#vacancyTableContainer").innerHTML($("#preloderHiddneDiv").innerHTML());
+////            window.location.href = viewJobVacancyUrl + "?pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder;
+//        });
+        var selectAllAnchorId = "#" + selectAll_id;
+        var deselectAllAnchorId = "#" + deselectAll_id;
+        var configureListAnchorId = "#" + configureList_id;
+        $('.dropdown-button-menuList').dropdown({constrain_width: false});
+        $(deselectAllAnchorId).parent().hide();
+    });
+</script>    </div>
+</div>
+<form hidden="hidden" method="post" id="defaultForm">
+    <input type="hidden" name="default[_csrf_token]" value="56b93026c24163ad6022d02090f9f40a" id="default__csrf_token" /></form>
+
+<div id="preloderDiv" class="col l12 center overlay">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var saveSuccessString = "Successfully Saved";
+    var candidatesString = "Candidates";
+    var archiveCandidateActionUrl = '/csvExport/candidateCsvDataExport';
+    var IsSessionTimedOutAjaxAction = '/recruitment/IsSessionTimedOutAjax';
+    var changeCandidateStageUrl = '/recruitment/changeCandidateStatusAjax'
+    var candidateProfileUrl = '/recruitment/candidateProfile';
+    var viewCandidatesUrl = '/recruitment/viewCandidates';
+    var deleteContentUrl = "/recruitment/deleteCandidateVacancies";
+    var archiveCandidatesUrl = "/archivedCandidatesSearch/archiveCandidates";
+    var cvPostProcessUrl = "/recruitment/candidateCvPostProcess";
+    var msgSuccessfullyDeleted = "Successfully Deleted";
+    var lang_required = 'Required';
+    var lang_validEmail = 'Invalid email';
+    var lang_tooLargeInput = "Should be less than 30 characters";
+    var lang_noMoreThan250 = "Should be less than 250 characters";
+    var lang_validPhoneNo = "Allows numbers and only + - / ( )";
+    var lang_fileSizeInvalid = "File size should be less than 5MB";
+    var maxValidResumeFileSize = 5242880;
+    var lang_noMoreThan254 = "Should be less than 254 characters";
+    var newCandidateId = false;
+    var searchedVacancyName = "";
+    var vacancyId = "";
+    var lang_fileTypeInvalid = "File type not allowed";
+    var toastFrom = "";
+    var toastType = "";
+    var localizationDateFormat = "D, d M Y";
+    var lang_stageSuccess = "recruitment stage successfully updated";
+    var toDateValidMsg = "To date should be after from date";
+    var fromDateValidMsg = "From date should be before to date";
+    var getVacancyDataByVacancyIdAjaxUrl = '/recruitment/getVacancyDataByVacancyIdAjax';
+</script>
+                  
+<div id="helpButtonHolder"></div>
+
+<script>
+    var restrictHelpButton =  ""==1;
+    var actionName = "viewCandidates";
+    var moduleName = "recruitment";
+    var helpText = 'Help';
+    var helpUrl = '/help/help';
+</script>
+            </div> <!-- content -->
+          
+        </div> <!-- wrapper -->
+        <script>
+            localizedDateTextObject = JSON.parse('{"Today":"Today","Tomorrow":"Tomorrow","Yesterday":"Yesterday","Monday":"Monday","Tuesday":"Tuesday","Wednesday":"Wednesday","Thursday":"Thursday","Friday":"Friday","Saturday":"Saturday","Sunday":"Sunday","Jan":"Jan","Feb":"Feb","Mar":"Mar","Apr":"Apr","May":"May","Jun":"Jun","Jul":"Jul","Aug":"Aug","Sep":"Sep","Oct":"Oct","Nov":"Nov","Dec":"Dec","Sun":"Sun","Mon":"Mon","Tue":"Tue","Wed":"Wed","Thu":"Thu","Fri":"Fri","Sat":"Sat","January":"January","February":"February","March":"March","April":"April","June":"June","July":"July","August":"August","September":"September","October":"October","November":"November","December":"December"}');
+        </script>
+ 
+        <script type="text/javascript">
+
+            jQuery(document).ready(function() {                            
+                
+                /* Enabling tooltips */
+                jQuery(".tiptip").tipTip();
+
+                /* Toggling header menus */
+                jQuery("#welcome").click(function () {
+                    jQuery("#welcome-menu").slideToggle("fast");
+                    jQuery(this).toggleClass("activated-welcome");
+                    return false;
+                });
+                
+                jQuery("#help").click(function () {
+                    jQuery("#help-menu").slideToggle("fast");
+                    jQuery(this).toggleClass("activated-help");
+                    return false;
+                });
+                
+                jQuery('.panelTrigger').outside('click', function() {
+                    jQuery('.panelContainer').stop(true, true).slideUp('fast');
+                });                
+
+                /* 
+                 * Button hovering effects 
+                 * Note: we are not using pure css using :hover because :hover applies to even disabled elements.
+                 * The pseudo class :enabled is not supported in IE < 9.
+                 */                
+                jQuery(document).on({
+                    mouseenter: function () {
+                        jQuery(this).addClass('hover');                        
+                    },
+                    mouseleave: function () {
+                        jQuery(this).removeClass('hover');                        
+                    }
+
+                }, 'input[type=button], input[type=submit], input[type=reset]'); 
+  
+                /* Fading out main messages */
+                jQuery(document).on({
+                    click: function() {
+                        jQuery(this).parent('div.message').fadeOut("slow");
+                    }
+                }, '.message a.messageCloseButton');
+
+                jQuery(document).on({
+                    click: function() {
+                        jQuery(this).parent('div.message').find('div.detailedMessage').toggle();
+                        if (jQuery('#showDetailedMessageTick').hasClass('ui-icon-triangle-1-e')){
+                         jQuery('#showDetailedMessageTick').removeClass('ui-icon-triangle-1-e');
+                         jQuery('#showDetailedMessageTick').addClass('ui-icon-triangle-1-s');
+                       } else if(jQuery('#showDetailedMessageTick').hasClass('ui-icon-triangle-1-s')){
+                         jQuery('#showDetailedMessageTick').removeClass('ui-icon-triangle-1-s');
+                         jQuery('#showDetailedMessageTick').addClass('ui-icon-triangle-1-e');
+                       }
+                    }
+                }, '.message a.showDetailedMessage');
+
+                /* Toggling search form: Begins */
+                //jQuery(".toggableForm .inner").hide(); // Disabling this makes search forms to be expanded by default.
+
+                jQuery(document).on("click",".toggableForm .toggle",function () {
+                    jQuery(this).parents('.toggableForm').find('.inner').slideToggle('slow', function() {
+//                    jQuery(".toggableForm .inner").slideToggle('slow', function() {
+                        if(jQuery(this).is(':hidden')) {
+                            jQuery(this).parents('.toggableForm').find('.tiptip').tipTip({content:'Expand for Options'});
+                        } else {
+                            jQuery(this).parents('.toggableForm').find('.tiptip').tipTip({content:'Hide Options'});
+                        }
+                    });
+                    
+                    jQuery(this).toggleClass("activated");
+                });
+                /* Toggling search form: Ends */
+
+                /* Enabling/disabling form fields: Begin */
+                
+                jQuery('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').attr('disabled', 'disabled');
+                jQuery('form.clickToEditForm input.calendar').datepicker('disable');
+                jQuery('form.clickToEditForm input[type=button]').removeAttr('disabled');
+                
+                jQuery('form input.editButton').click(function(){
+                    jQuery('form.clickToEditForm input, form.clickToEditForm select, form.clickToEditForm textarea').removeAttr('disabled');
+                    jQuery('form.clickToEditForm input.calendar').datepicker('enable');
+                });
+                
+                /* Enabling/disabling form fields: End */
+                
+            });
+            
+        </script>        
+
+    </body>
+    
+</html>
+

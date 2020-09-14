@@ -1,0 +1,15 @@
+PUT https://bn1304.settings.live.net:443/mydata/windows/settings_devices?NotificationSubscriptions(WLS_SubscriptionId_395319B3-CFBE-4575-9B84-847495A454C5) HTTP/1.1
+Accept: application/web3s+xml
+Accept-Encoding: gzip
+Authorization: WLID1.1 t=EwCQAshGBAAUT1SmJeoy6TKmERgyyGhESye4WfSAABId06Aepjj4Odjn2BUeo8kKHi7tM++W1LxXzzwAaCTq3u1CPG3YBCkJbd9YjwnhpFdWr2ElP1a+jjfAvto18vnvIluH6dvRE20ahT2VSjbsEz1YrCeEFhRQ+5RsBS/XL6Qyb63V/H0/UmHCLYYyIEraSH0cVNMPCOCCf3n4zbsGA2YAAAjYE/+14hW6s+AB/5WUACbVfzCcBEuVfBLJ98nj5P+tUZzFPJo+oOPTneDtS3zTin9V4cXl+HG66NVLBkG39dio4c980PjVBnwI7PUjTD7jP2Hdu9ExK3dtWrzceoWWyKULcf5hs2R5yaIq6s+eKHprlkTkrvIfyQTwoLgT8p+Pf3MfRliIooV0vH/bMzcTWnz24W+QL2IT8EuYU64QjyJyLWg4sq8yzOS2t3iXS3PGc1Z9xBCjuhHi60xuKVmDwZBZPorrnXUVhCudoSAIMDeUyvu5ElXqZ/txsSLIFl9RFBHi7dxEkF/T7LVGyTwXSzLuHEJUCwFcHMRTdV6MWu1B/uekQgZz+BffDRpMe6GF7nkLjybkD8mvstyIkt2BmtwIfAHr6RSln7ieYDQs7YHLNlRhmc5o9ZqFTVunt33Xn0rsj3oZsweGlfKSbNm+kpDJXMcIsRo0lIDcK6n4hI++gTFX/UClLgZMrBSAJ3fvHaa0bAamy+SZfiz+Hsggsx3XUwGBh4IGPhETS7uIegPHIciSZAljD2otXiFhwjxR2RudKtPKeoXXOU1JnKF8qoFFppRtE1T+VeaWoZFEdhfUDzJ7bqDYBZW3M91Q8lYDyxHTgewkDl0uD8iqrUzT/vqPYMVqhRAWqmJoKQI=&p=
+Content-Type: application/web3s+xml
+X-Scenario: SettingsSync_NotificationSubscription_CollectionInterest
+Application: SettingsSync Windows 6.3
+X-UserAgent: Microsoft SettingsSync (6.3.9600.17415) Windows NT 6.3 (0603) Mobile IsNotAoAc
+Content-Encoding: gzip
+User-Agent: Microsoft SettingsSync (6.3.9600.17415) Windows NT 6.3 (0603) Mobile IsNotAoAc
+Host: bn1304.settings.live.net
+Content-Length: 295
+Cache-Control: no-cache
+
+<NotificationSubscription><Url>https://sg2p.notify.windows.com/?token=AwYAAABcVA1Na%2faQ0loCg0i5VfByw1V5gzgix8YeZ20gpqcdYVsy0c2O6wAJ5NVgY3G9Nj%2ffvEzm1Dij4zpDMcSWL%2bzxkz9kLC%2bXaYebGGTdd7mZ2JcpO5Xi02GygCkTmGcoK6o%3d</Url><SecondsToExpiry>2443919</SecondsToExpiry><Scenarios><Scenario>CollectionInterestCount</Scenario></Scenarios><DestinationType>Wns</DestinationType></NotificationSubscription>

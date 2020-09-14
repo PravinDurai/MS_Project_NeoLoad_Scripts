@@ -1,0 +1,9 @@
+GET https://app.link:443/_r?sdk=web2.52.3&_t=815917046602375585&branch_key=key_live_knJAF6W45vSHVJiP0wn8figpqFePX59K&callback=branch_callback__0 HTTP/1.1
+Host: app.link
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://twitter.com/explore
+Connection: keep-alive
+

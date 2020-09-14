@@ -1,0 +1,11 @@
+GET https://fls-eu.amazon.in:443/1/batch/1/OP/A21TJRUUN4KGV:259-5549146-3116120:69TG6AVCW9A4WY3XQGA1$uedata=s:%2Fgp%2Fuedata%3Fstaticb%26id%3D69TG6AVCW9A4WY3XQGA1:0 HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: fls-eu.amazon.in
+DNT: 1
+Connection: Keep-Alive
+Cookie: session-id=259-5549146-3116120; session-id-time=2082787201l; i18n-prefs=INR
+

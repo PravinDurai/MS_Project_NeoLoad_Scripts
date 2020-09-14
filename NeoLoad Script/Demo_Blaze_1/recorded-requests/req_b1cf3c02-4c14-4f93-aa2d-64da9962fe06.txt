@@ -1,0 +1,11 @@
+OPTIONS https://api.twitter.com/graphql/a10bbu0SnDmUO64IEtplJQ/Viewer?variables=%7B%22withHighlightedLabel%22%3Afalse%2C%22withUserResult%22%3Afalse%7D HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+access-control-request-method: GET
+access-control-request-headers: authorization,content-type,x-csrf-token,x-guest-token,x-twitter-active-user,x-twitter-client-language
+referer: https://twitter.com/settings
+origin: https://twitter.com
+te: trailers
+

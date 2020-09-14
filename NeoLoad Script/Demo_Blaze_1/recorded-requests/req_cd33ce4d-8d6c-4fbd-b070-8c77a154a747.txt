@@ -1,0 +1,12 @@
+GET https://api.openweathermap.org:443/data/2.5/weather?appid=4c48e554026a4c9e97b3b2dc8824b559&lat=8.7674&lon=78.1342&units=metric&z=90883 HTTP/1.1
+Host: api.openweathermap.org
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Origin: chrome-extension://pilplloabdedfmialnfchjomjmpjcoej
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+

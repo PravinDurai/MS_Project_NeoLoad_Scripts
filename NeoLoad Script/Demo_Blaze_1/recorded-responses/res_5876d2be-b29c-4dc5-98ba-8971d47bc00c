@@ -1,0 +1,97 @@
+function MaterializeWidgetSelect($root) {
+    var $holder = $root.find('.materialize-contenteditable');
+    var unselectAll = function () {
+        $root.find('.materialize-contenteditable').html("");
+        $root.find('.materialize-widget-employee-hidden-input').remove();
+        $root.find('.searchSingleObjectLi').addClass("not-selected");
+        $root.siblings('.label').removeClass("active");
+    }
+    var selectOne = function (objId, objName) {
+        $temElement = $(document.createElement('div'));
+        $temElement.html(objName);
+        objName = $temElement.text();
+
+        $holder.text(objName.trim());
+
+        $root.siblings('.label').addClass("active");
+        $("#" + $root.data('id') + '_input').remove();
+        $root.append('<input class="materialize-widget-employee-hidden-input" id="' + $root.data('id') + '_input" name="' + $root.data('name')+ '" value="' + objId + '"style="display:none"></input>');
+        //$root.find('#' + $root.data('rand-id') + '_search_' + objId).removeClass('not-selected').hide();
+    }
+    var unselectOne = function (objId) {
+        $root.find('#' + $root.data('id') + '_' + objId).remove();
+        $root.find('#' + $root.data('rand-id') + '_search_' + objId).addClass('not-selected');
+        $holder.blur();
+        $holder.find('.selected-employee').each(function () {
+            if ($(this).data('emp-number') == objId) {
+                $(this).remove();
+            }
+        });
+        $root.find('.dropdownObjectSearch').hide();
+    }
+    return {unselectAll: unselectAll, selectOne: selectOne, unselectOne: unselectOne};
+}
+
+
+$(document).ready(function () {
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 200, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+
+    $('.employee-search').live('click', function (e) {
+        e.stopPropagation();
+    });
+
+    var lables = $(".materializeWidgetObjectMultySelect-container").siblings('.label');
+    for(var i = 0 ; i < lables.length; i++){
+        $(lables[i]).live('click', function (e) {
+            var element = this;
+            setTimeout(function() {
+                $("#textarea_"+$(element).attr("for")).click();
+            }, 100);
+        });
+
+    }
+
+    $('.materialize-contenteditable').live('click', function (e) {
+        var $root = $(this).closest('.materializeWidgetObjectMultySelect-container');
+        if ($(e.target).hasClass('remove-employee')) {
+            $empNoToRemove = $(e.target).closest('.selected-employee').data('emp-number');
+            MaterializeWidgetSelect($root).unselectOne($empNoToRemove);
+        } else {
+            $root.find('.employee-search').focus();
+            $root.find('.employee-search').keyup();
+        }
+    });
+
+
+    $('.employee-search').live('keyup', function (e) {
+        var text = $(this).val();
+        var employees = $(this).closest(".materializeWidgetObjectMultySelect-container").find('.searchListObjectName');
+
+        for (var i = 0; i < employees.length; i++) {
+            var candidateName = $(employees[i]).text();
+            if (candidateName.toLowerCase().indexOf(text.toLowerCase()) >= 0) {
+                $(employees[i]).closest('.searchSingleObjectLi.not-selected').show();
+            } else {
+                $(employees[i]).closest('.searchSingleObjectLi.not-selected').hide();
+            }
+        }
+    });
+
+    $('.dropdownObjectSearch > div > .searchSingleObjectLi').live('click', function (e) {
+        $root = $(this).closest(".materializeWidgetObjectMultySelect-container");
+        var empNumber = this.id.split($root.data('rand-id') + "_search_")[1];
+        var empName = $(this).find('p').html();
+        if(empNumber == ""){
+            e.stopPropagation();
+        } else {
+            MaterializeWidgetSelect($root).selectOne(empNumber, empName);
+        }
+    });
+});

@@ -1,0 +1,65 @@
+$(document).ready(function () {
+    $('.datepicker').each(function() {
+        var picker = $(this).pickadate('picker');
+        if(picker){
+            picker.on('set',function(input) {
+                if(input.select){
+                    var datePickerObj=this;
+                    setTimeout(function(){
+                        datePickerObj.close();
+                    }, 50);
+                }
+            });
+        }
+    });
+
+});
+
+function getDatePickerCompatibleDateFormat(dateFormatString) {
+    var datePickerCompatibleDateFormat;
+    switch (dateFormatString) {
+        case 'Y-m-d':
+            datePickerCompatibleDateFormat = 'yyyy-mm-dd';
+            break;
+        case 'd-m-Y':
+            datePickerCompatibleDateFormat = 'dd-mm-yyyy';
+            break;
+        case 'm-d-Y':
+            datePickerCompatibleDateFormat = 'mm-dd-yyyy';
+            break;
+        case 'Y-d-m':
+            datePickerCompatibleDateFormat = 'yyyy-dd-mm';
+            break;
+        case 'm-Y-d':
+            datePickerCompatibleDateFormat = 'mm-yyyy-dd';
+            break;
+        case 'd-Y-m':
+            datePickerCompatibleDateFormat = 'dd-yyyy-mm';
+            break;
+        case 'Y/m/d':
+            datePickerCompatibleDateFormat = 'yyyy/mm/dd';
+            break;
+        case 'Y m d':
+            datePickerCompatibleDateFormat = 'yyyy mm dd';
+            break;
+        case 'Y-M-d':
+            datePickerCompatibleDateFormat = 'yyyy-mmm-dd';
+            break;
+        case 'l, d-M-Y':
+            datePickerCompatibleDateFormat = 'dddd, dd-mmm-yyyy';
+            break;
+        case 'D, d M Y':
+            datePickerCompatibleDateFormat = 'ddd, dd mmm yyyy';
+            break;
+        default:
+            datePickerCompatibleDateFormat = 'yyyy/mm/dd';
+    }
+    return datePickerCompatibleDateFormat;
+}
+
+function setDate() {
+//    alert("set Date function");
+//    var $input = $('.datepicker').pickadate();
+//    var picker = $input.pickadate('picker');
+//    picker.set('select', [2012, 3, 20]);
+}

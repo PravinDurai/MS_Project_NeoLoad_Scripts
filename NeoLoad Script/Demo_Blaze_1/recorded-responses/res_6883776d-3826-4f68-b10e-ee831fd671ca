@@ -1,0 +1,1 @@
+{"data":{"53":{"adminAssigns":true,"supervisorAssigns":true,"essApplies":true,"adminAdjust":true,"isAccrue":true,"isCarryForward":true,"showProjectedBalance":true,"attachment":false,"attachmentMandatory":false,"holidaysAsWorkingDay":false,"weekendsAsWorkingDay":false,"carryForward":{"includeOverdrawnLeave":true,"carryForwardNegative":false,"allowModifyBFAmount":false}}}}

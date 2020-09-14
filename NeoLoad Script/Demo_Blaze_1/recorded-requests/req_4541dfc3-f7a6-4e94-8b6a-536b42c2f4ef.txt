@@ -1,0 +1,4 @@
+GET http://protonstatus.com/vpn_status HTTP/1.1
+Host: protonstatus.com
+Cookie: __cfduid=de2d7dcdcd36f01d3c3555b1f845503b31592432567
+

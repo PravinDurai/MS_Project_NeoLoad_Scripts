@@ -1,0 +1,12 @@
+GET https://bn1304.storage.live.com:443/mydata/myprofile/expressionprofile/profilephoto?depth=infinity&inlineblobs=true&view=windowsprofilephoto HTTP/1.1
+Accept: application/web3s+xml, multipart/related
+Accept-Encoding: gzip
+Authorization: WLID1.1 t=EwAQAzP4AAAUAcev0qJxPacCl2iWfnx0jVS/6QwAAff7UAvADOkZ/+qrrRvddasZIn0kZCQqJl7EA6MO7mzgXjxSrCr/8XDUXniQMW3LNmcsPTs+1OQNllbzRQBNbxcR6j1DRODwAopYzaF81nLJc4W4WHHRNpZc0zU/SBd431kqiLN7y69VDXpBvZnmGuy2S5vpW/U8WLuc7GY/9tMKKmE/agu1J3KXTRmefsqOC6ihTD1+knAkYokTGE4jNo/iMLN7WBGtgjijWoLbi2HsI/UcFVh8UReKoWaVzoHC7PPdXY4Dky4gNPD0sAAWZUfPnTyKNQq2aM4knr5Qi7mNojb5CqxSXimsNTgPNvxl8YiMTglwyYAi3c5hnMne4ZYDZgAACGqx3/IN6IBH4AGF9ED1o+A/LxC6kRISXzlXkqFVoaC2epXx7obNJAqKc3XU4VeFUZrptddSb/MQMzLW6GPISki72ZmxUSlZF/WmSaDZc5kpODoz5lutBu0N5rliq0AXRzGdWDtyyeaSToF+YlMI/UzQMN0hZGrgqdxhsQw6SHh1CqgBoeTMA0CeTWDLlLIUkikKJZrltREzaE5RrDwRRVrvKgQ0oBLPTGYCDItaRMHdZz82iHs/tZeWs8zwbF+MfVvg7kA79WW5/ieZNJ8ThTvnZ+88xDSS0LTMyIp58N2bCY6JKyXN7YSZdzVrPwYz8IZUQAY2OrIRl8MPP7Vo7bads3cYafaMkEPBUUR+0KRqM6nqpPJ7H0WtmNxi/BSEHL5C7hjqlif7gVJAQhn8Kg/8caUNZLjwuAAsu7AWY78qPyxRP4eGTk4s3yLTuEuLoq8u5ieqFzuqii/Cf+cyPVorrhCBlHZDEuFw+Wy6hmnW3c4k0XSDQ9K/42tIdvBdBFEI9KroL4gC2VFzsHLx/h0YZyiU3cVuWVamVOi31VHrmScWEm4/nLR3zKK1jeP572JeBnHaz9LKl2PCD2D4OmC0TVDa183dgmWkpCZfLpJaJqjjvYUw2Ny0uAoOHPaJZmvPfdL+b9cVpTonAg==&p=
+X-Scenario: SettingsSync_UserTile
+If-None-Match: "IAPISHIMMED!b7ed3dd9d21a21ee"
+Application: SettingsSync Windows 6.3
+X-UserAgent: Microsoft SettingsSync (6.3.9600.17415) Windows NT 6.3 (0603) Mobile IsNotAoAc
+User-Agent: Microsoft SettingsSync (6.3.9600.17415) Windows NT 6.3 (0603) Mobile IsNotAoAc
+Host: bn1304.storage.live.com
+Cache-Control: no-cache
+

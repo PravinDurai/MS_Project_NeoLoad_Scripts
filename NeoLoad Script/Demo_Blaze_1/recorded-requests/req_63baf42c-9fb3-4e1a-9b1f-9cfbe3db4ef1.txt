@@ -1,0 +1,12 @@
+POST https://www.google.com/gen_204?s=webhp&t=aft&atyp=csi&ei=hoMfX_SmJred4-EP0buSoA4&rt=wsrt.248,aft.4880,prt.3516&bl=HK0f&ima=1&imad=0&imn=1 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://www.google.com/
+content-type: text/plain;charset=UTF-8
+Content-Length: 0
+origin: https://www.google.com
+cookie: 1P_JAR=2020-07-28-01; NID=204=SJ05TmjdlCr-Smmknqtg4PkKk-5TDBCPU23KHsz4btHifX6ypaaA2wX0iCKIeE1KpDs12lTfmXCHHoS2C3upL5Mqz4LjR_FUQYiVJYouwIcmwrxlk9HaTJUgfiy4oHoGrLO8NkyP_Oq-dJ1NABVgJaCFRW6-AOSes7pTIZ7-SPc
+te: trailers
+

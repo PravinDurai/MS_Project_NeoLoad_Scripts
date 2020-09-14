@@ -1,0 +1,11 @@
+GET https://meta.wikimedia.org:443/w/index.php?title=MediaWiki:Wikiminiatlas.js&action=raw&ctype=text/javascript HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://en.wikipedia.org/wiki/United_States
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: meta.wikimedia.org
+DNT: 1
+Connection: Keep-Alive
+Cookie: WMF-Last-Access=13-Jul-2020; GeoIP=IN:TN:Thoothukudi:8.77:78.13:v4
+

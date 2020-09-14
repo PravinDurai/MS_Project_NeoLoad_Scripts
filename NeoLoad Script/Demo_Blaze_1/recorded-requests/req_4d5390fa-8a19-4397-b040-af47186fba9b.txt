@@ -1,0 +1,10 @@
+GET https://z.moatads.com/addthismoatframe568911941483/moatframe.js HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept: */*
+sec-fetch-site: cross-site
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: http://opencart.abstracta.us/index.php?route=product/product&path=25_28&product_id=42
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+

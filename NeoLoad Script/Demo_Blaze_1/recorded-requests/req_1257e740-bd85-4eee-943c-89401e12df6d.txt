@@ -1,0 +1,9 @@
+OPTIONS https://chatsvcagg.teams.microsoft.com/api/v1/teams/users/me/updates?isPrefetch=false&enableMembershipSummary=true HTTP/2.0
+accept: */*
+accept-encoding: gzip, deflate, br
+accept-language: en-US
+access-control-request-headers: authorization,x-ms-client-env,x-ms-client-type,x-ms-client-version,x-ms-scenario-id,x-ms-session-id,x-ms-synctoken,x-ms-user-type,x-ringoverride
+access-control-request-method: GET
+origin: https://teams.microsoft.com
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.3.00.13565 Chrome/69.0.3497.128 Electron/4.2.12 Safari/537.36
+

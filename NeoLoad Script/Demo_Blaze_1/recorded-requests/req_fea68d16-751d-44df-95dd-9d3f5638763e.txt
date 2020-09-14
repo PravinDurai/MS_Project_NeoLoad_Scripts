@@ -1,0 +1,11 @@
+GET https://upload.wikimedia.org:443/wikipedia/commons/thumb/e/e0/Orange_pog.svg/8px-Orange_pog.svg.png HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://en.wikipedia.org/wiki/List_of_earthquakes_in_1900
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: upload.wikimedia.org
+DNT: 1
+Connection: Keep-Alive
+Cookie: GeoIP=IN:TN:Thoothukudi:8.77:78.13:v4
+

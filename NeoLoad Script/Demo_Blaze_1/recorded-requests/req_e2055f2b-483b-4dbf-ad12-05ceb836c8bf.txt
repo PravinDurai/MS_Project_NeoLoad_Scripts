@@ -1,0 +1,10 @@
+GET https://images-eu.ssl-images-amazon.com:443/images/I/31Za9ooooCL._AC_US160_.jpg HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-eu.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

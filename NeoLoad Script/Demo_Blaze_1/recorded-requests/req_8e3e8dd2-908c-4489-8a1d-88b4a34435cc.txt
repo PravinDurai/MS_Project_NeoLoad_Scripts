@@ -1,0 +1,11 @@
+GET https://s.amazon-adsystem.com:443/ecm3?ex=krux.com&id=NjXQ2I9s HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://aax-eu.amazon-adsystem.com/s/v3/pr?exlist=n-zeotap-4_nsln_af_sx_kr_twca_bsw&fv=1.0&ex-pl-twca=TOAqqD8lT7qfaq6XP3Y_Lg&a=cm
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+DNT: 1
+Cookie: ad-id=A51wYcR770PssWILALv8T3Q; ad-privacy=0
+Connection: Keep-Alive
+Host: s.amazon-adsystem.com
+

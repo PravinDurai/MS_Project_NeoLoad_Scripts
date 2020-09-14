@@ -1,0 +1,11 @@
+GET https://m.media-amazon.com:443/images/G/01/AUIClients/AmazonUIFont-amazonember_rgit-a4dc98d644ff2aedd41da3da462f09ffce86eafb._V2_.woff HTTP/1.1
+Accept: */*
+Referer: https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Origin: https://www.amazon.in
+Accept-Encoding: gzip, deflate
+Host: m.media-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

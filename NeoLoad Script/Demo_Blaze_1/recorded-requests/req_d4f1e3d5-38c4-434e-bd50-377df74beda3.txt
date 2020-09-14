@@ -1,0 +1,12 @@
+GET https://en.wikipedia.org:443/api/rest_v1/page/summary/Lists_of_earthquakes HTTP/1.1
+Accept-Language: en
+Accept: application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.2.0"
+X-Requested-With: XMLHttpRequest
+Referer: https://en.wikipedia.org/wiki/2008_Sichuan_earthquake
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: en.wikipedia.org
+DNT: 1
+Connection: Keep-Alive
+Cookie: WMF-Last-Access=13-Jul-2020; enwikimwuser-sessionId=6f5e051dd3eafa7c6084; WMF-Last-Access-Global=13-Jul-2020; GeoIP=IN:TN:Thoothukudi:8.77:78.13:v4
+

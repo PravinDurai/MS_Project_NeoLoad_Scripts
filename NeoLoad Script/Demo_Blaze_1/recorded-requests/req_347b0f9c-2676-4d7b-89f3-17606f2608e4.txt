@@ -1,0 +1,10 @@
+GET https://aax-eu.amazon-adsystem.com:443/e/xsp/getAdj?placementId=e44985f6-46f4-4231-90aa-f5c16f7c50aa&src=511&slot=desktop-ad-center-1&rid=0101404ed49fc39b6270165d9cb62a4dbc00c6e4e9d209f07605cdd2fb1cdc01a34f&rj=%7B%7D&callback=aax_xsp_render_ad HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://images-eu.ssl-images-amazon.com/images/G/31/ape/sf/whitelisted/desktop/sf-1.50.b1941f9._V410686852_.html
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: aax-eu.amazon-adsystem.com
+DNT: 1
+Connection: Keep-Alive
+

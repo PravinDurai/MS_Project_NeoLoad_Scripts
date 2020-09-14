@@ -1,0 +1,7 @@
+GET https://ssl.gstatic.com/safebrowsing/csd/client_model_v5_ext_variation_0.pb HTTP/2.0
+sec-fetch-site: none
+sec-fetch-mode: no-cors
+sec-fetch-dest: empty
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept-encoding: gzip, deflate, br
+

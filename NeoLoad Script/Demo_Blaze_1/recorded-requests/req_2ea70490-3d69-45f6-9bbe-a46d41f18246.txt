@@ -1,0 +1,14 @@
+POST https://www.amazon.in:443/ah/ajax/counter?ctr=desktop_ajax_atf&exp=1596047700971&rId=69TG6AVCW9A4WY3XQGA1&mkId=A21TJRUUN4KGV&h=46ab4a933febc38562aa8ca24b17a28bc090fee8ecf88904a5fcf03a560d18e7 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Accept: */*
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: www.amazon.in
+Content-Length: 0
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: session-id=259-5549146-3116120; session-id-time=2082787201l; i18n-prefs=INR; csm-hit=tb:s-69TG6AVCW9A4WY3XQGA1|1596047588753&t:1596047588753
+

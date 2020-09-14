@@ -1,0 +1,10 @@
+GET http://www.msftconnecttest.com/connecttest.txt?n=1594677500501 HTTP/1.1
+Host: www.msftconnecttest.com
+Proxy-Connection: keep-alive
+Accept: text/plain
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US
+Cache-Control: no-cache, no-store, must-revalidate
+Content-Type: text/plain
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Skype/8.62.0.83 Chrome/78.0.3904.130 Electron/7.3.1 Safari/537.36
+

@@ -1,0 +1,22 @@
+GET https://www.youtube.com:443/results?search_query=Data+Structures&pbj=1 HTTP/1.1
+Accept: */*
+X-YouTube-STS: 18466
+X-YouTube-Client-Name: 1
+X-YouTube-Client-Version: 2.20200724.05.01
+X-YouTube-Device: cbr=IE&cbrver=11.0&ceng=Trident&cengver=7.0&cos=Windows&cosver=6.3
+X-YouTube-Page-CL: 322907731
+X-YouTube-Page-Label: youtube.ytfe.desktop_20200723_5_RC1
+X-YouTube-Variants-Checksum: 73e5789339b2738655c073bc3e4fb9eb
+X-YouTube-Utc-Offset: 60
+X-YouTube-Ad-Signals: dt=1595816581456&flash=0&frm&u_tz=60&u_his=7&u_java=true&u_h=768&u_w=1366&u_ah=728&u_aw=1366&u_cd=24&u_nplug=2&u_nmime=4&bc=1&bih=650&biw=1349&brdim=0%2C78%2C-8%2C-8%2C1366%2C%2C1382%2C744%2C1366%2C650&vis=1&wgl=true&ca_type=image
+X-SPF-Referer: https://www.youtube.com/results?search_query=Python
+X-SPF-Previous: https://www.youtube.com/results?search_query=Python
+Referer: https://www.youtube.com/results?search_query=Python
+Accept-Language: en-IN
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: www.youtube.com
+DNT: 1
+Connection: Keep-Alive
+Cookie: YSC=F0B4IJmkuqQ; GPS=1; VISITOR_INFO1_LIVE=q2GLwj1B8cU; ST-9anyr1=oq=Data%20Structures&gs_l=youtube.3..0i433i131k1j0i433i131i67k1j0i433i131k1j0i433i131i67k1j0i433i131k1l3j0l7.18101.23004.5.23797.15.8.0.7.7.0.370.1794.3-5.5.0....0...1ac.1.64.youtube..3.12.3146...0i433i67k1j0i67k1j0i433k1.0.CfiLy5RC448&itct=CBUQ7VAiEwjSmrC0sOzqAhXb9zgGHTZsDaE%3D&csn=6zoeX7yNHtuFjuMPqti3uA8
+

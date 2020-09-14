@@ -1,0 +1,14 @@
+GET https://orangehrm-demo-6x.orangehrmlive.com:443/client/client/build/styles/noncore-ce574986e0.css HTTP/1.1
+Host: orangehrm-demo-6x.orangehrmlive.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Accept: application/signed-exchange;v=b3;q=0.9,*/*;q=0.8
+Purpose: prefetch
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: empty
+Referer: https://orangehrm-demo-6x.orangehrmlive.com/auth/login
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: orangehrmSecurityAuthentication_LoginLocationTracker=21232f297a57a5a743894a0e4a801fc3; orangehrm=1223a3bf2638a4a8288e9c95718b06a6; SimpleSAMLSessionID=55feacb69293e7a6a855731997747663
+

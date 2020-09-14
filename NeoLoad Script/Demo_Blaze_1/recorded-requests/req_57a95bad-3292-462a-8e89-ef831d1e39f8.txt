@@ -1,0 +1,11 @@
+GET https://www.google.com:443/gen_204?oq=Machine%20Learning&gs_l=youtube.3..0i433i273k1j0i67k1j0i273k1j0i433i131i273k1j0i67k1j0i433k1j0i433i131k1j0i433k1j0i433i131k1l2j0j0i433k1j0l2.28337.32358.1.33256.16.9.0.6.6.0.602.2185.3-2j2j1.5.0....0...1ac.1.64.youtube..6.10.2813....0.RM0aRomrnrI HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.youtube.com/results?search_query=aws+certification
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.google.com
+DNT: 1
+Connection: Keep-Alive
+Cookie: 1P_JAR=2020-07-27-02; NID=204=nlnyRq22UG5lVG4-F95y8n0-3vYfc4HmT_B9umHoq-hwiE1-_TpXq8MIguLapOAszvJjZaqUDEgXYF1tEQ2lmUNhNdWk6ag4HFZ2hLt3-3l7eSzUY85LnLzNOKE2e8xlqQScjiQqkvxEGNNH_mdKsd9rbEdcWf-D9nB_MiwcA38
+

@@ -1,0 +1,10 @@
+GET https://www.google.com:443/pagead/lvz?req_ts=1595816577&evtid=AKB78ciQtJPAsN-lLBF45S7vIwsexBK0b-BSIikb5NaMFiuJmZaGYutyToPfc_EjS9nL9DfdSbTnLFP-O4IJwW7fSx_7OBbcTg&pg=index&sigh=AKFpyYXpbDXbp6n1kuGKOOX6_xnysn1kIg HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.google.com
+DNT: 1
+Connection: Keep-Alive
+

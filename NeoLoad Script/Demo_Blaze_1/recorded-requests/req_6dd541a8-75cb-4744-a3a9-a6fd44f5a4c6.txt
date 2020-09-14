@@ -1,0 +1,13 @@
+GET https://googleads.g.doubleclick.net:443/pagead/id HTTP/1.1
+Accept: */*
+Referer: https://www.youtube.com/results?search_query=Data+Structures
+Accept-Language: en-IN
+Origin: https://www.youtube.com
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: googleads.g.doubleclick.net
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: IDE=AHWqTUkpTSUtPpbLdZcZU312nKjCx2SkMUrBewej9h-xpfnCNe_YKyqXloUjVUdb
+

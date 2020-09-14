@@ -1,0 +1,10 @@
+GET https://twitter.com/sw.js HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+service-worker: script
+cookie: gt=1287927703190908928; personalization_id="v1_Fj44PYPLCs0vRDgEuA3QGA=="; guest_id=v1%3A159590085757709831; ct0=255c2c9f7c6cab04eaa8445a711fcfda; _ga=GA1.2.528140296.1595900868; _gid=GA1.2.1742176033.1595900868
+cache-control: max-age=0
+te: trailers
+

@@ -1,0 +1,10 @@
+GET https://outlook.live.com:443/apc/trans.gif?974f4e301cd1c203e3006d3da6c0758e HTTP/1.1
+Host: outlook.live.com
+Connection: keep-alive
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Skype/8.62.0.83 Chrome/78.0.3904.130 Electron/7.3.1 Safari/537.36
+

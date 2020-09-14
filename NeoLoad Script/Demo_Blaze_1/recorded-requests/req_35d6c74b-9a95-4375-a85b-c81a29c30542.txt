@@ -1,0 +1,30 @@
+POST https://shavar.services.mozilla.com:443/downloads?client=navclient-auto-ffox&appver=78.0&pver=2.2 HTTP/1.1
+Host: shavar.services.mozilla.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: text/plain
+Content-Length: 761
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+
+ads-track-digest256;a:1581543360
+allow-flashallow-digest256;a:1490633678
+analytics-track-digest256;a:1581379643
+base-cryptomining-track-digest256;a:1576604481
+base-fingerprinting-track-digest256;a:1591204192
+block-flash-digest256;a:1496263270
+block-flashsubdoc-digest256;a:1512160865
+content-track-digest256;a:1594235398
+except-flash-digest256;a:1494877265
+except-flashallow-digest256;a:1490633678
+except-flashsubdoc-digest256;a:1517935265
+mozplugin-block-digest256;a:1471849627
+mozstd-trackwhite-digest256;a:1591204192
+social-track-digest256;a:1594235398
+social-tracking-protection-facebook-digest256;a:1576604481
+social-tracking-protection-linkedin-digest256;a:1576604481
+social-tracking-protection-twitter-digest256;a:1576604481
+google-trackwhite-digest256;

@@ -1,0 +1,11 @@
+GET https://fls-eu.amazon.in:443/1/batch/1/OP/A21TJRUUN4KGV:259-5549146-3116120:3TTW1H94BW7BTRV1T1M8$uedata=s:%2Fmn%2Fsearch%2Fuedata%2F259-5549146-3116120%3Fld%26v%3D0.202699.0%26id%3D3TTW1H94BW7BTRV1T1M8%26ctb%3D1%26sc0%3Diss-init-pc%26bb0%3D395%26cf0%3D8009%26be0%3D8009%26pc0%3D8009%26ld0%3D8009%26t0%3D1596047684029%26pty%3DLanding%26spty%3Dundefined%26pti%3Dundefined%26tid%3D69TG6AVCW9A4WY3XQGA1%26aftb%3D1:8009 HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/computers-and-accessories/b/?ie=UTF8&node=976392031&ref_=nav_cs_pc
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: fls-eu.amazon.in
+DNT: 1
+Connection: Keep-Alive
+Cookie: session-id=259-5549146-3116120; session-id-time=2082758401l; i18n-prefs=INR; ubid-acbin=261-5392048-5305355; x-wl-uid=1CMgkMD+lwTMjFwV0IQsm4ngLqu5vsl9zMx3QYLakUzVDNNP6MdvIDKHKrlqgRJKCNrXy7dSS1us=; session-token=q8yZUOdhZN1NeLM0YIxRinW0/HWfI+pt2oamb6iPzjL3yx4v1xdyP4XWm4Ak4vnOiMQpL/1bB18B3UzvYeM6aSGUI1xGpCccLL0CtyEJG2wLSS+3FI1MzMKDOOXxGRp5xkoT0QU3sTiJl9yfIaTJE/hH/bjZ0Jwf+pekXDzHhNl3Cexz2P2fUbI2gQvv82rU; visitCount=1
+

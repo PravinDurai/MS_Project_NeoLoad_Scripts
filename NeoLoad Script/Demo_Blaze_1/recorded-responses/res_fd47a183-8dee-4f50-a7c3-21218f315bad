@@ -1,0 +1,18 @@
+$(document).ready(function() {
+    tinymce.init({
+        selector: ".tinymce",
+        theme: "modern",
+        plugins: 'advlist,anchor,autolink,autoresize,colorpicker,emoticons,hr,image,link,nonbreaking,pagebreak,paste,preview,print,searchreplace,table,textcolor,wordcount,contextmenu',
+        fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
+        toolbar: "insertfile undo redo | bold italic style-p | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor | fontselect fontsizeselect",
+        image_advtab: true,
+        browser_spellcheck: true,
+        paste_as_text: true,
+        autoresize_max_height: 350,
+        contextmenu_never_use_native: true,
+        valid_classes: {
+            '*': '',
+            'img': 'mce-pagebreak'
+        }
+    });
+});

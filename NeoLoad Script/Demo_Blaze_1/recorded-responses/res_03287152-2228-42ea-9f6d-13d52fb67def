@@ -1,0 +1,233 @@
+/**
+ * OrangeHRM Enterprise is a closed sourced comprehensive Human Resource Management (HRM)
+ * System that captures all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM Inc is the owner of the patent, copyright, trade secrets, trademarks and any
+ * other intellectual property rights which subsist in the Licensed Materials. OrangeHRM Inc
+ * is the owner of the media / downloaded OrangeHRM Enterprise software files on which the
+ * Licensed Materials are received. Title to the Licensed Materials and media shall remain
+ * vested in OrangeHRM Inc. For the avoidance of doubt title and all intellectual property
+ * rights to any design, new software, new protocol, new interface, enhancement, update,
+ * derivative works, revised screen text or any other items that OrangeHRM Inc creates for
+ * Customer shall remain vested in OrangeHRM Inc. Any rights not expressly granted herein are
+ * reserved to OrangeHRM Inc.
+ *
+ * Please refer http://www.orangehrm.com/Files/OrangeHRM_Commercial_License.pdf for the license which includes terms and conditions on using this software.
+ *
+ */
+
+function updatePageNavigationButtons(pageConfig, $pageHolder) {
+    if (pageConfig['to'] >= pageConfig['total']) {
+        $pageHolder.find('#nextPageTrigger').addClass('disabled');
+    } else {
+        $pageHolder.find('#nextPageTrigger').removeClass('disabled');
+    }
+    if (pageConfig['from'] <= 1) {
+        $pageHolder.find('#previousPageTrigger').addClass('disabled');
+    } else {
+        $pageHolder.find('#previousPageTrigger').removeClass('disabled');
+    }
+}
+
+function updateTable($pageHolder, data, callback) {
+    $pageHolder.parent().find('.pagedata > tbody').html(data['page']);
+    $pageHolder.data('page-no', data['pageConfig']['pageNo']);
+    $pageHolder.data('rows-per-page', data['pageConfig']['rowsPerPage']);
+    $pageHolder.find('#rowsperpage').text(data['pageConfig']['rowsPerPage']);
+    $pageHolder.find('#fromToOf > .pagination').html(data['pageConfig']['from'] + " - " + data['pageConfig']['to'] + " of " + data['pageConfig']['total']);
+    updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+    if ($pageHolder.find("[id^='checkbox']").length == 0) {
+        $pageHolder.find("#selectAll").closest(".material-checkbox").find('*').css("visibility", "hidden");
+    } else {
+        $pageHolder.find("#selectAll").closest(".material-checkbox").find('*').css("visibility", "visible");
+    }
+    $pageHolder.find("#selectAll").prop('checked', false);
+    $("#list_item_add").show();
+    $("#list_item_delete").hide();
+    if (updateExtraPageContent) {
+        updateExtraPageContent(data);
+    }
+    if (callback) {
+        callback(data);
+    }
+
+}
+
+
+function updatePageContent(urlToAjax, $pageHolder, callback) {
+    if (pageConfig['form'] != null) {
+        var data = $('#' + pageConfig['form']).serialize();
+    } else {
+        var data = {};
+    }
+    $(".overlay").show();
+    $.ajax({
+        url: urlToAjax,
+        type: "POST",
+        data: data,
+        dataType: "JSON",
+        success: function (data, textStatus, jqXHR) {
+            updateTable($pageHolder, data, callback);
+            $(".overlay").hide();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            location.reload();
+        },
+        complete: function () {
+            if (viewCandidateList == 1) {
+                toggleOptions(false);
+                $(".overlay").hide();
+            }
+        }
+    });
+}
+
+function toggleOptions(state) {
+    if (state) {
+        $('#' + menuDropDownId).find('li > a').each(function () {
+            if (($(this).attr('init-activity') === 'false') || ($(this).attr('init-activity') === "")) {
+                $(this).parent().show();
+            }
+        });
+    } else {
+        $('#' + menuDropDownId).find('li > a').each(function () {
+            if (($(this).attr('init-activity') === 'false') || ($(this).attr('init-activity') === "")) {
+                $(this).parent().hide();
+            }
+        });
+    }
+}
+
+function changeSelectedElement(rowsPerPage) {
+    $('.rowsperpageLi.selected')[0].classList.remove('selected');
+    var dropDownElements = $('.rowsperpageLi');
+    for (i = 0; i < dropDownElements.length; i++) {
+        var inHTML = "<a>"+rowsPerPage+"</a>";
+        if(dropDownElements[i].innerHTML == inHTML){
+            dropDownElements[i].classList.add('selected');
+        }
+    }
+
+}
+
+
+$(document).ready(function () {
+    var selectAllAnchorId = "#" + selectAll_id;
+    var deselectAllAnchorId = "#" + deselectAll_id;
+    var configureListAnchorId = "#" + configureList_id;
+
+    if (viewCandidateList == 1) {
+        toggleOptions(false);
+    }
+
+    $('.dropdown-button-noOfRows').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: false, // Activate on hover
+            gutter: -20,
+        }
+    );
+
+    $('.pageholder').each(function () {
+        updatePageNavigationButtons(pageConfig, $(this));
+    });
+
+    if ($('.dataDefaultRaw').length == 0) {
+        toast.show('info', noRecordsFoundString);
+    }
+
+    $('.rowsperpage-dropdown li>a').live('click', function () {
+        $("html, body").animate({scrollTop: 0}, "fast");
+        $(".overlay").show();
+        var rowsPerPage = $(this).text();
+        changeSelectedElement(rowsPerPage);
+        var url = pageConfig['url'] + "?pageNo=" + 1 + "&rowsPerPage=" + rowsPerPage;
+        updatePageContent(url, $(this).closest('.pagination-config'));
+    });
+
+    $('#previousPageTrigger').live('click', function () {
+        if (!$(this).hasClass('disabled')) {
+            $("html, body").animate({scrollTop: 0}, "fast");
+            $(".overlay").show();
+            var pageNo = parseInt($(this).closest('.pagination-config').data('page-no'));
+            var rowsPerPage = parseInt($(this).closest('.pagination-config').data('rows-per-page'));
+            var url = pageConfig['url'] + "?pageNo=" + (pageNo - 1) + "&rowsPerPage=" + rowsPerPage;
+            updatePageContent(url, $(this).closest('.pagination-config'));
+        }
+    });
+    $('#nextPageTrigger').live('click', function () {
+        if (!$(this).hasClass('disabled')) {
+            $("html, body").animate({scrollTop: 0}, "fast");
+            $(".overlay").show();
+            var pageNo = parseInt($(this).closest('.pagination-config').data('page-no'));
+            var rowsPerPage = parseInt($(this).closest('.pagination-config').data('rows-per-page'));
+            var url = pageConfig['url'] + "?pageNo=" + (pageNo + 1) + "&rowsPerPage=" + rowsPerPage;
+            updatePageContent(url, $(this).closest('.pagination-config'));
+        }
+    });
+
+    if (viewCandidateList == 1) {
+        $('#selectAll').live('click', function () {
+            $("[id^='checkbox']").prop('checked', true);
+            $("#selectAll").prop('checked', true);
+            $(deselectAllAnchorId).parent().show();
+            $(selectAllAnchorId).parent().hide();
+            toggleOptions(true);
+        });
+
+        $('#deselectAll').live('click', function () {
+            $("[id^='checkbox']").prop('checked', false);
+            $("#list_item_add").show();
+            $("#selectAll").prop('checked', false);
+            $(selectAllAnchorId).parent().show();
+            $(deselectAllAnchorId).parent().hide();
+            toggleOptions(false);
+        });
+    } else {
+        $('#selectAll').live('click', function () {
+            if ($("[id^='checkbox']:checkbox:not(:checked)").length > 0) {
+                $("[id^='checkbox']").prop('checked', true);
+                $("#selectAll").prop('checked', true);
+                $("#list_item_add").hide();
+                $("#list_item_delete").show();
+            } else {
+                $("[id^='checkbox']").prop('checked', false);
+                $("#list_item_delete").hide();
+                $("#list_item_add").show();
+                $("#selectAll").prop('checked', false);
+            }
+        });
+    }
+
+
+    if (viewCandidateList == 1) {
+        $("[id^='checkbox']").live('click', function (e) {
+            if ($("[id^='checkbox']:checkbox:checked").length > 0) {
+                $(deselectAllAnchorId).parent().show();
+                toggleOptions(true);
+            } else {
+                $("#list_item_add").show();
+                $(deselectAllAnchorId).parent().hide();
+                toggleOptions(false);
+            }
+        });
+    } else {
+        $("[id^='checkbox']").live('click', function (e) {
+            if ($("[id^='checkbox']:checkbox:checked").length > 0) {
+                $("#list_item_add").hide();
+                $("#list_item_delete").show();
+            } else {
+                $("#list_item_delete").hide();
+                $("#list_item_add").show();
+            }
+            if ($("[id^='checkbox']:checkbox:not(:checked)").length > 0) {
+                $("#selectAll").prop('checked', false);
+            } else {
+                $("#selectAll").prop('checked', true);
+            }
+
+        });
+    }
+});

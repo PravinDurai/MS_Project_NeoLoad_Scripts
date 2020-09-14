@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<updates>
+    <update appVersion="72.0.2" buildID="20200117190643" detailsURL="https://www.mozilla.org/en-US/firefox/72.0.2/releasenotes/" displayVersion="72.0.2" type="minor">
+        <patch type="complete" URL="http://download.mozilla.org/?product=firefox-72.0.2-complete&amp;os=win&amp;lang=en-US" hashFunction="sha512" hashValue="0be1b670ce86b397135c7640e4f5aab98c77a3bc09cc8663d8f5a8529649a1a75c406d30261603dcf2642541e0dd496a4abc14d6c5ebd5f46de206e37b38b096" size="52622988"/>
+    </update>
+</updates>

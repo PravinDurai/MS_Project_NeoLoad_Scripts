@@ -1,0 +1,16 @@
+{
+ "spellingCheckResponse": {
+  "misspellings": [
+   {
+    "charStart": 0,
+    "charLength": 9,
+    "suggestions": [
+     {
+      "suggestion": "Principal"
+     }
+    ],
+    "canAutoCorrect": true
+   }
+  ]
+ }
+}

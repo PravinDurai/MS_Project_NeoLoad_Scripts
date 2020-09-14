@@ -1,0 +1,421 @@
+/**
+ * OrangeHRM Enterprise is a closed sourced comprehensive Human Resource Management (HRM)
+ * System that captures all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM Inc is the owner of the patent, copyright, trade secrets, trademarks and any
+ * other intellectual property rights which subsist in the Licensed Materials. OrangeHRM Inc
+ * is the owner of the media / downloaded OrangeHRM Enterprise software files on which the
+ * Licensed Materials are received. Title to the Licensed Materials and media shall remain
+ * vested in OrangeHRM Inc. For the avoidance of doubt title and all intellectual property
+ * rights to any design, new software, new protocol, new interface, enhancement, update,
+ * derivative works, revised screen text or any other items that OrangeHRM Inc creates for
+ * Customer shall remain vested in OrangeHRM Inc. Any rights not expressly granted herein are
+ * reserved to OrangeHRM Inc.
+ *
+ * Please refer http://www.orangehrm.com/Files/OrangeHRM_Commercial_License.pdf for the license which includes terms and conditions on using this software.
+ *
+ */
+
+var widgetValidators = {
+    requiredSelect: function (value, element, params) {
+        var output = $.validator.methods.required.call(this, value, element, params);
+        if (!output) {
+            $(element).parent().find('input.select-dropdown').removeClass('valid').addClass('validation-error');
+        } else {
+            $(element).parent().find('input.select-dropdown').removeClass('validation-error').addClass('valid');
+        }
+        return output;
+    },
+    requiredObject: function (value, element, params) {
+        var $inputDiv = $(element).siblings('div.materialize-contenteditable.materialize-textarea');
+        var output = ($.trim($inputDiv.html()) == "") ? false : true;
+        $.validator.methods.required.call(this, value, element, output);
+        if (!output) {
+            $inputDiv.removeClass('valid').addClass('validation-error');
+        } else {
+            $inputDiv.removeClass('validation-error').addClass('valid');
+        }
+        return output;
+    },
+    maxFileSize: function (value, element, params) {
+        var $element = $(element);
+        var files = $element.closest('.file-field').find("input:file")[0].files;
+        if (files.length == 0) {
+            return true;
+        }
+        return (params >= files[0].size);
+    },
+    requiredFile: function (value, element, params) {
+        var $element = $(element);
+        var files = $element.closest('.file-field').find("input:file")[0].files;
+        if (files.length == 0) {
+            return false;
+        }
+        return true;
+    },
+    fileType: function (value, element, params) {
+        var $element = $(element);
+        var files = $element.closest('.file-field').find("input:file")[0].files;
+        if (files.length == 0) {
+            return true;
+        }
+        var extension = files[0].name.split('.').pop();
+        if (params.indexOf(extension) != -1) {
+            return true;
+        }
+        return false;
+    },
+    invalidFileType: function (value, element, params) {
+        var $element = $(element);
+        var files = $element.closest('.file-field').find("input:file")[0].files;
+        if (files.length == 0) {
+            return true;
+        }
+        var extension = files[0].name.split('.').pop();
+        if (params.indexOf(extension) == -1) {
+            return true;
+        }
+        return false;
+    },
+    uniqueValue: function (value, element, params) {
+        var $element = $(element);
+        var attr = $element.attr('valid-value');
+        if (typeof attr !== typeof undefined && attr !== false && value.toLowerCase().trim() == attr.toLowerCase().trim()) {
+            return true;
+        }
+        if ($element.attr('data-unique-values')) {
+            var uniqueData = window[$element.data('unique-values')];
+            if (typeof uniqueData === undefined) {
+                return true;
+            } else {
+                return (uniqueData.indexOf(value.toLowerCase().trim()) == -1) ? true : false;
+            }
+        } else {
+            return true;
+        }
+    },
+    socialMediaLink: function (value, element, params) {
+        if(value.indexOf('http') ==-1 && value.indexOf('/') ==-1){
+            return true;
+        } else {
+            var valid=false;
+            switch (params){
+                case 'twitter':
+                    if (/^(https?:\/\/)?((w{3}\.)?)twitter\.com\/(#!\/)?[a-z0-9_]+$/i.test(value)) {
+                        valid= true;
+                    }
+                    break;
+                case 'facebook':
+                    if (/^(https?:\/\/)?((w{3}\.)?)facebook.com\/.*/i.test(value)){
+                        valid= true;
+                    }
+                    break;
+                case 'linkedin':
+                    if (/^(https?:\/\/)?((w{3}\.)?)linkedin.com\/.*/i.test(value)){
+                        valid= true;
+                    }
+                    break;
+            }
+            return valid;
+        }
+    },
+    socialMediaTwitter: function (value) {
+        if (value === '' || (value.indexOf('http') ===-1 && value.indexOf('/') === -1)) {
+            return true;
+        } else {
+            return /^(https?:\/\/)?((w{3}\.)?)twitter\.com\/(#!\/)?[a-z0-9_]+$/i.test(value);
+        }
+    },
+    socialMediaFacebook: function (value) {
+        if (value === '' || (value.indexOf('http') ===-1 && value.indexOf('/') === -1)) {
+            return true;
+        } else {
+            return /^(https?:\/\/)?((w{3}\.)?)facebook\.com\/.*/i.test(value);
+        }
+    },
+    socialMediaLinkedin: function (value) {
+        if (value === '' || (value.indexOf('http') ===-1 && value.indexOf('/') === -1)) {
+            return true;
+        } else {
+            return /^(https?:\/\/)?((w{3}\.)?)([a-zA-Z]+\.)?linkedin\.com\/.*/i.test(value);
+        }
+    }
+};
+
+function validateMaterializeForm(formSelector) {
+    var validatedDateFields, validatedCommonFields;
+    validatedCommonFields = $(formSelector).valid();
+    if ($(formSelector).find('input.datepicker').length > 0) {
+        validatedDateFields = $(formSelector).find('input.datepicker').valid();
+    } else {
+        validatedDateFields = true;
+    }
+    if (validatedCommonFields && validatedDateFields) {
+        return true;
+    }
+    return false;
+}
+
+function disableForm($form) {
+    $form.find('input').attr('disabled', true);
+    $form.find('.materialize-contenteditable').addClass("disabled");
+    $form.find('.materializeWidgetEmployeeMultySelect-container ul').remove();
+    $form.find('.selected-employee p').removeClass('text-darken-2');
+    $form.find('.selected-employee .remove-employee').remove();
+}
+
+function isScrolledIntoView(elem)
+{
+    var $elem = $(elem);
+    var $window = $(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function initDatePicker(selector, options) {
+    if (typeof selector == "undefined") {
+        selector = '.datepicker';
+    }
+    if (typeof options === "undefined") {
+        options = {};
+    }
+    options.today = 'Today';
+    options.clear = 'Clear';
+    options.close = 'Close';
+    options.selectMonths= true;
+    options.selectYears= 100;
+
+    var $input = $(selector).pickadate(options);
+    if ($input.length > 0) {
+        $input.each(function () {
+            $ele = $(this);
+            if ($ele.val() == "") {
+                $ele.siblings('label').removeClass('active');
+            } else {
+                $ele.siblings('label').addClass('active');
+            }
+            $ele.pickadate('picker').on('set', function (context) {
+                if (typeof context !== "undefined" && context.hasOwnProperty("select")) {
+                    $ele.siblings('label').addClass('active');
+                    this.close();
+                }
+            });
+            $ele.pickadate('picker').on('render', function (context) {
+                var pickerInstanceElement = this;
+                this.$node.bind('click', function (e) {
+                    e.stopPropagation();
+                    pickerInstanceElement.open();
+                });
+
+                fixDropDown(this.$root.find('.picker__select--year'));
+                fixDropDown(this.$root.find('.picker__select--month'));
+            });
+            $ele.pickadate('picker').on('close', function () {
+                if ($ele.val() == "") {
+                    $ele.siblings('label').removeClass('active');
+                }
+                var element = this.$node;
+                element.removeClass('active_datepicker');
+                $('.datepicker').blur();
+                $('.picker').blur();
+            });
+            $ele.pickadate('picker').on('open', function() {
+                var element = this.$node;
+                element.addClass('active_datepicker');
+
+                fixDropDown(this.$root.find('.picker__select--year'));
+                fixDropDown(this.$root.find('.picker__select--month'));
+
+                this.$root.mouseup(function (e) {
+                    var containers = $(this).find(".select-dropdown");
+
+                    containers.each(function () {
+                        if (!$(this).is(e.target) && $(this).has(e.target).length === 0)
+                        {
+                            $(this).siblings('input.select-dropdown').trigger('close');
+                        }
+                    });
+
+                });
+            });
+
+        });
+    }
+    return $input;
+}
+
+function fixDropDown(element) {
+    if (!element.hasClass('initialized') && !element.is(':disabled')) {
+
+
+        element.removeClass('browser-default').material_select(function () {
+            element.siblings('input.select-dropdown').trigger('close');
+        });
+
+        var onMouseDown = function (e) {
+            if (e.clientX >= e.target.clientWidth || e.clientY >= e.target.clientHeight) {
+                e.preventDefault();
+            }
+        };
+
+        var onMouseClick = function () {
+            if($(this).closest("div.select-wrapper").length){
+                var dropDown = $(this).closest("div.select-wrapper").find("ul.select-dropdown");
+                dropDown.find('li:nth-child('+parseInt(dropDown.find('li').length/2 + 1)+')')[0].scrollIntoView();
+            }
+        };
+
+        element.siblings('input.select-dropdown').on('click', onMouseClick);
+        element.siblings('input.select-dropdown').on('mousedown', onMouseDown);
+    }
+}
+
+function initDateTimePicker(selector) {
+    if (typeof selector == "undefined") {
+        selector = '.datetimepicker';
+    }
+    var $input = $(selector).pickadatetime();
+    if ($input.length > 0) {
+        if ($input.val() == "") {
+            $input.siblings('label').removeClass('active');
+        } else {
+            $input.siblings('label').addClass('active');
+        }
+        $input.pickadatetime('picker').on('close', function () {
+            $input.siblings('label').addClass('active');
+        });
+
+        $input.pickadatetime('picker').on('clear', function () {
+            if ($input.val() == "") {
+                $input.siblings('label').removeClass('active');
+            }
+        });
+    }
+}
+
+function initMaterialSelect(selector) {
+    if (typeof selector == "undefined") {
+        selector = 'select';
+    }
+    if (!detectIE()) {
+        $(selector).material_select();
+    } else {
+        $(selector).each(function () {
+            $(this).material_select();
+            var $input = $(this).siblings('input.select-dropdown');
+            var $ul = $(this).siblings('ul.dropdown-content');
+            $input.off("blur");
+            $(document).click(function () {
+                $input.trigger('close');
+            });
+            $ul.click(function (event) {
+                event.stopPropagation();
+            });
+            $ul.find('li').click(function (event) {
+                $input.trigger('close');
+            });
+        });
+    }
+}
+
+function detectIE() {
+    var ua = window.navigator.userAgent;
+
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+        return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+    return false;
+}
+
+function getDatePickerCompatibleDateFormat(phpDateFormatString) {
+    var datePickerCompatibleDateFormat;
+    switch(phpDateFormatString) {
+        case 'Y-m-d':
+            datePickerCompatibleDateFormat = 'yyyy-mm-dd';
+            break;
+        case 'd-m-Y':
+            datePickerCompatibleDateFormat = 'dd-mm-yyyy';
+            break;
+        case 'm-d-Y':
+            datePickerCompatibleDateFormat = 'mm-dd-yyyy';
+            break;
+        case 'Y-d-m':
+            datePickerCompatibleDateFormat = 'yyyy-dd-mm';
+            break;
+        case 'm-Y-d':
+            datePickerCompatibleDateFormat = 'mm-yyyy-dd';
+            break;
+        case 'd-Y-m':
+            datePickerCompatibleDateFormat = 'dd-yyyy-mm';
+            break;
+        case 'Y/m/d':
+            datePickerCompatibleDateFormat = 'yyyy/mm/dd';
+            break;
+        case 'Y m d':
+            datePickerCompatibleDateFormat = 'yyyy mm dd';
+            break;
+        case 'Y-M-d':
+            datePickerCompatibleDateFormat = 'yyyy-mmm-dd';
+            break;
+        case 'l, d-M-Y':
+            datePickerCompatibleDateFormat = 'dddd, dd-mmm-yyyy';
+            break;
+        case 'D, d M Y':
+            datePickerCompatibleDateFormat = 'ddd, dd mmm yyyy';
+            break;
+    }
+    return datePickerCompatibleDateFormat;
+}
+
+$(document).ready(function () {
+    $('input[type=text]').on('keyup keypress', function(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    $.validator.setDefaults({
+        ignore: []
+    });
+    $('input:radio').live('click', function () {
+        $(this).closest('div').find('.radio_validation_input').val($(this).val());
+    });
+    $('input:checkbox').live('click', function () {
+        if ($(this).closest('div').find('input:checked').length > 0) {
+            $(this).closest('div').find('.cb_validation_input').val("true");
+        } else {
+            $(this).closest('div').find('.cb_validation_input').val("");
+        }
+    });
+    if (detectIE()) {
+        $('body').on("mousewheel", function () {
+            event.preventDefault();
+
+            var wheelDelta = event.wheelDelta;
+
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+    }
+});

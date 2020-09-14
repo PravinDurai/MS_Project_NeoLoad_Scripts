@@ -1,0 +1,15 @@
+{
+ "spellingCheckResponse": {
+  "misspellings": [
+   {
+    "charStart": 3,
+    "charLength": 10,
+    "suggestions": [
+     {
+      "suggestion": "user Status"
+     }
+    ]
+   }
+  ]
+ }
+}

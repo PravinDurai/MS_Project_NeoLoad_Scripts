@@ -1,0 +1,10 @@
+GET https://images-eu.ssl-images-amazon.com:443/images/G/31/img18/Cameras/BjBBadapt/CameraPage/QC/D8352896_IN_CECAM_BJBB_Adaptation_50000-to-100000-Quad-card_420x420._SY300_CB458745552_.jpg HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/b/?_encoding=UTF8&node=1388977031&ref_=sv_top_elec_mega_5
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-eu.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

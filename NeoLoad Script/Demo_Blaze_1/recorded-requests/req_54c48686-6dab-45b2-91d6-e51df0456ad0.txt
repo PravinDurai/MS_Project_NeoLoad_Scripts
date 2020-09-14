@@ -1,0 +1,10 @@
+GET https://images-eu.ssl-images-amazon.com:443/images/I/11Y+5x+kkTL._RC%7C61H1IaE3QbL.js,212PEt8u8bL.js,012FVc3131L.js,11KoZmq92cL.js,51TNaPzHULL.js,11AHlQhPRjL.js,01-Ag-OPDsL.js,11gNJaXKMSL.js,11p81T3qWFL.js,21ssiLNIZvL.js,0190vxtlzcL.js,61YI5JehKmL.js,01ezj5Rkz1L.js,11EemQQsS-L.js,31pOTH2ZMRL.js,01rpauTep4L.js,01iyxuSGj4L.js,01CRyJpOGrL.js_.js?AUIClients/AmazonUI HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-eu.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

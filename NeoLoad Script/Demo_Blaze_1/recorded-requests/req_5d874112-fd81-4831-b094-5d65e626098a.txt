@@ -1,0 +1,11 @@
+GET https://www.facebook.com/v2.6/plugins/like.php?action=like&app_id=172525162793917&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df21dfacf1e477b8%26domain%3Dopencart.abstracta.us%26origin%3Dhttp%253A%252F%252Fopencart.abstracta.us%252Ff39c1d0ff75e684%26relation%3Dparent.parent&container_width=0&font=arial&height=25&href=http%3A%2F%2Fopencart.abstracta.us%2Findex.php%3Froute%3Dproduct%2Fproduct%26product_id%3D28&layout=button_count&locale=en_US&sdk=joey&send=false&share=false&show_faces=false&width=90 HTTP/2.0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+sec-fetch-site: cross-site
+sec-fetch-mode: navigate
+sec-fetch-dest: iframe
+referer: http://opencart.abstracta.us/index.php?route=product/product&path=24&product_id=28
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+

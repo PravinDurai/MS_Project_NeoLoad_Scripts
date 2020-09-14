@@ -1,0 +1,11 @@
+GET https://upload.wikimedia.org:443/wikipedia/commons/thumb/f/fe/United_States_Map_of_Population_by_State_%282015%29.svg/300px-United_States_Map_of_Population_by_State_%282015%29.svg.png HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://en.wikipedia.org/wiki/United_States
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: upload.wikimedia.org
+DNT: 1
+Connection: Keep-Alive
+Cookie: GeoIP=IN:TN:Thoothukudi:8.77:78.13:v4
+

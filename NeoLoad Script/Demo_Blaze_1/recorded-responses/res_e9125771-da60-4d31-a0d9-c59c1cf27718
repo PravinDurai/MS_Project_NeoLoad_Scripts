@@ -1,0 +1,804 @@
+/**
+ * OrangeHRM Enterprise is a closed sourced comprehensive Human Resource Management (HRM)
+ * System that captures all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM Inc is the owner of the patent, copyright, trade secrets, trademarks and any
+ * other intellectual property rights which subsist in the Licensed Materials. OrangeHRM Inc
+ * is the owner of the media / downloaded OrangeHRM Enterprise software files on which the
+ * Licensed Materials are received. Title to the Licensed Materials and media shall remain
+ * vested in OrangeHRM Inc. For the avoidance of doubt title and all intellectual property
+ * rights to any design, new software, new protocol, new interface, enhancement, update,
+ * derivative works, revised screen text or any other items that OrangeHRM Inc creates for
+ * Customer shall remain vested in OrangeHRM Inc. Any rights not expressly granted herein are
+ * reserved to OrangeHRM Inc.
+ *
+ * Please refer http://www.orangehrm.com/Files/OrangeHRM_Commercial_License.pdf for the license which includes terms and conditions on using this software.
+ *
+ */
+
+function isFirefox() {
+    return typeof InstallTrigger !== 'undefined';
+}
+
+function resetAddCandidateForm() {
+    $("#frmAddCandidate").validate().resetForm();
+    $('#addCandidate_keyWords').next().addClass('active');
+    $('#addCandidate_comment').next().addClass('active');
+    $('#addCandidate_managerNote').next().addClass('active');
+    $('#resumeFileName').removeClass('validation-error');
+}
+
+$(document).ready(function () {
+
+    var resumeRequired = false;
+
+    $('#add-candidate-vacancy-widget-container > div  > .dropdownObjectSearch > div > .searchSingleObjectLi').live('click', function (e) {
+        var vacancyId = $('#addCandidate_vacancy_input').val();
+        $.ajax({
+            async: false,
+            url: getVacancyDataByVacancyIdAjaxUrl,
+            type: 'POST',
+            data: {'vacancyId': vacancyId},
+            dataType: 'json',
+            success: function(data) {
+                resumeRequired = data['vacancy_data']['isResumeRequired'] == '1';
+                if (resumeRequired) {
+                    if ($('#selectResumeRequired').length==0) {
+                        $("#selectResumeText").after("<em id='selectResumeRequired'>*</em>");
+                    }
+                } else {
+                    if ($('#selectResumeRequired').length>0) {
+                        $("#selectResumeRequired").remove();
+                    }
+                    $('#resumeFileName').valid();
+                }
+            }
+        });
+    });
+
+    var arrow_upward = "arrow_upward";
+    $("th.sortableHeader").live('click', function () {
+        var rowsPerPage = $('#rowsperpage').html();
+        var sortField = $(this).attr('sortValue');
+        var pageNo = 1;
+        var arrow = $(this).find("i").html();
+        var sortOrder = "ASC";
+        if (trim(arrow) == arrow_upward) {
+            sortOrder = "DESC";
+        }
+        //$("#vacancyTableContainer").hide();
+        //$("#preloderHiddneDiv").show();
+        $(".overlay").show();
+        sortCandidates(pageNo, sortField, sortOrder, rowsPerPage);
+        //window.location.href = viewJobVacancyUrl + "?pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder;
+    });
+
+
+    $('#candidateCsvExportBtn').live('click', function () {
+        $('#candidateSearch_candidateName.inputFormatHint').val('');
+        $('#candidateSearch_keywords.inputFormatHint').val('');
+
+        $('<input>').attr({
+            type: 'text',
+            id: 'componentAction',
+            name: 'componentAction',
+            value: 'csv'
+        }).appendTo('#candidateSearchForm');
+
+        $('#candidateSearchForm').submit();
+        $('#componentAction').remove();
+    });
+
+    $('#resetCandidatesFormBtn').live('click', function (event) {
+        $('#first_name').val("");
+        $('input[name=from_date_submit]').val("");
+        $('input[name=to_date_submit]').val("");
+        $('.picker__day--selected').removeClass('picker__day--selected');
+
+        var $root = $('#candidateSearchJobTitleMultySelectDiv').find('.materializeWidgetObjectMultySelect-container');
+        MaterializeWidgetMultySelect($root).unselectAll();
+        var $root = $('#candidateSearchJobVacancyMultySelectDiv').find('.materializeWidgetObjectMultySelect-container');
+        MaterializeWidgetMultySelect($root).unselectAll();
+
+        $('#from_date').val("");
+        $("label[for='from_date']").removeClass("active");
+        $('#to_date').val("");
+        $("label[for='to_date']").removeClass("active");
+        picker.set('select', new Date());
+        picker.clear();
+        $("#searchActiveVacancies").attr('checked', false);
+        $("#searchInsideResume").attr('checked', false);
+        vacancyId = null;
+        $("#candidateSearchForm").validate().resetForm();
+        $("#candidateSearchForm .validation-error").removeClass('validation-error');
+        searchCandidates();
+    });
+
+    if (searchedVacancyName != "") {
+        $("#navBarHeading").html(candidatesString + " - " + searchedVacancyName).text();
+        $("#navBarHeading").addClass('tooltipped');
+        var escapedVacancyName = $("<div>").html(candidatesString + " - " + searchedVacancyName).text();
+        $("#navBarHeading").attr('data-tooltip', escapedVacancyName);
+        $(".tooltipped").tooltip();
+        var rootVacancySelect = $("#candidateSearchJobVacancyMultySelectDiv").find(".materializeWidgetObjectMultySelect-container");
+        MaterializeWidgetMultySelect(rootVacancySelect).selectOne(vacancyId, searchedVacancyName);
+    } else {
+        $("#navBarHeading").text(candidatesString);
+    }
+
+    if (toastFrom) {
+        if (toastType == 'warning') {
+            toast.show('warning', toastFrom);
+        } else {
+            toast.show('success', toastFrom);
+        }
+
+    } else if (localStorage.getItem("toast") !== null) {//NOSONAR
+        toast.show('success', localStorage.getItem("toast"));//NOSONAR
+        localStorage.removeItem("toast");//NOSONAR
+    }
+
+    if (newCandidateId) {
+        var formData = {
+            '_csrf_token': $("#default__csrf_token").val()
+        };
+
+        var dataArray = {
+            'default': formData
+        };
+
+        $.ajax({
+            url: cvPostProcessUrl + "/candidateId/" + newCandidateId,
+            type: "GET",
+            data: dataArray,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    }
+
+    /* Work around to validate readonly resume_path field */
+    $(document).on("focusin", "#resumeFileName", function (event) {
+        $(this).prop('readonly', true);
+    });
+
+    $(document).on("focusout", "#resumeFileName", function (event) {
+        $(this).prop('readonly', false);
+    });
+
+    $.validator.addMethod('maxfilesize', widgetValidators.maxFileSize);
+    $.validator.addMethod('fileType', widgetValidators.fileType);
+
+    var frmAddCandidateValidator = $("#frmAddCandidate").validate({
+        rules: {
+            'resume_path': {
+                required: function() {
+                    return resumeRequired;
+                },
+                maxfilesize: maxValidResumeFileSize,
+                fileType: ['pdf', 'docx', 'doc', 'odt', 'rtf', 'txt']
+            },
+            'addCandidate[firstName]': {
+                required: true,
+                maxlength: 30
+            },
+            'addCandidate[middleName]': {
+                maxlength: 30
+            },
+            'addCandidate[lastName]': {
+                required: true,
+                maxlength: 30
+            },
+            'addCandidate[contactNo]': {
+                phone: true,
+                maxlength: 30
+            },
+            'addCandidate[email]': {
+                required: true,
+                email: true,
+                maxlength: 254
+            },
+            'addCandidate[keyWords]': {
+                maxlength: 254
+            },
+            'addCandidate[comment]': {
+                maxlength: 250
+            }
+        },
+        messages: {
+            'resume_path': {
+                required: lang_required,
+                maxfilesize: lang_fileSizeInvalid,
+                fileType: lang_fileTypeInvalid
+            },
+            'addCandidate[firstName]': {
+                required: lang_required,
+                maxlength: lang_tooLargeInput
+            },
+            'addCandidate[middleName]': {
+                maxlength: lang_tooLargeInput
+            },
+            'addCandidate[lastName]': {
+                required: lang_required,
+                maxlength: lang_tooLargeInput
+            },
+            'addCandidate[contactNo]': {
+                phone: lang_validPhoneNo,
+                maxlength: lang_tooLargeInput
+            },
+            'addCandidate[email]': {
+                required: lang_required,
+                email: lang_validEmail,
+                maxlength: lang_noMoreThan254
+            },
+            'addCandidate[keyWords]': {
+                maxlength: lang_noMoreThan254
+            },
+            'addCandidate[comment]': {
+                maxlength: lang_noMoreThan250
+            }
+        }
+
+    });
+
+    $("#addCandidate_resume").live('click', function () {
+        $("#resumeFileName").focus();
+    });
+
+    $("#addCandidate_resume").live('change', function () {
+        $("#resumeFileName").valid();
+    });
+
+    $(".mdi-content-add").live('click', function () {
+        //$('#saveCandidateButton').on('click');
+        checkSessionTimeoutAndAdd();
+    });
+    $(".mdi-action-delete").live('click', function () {
+        checkSessionTimeoutAndDelete();
+    });
+
+    $(".mdi-action-archive").live('click', function () {
+        checkSessionTimeoutAndArchive();
+    });
+
+    // initDatePicker(undefined, {
+    //     format: getDatePickerCompatibleDateFormat(localizationDateFormat),
+    //     formatSubmit: 'yyyy-mm-dd'
+    // });
+    $('#saveCandidateButton').on('click', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        $('#resumeFileName').prop('readonly', false);
+        if (frmAddCandidateValidator.form()) {
+            $('#saveCandidateButton').off('click');
+            localStorage.setItem("toast", saveSuccessString);
+            $('#frmAddCandidate').submit();
+        }
+        $('#resumeFileName').prop('readonly', true);
+    });
+
+    $("#candidate-delete-button").live('click', function () {
+        var idsToDelete = [];
+        $("[id^='checkbox']:checkbox:checked").each(function () {
+            idsToDelete.push(this.id.split('checkbox_')[1]);
+        });
+
+        var formData = {
+            '_csrf_token': $("#defaultMaterialList__csrf_token").val()
+        }
+
+        var dataArray = {
+            'chkSelectedIds': JSON.stringify(idsToDelete),
+            'defaultMaterialList': formData
+        }
+        $(".overlay").show();
+        $.ajax({
+            url: deleteContentUrl,
+            type: "POST",
+            data: dataArray,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                updatePageContent(viewCandidatesUrl, $('.pageholder'));
+                toast.show('success', data['status']);
+                $("#addItemBtn").removeClass("customHidden");
+                $("#deleteItemBtn").addClass("customHidden");
+                searchAfterDeletion = true;
+                // $("#searchCandidatesFormBtn").click();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    });
+
+    $("#candidate-archive-button").live('click', function () {
+        var idsToDelete = [];
+        $("[id^='checkbox']:checkbox:checked").each(function () {
+            idsToDelete.push(this.id.split('checkbox_')[1]);
+        });
+
+        var formData = {
+            '_csrf_token': $("#defaultMaterialList__csrf_token").val()
+        }
+
+        var dataArray = {
+            'chkSelectedIds': JSON.stringify(idsToDelete),
+            'defaultMaterialList': formData
+        }
+        $(".overlay").show();
+        $.ajax({
+            url: archiveCandidatesUrl,
+            type: "POST",
+            data: dataArray,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                updatePageContent(viewCandidatesUrl, $('.pageholder'));
+                toast.show('success', data['status']);
+                $("#addItemBtn").removeClass("customHidden");
+                $("#deleteItemBtn").addClass("customHidden");
+                searchAfterDeletion = true;
+                // $("#searchCandidatesFormBtn").click();
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    });
+
+    // var $input1 = initDatePicker('#to_date', {
+    //     format: getDatePickerCompatibleDateFormat(localizationDateFormat),
+    //     formatSubmit: 'yyyy-mm-dd',
+    //     onSet: function (ele) {
+    //         if (ele && ele.hasOwnProperty('select')) {
+    //             this.close();
+    //         }
+    //     }
+    // });
+    //
+    // //for searching
+    // var $input = initDatePicker('#from_date', {
+    //     format: getDatePickerCompatibleDateFormat(localizationDateFormat),
+    //     formatSubmit: 'yyyy-mm-dd',
+    //     onSet: function (ele) {
+    //         if (ele && ele.hasOwnProperty('select')) {
+    //             this.close();
+    //         }
+    //     }
+    // });
+
+    var $input = initDatePicker('#from_date', {
+        format: getDatePickerCompatibleDateFormat(localizationDateFormat),
+        formatSubmit: 'yyyy-mm-dd'
+    });
+    var picker = $input.pickadate('picker');
+    picker.on('set', function (ele) {
+        $("#from_date_lable").addClass("active");
+        if (ele && ele.hasOwnProperty('select')) {
+            this.close();
+        }
+    });
+    // picker.trigger('set');
+
+    var $input1 = initDatePicker('#to_date', {
+        format: getDatePickerCompatibleDateFormat(localizationDateFormat),
+        formatSubmit: 'yyyy-mm-dd'
+    });
+    var picker1 = $input1.pickadate('picker');
+    picker1.on('set', function (ele) {
+        $("#to_date_lable").addClass("active");
+        if (ele && ele.hasOwnProperty('select')) {
+            this.close();
+        }
+    });
+    // picker1.trigger('set');
+
+
+    $('.modal-trigger').leanModal({
+        top: 400,
+        overlay: 0.85,
+        closeButton: ".modal_close"
+    });
+
+    $('.tooltipped').tooltip({
+        delay: 0
+    });
+    initMaterialSelect('select');
+    $('#candidateSearchBtn').live('click', function (e) {
+        $("#candidateSearchDropDown").removeClass("customHidden");
+    });
+    $(document).mouseup(function (e) {
+        var container = $("#candidateSearchDropDown");
+
+        if (!container.is(e.target) // if the target of the click isn't the container...
+            && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            container.addClass("customHidden");
+        }
+    });
+    $('#searchCandidatesFormBtn').live('click', function (event) {
+        if (!$("input[name=from_date]").valid() || !$("input[name=to_date]").valid()) {
+            return false;
+        }
+        $("#candidateSearchForm").attr("action", viewCandidatesUrl);
+        $("#candidateSearchDropDown").addClass("customHidden");
+        vacancyId = null;
+        $(".overlay").show();
+//        $("#candidateSearchForm").submit();
+        $.ajax({
+            url: viewCandidatesUrl,
+            type: "POST",
+            data: $('#candidateSearchForm').serialize(),
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                updateTable($('.pagination-config'), data, function () {
+                    $('#candidateDropDowns').html(data['candidateDropDowns']);
+                    $('.dropdown-button').dropdown({
+                        inDuration: 300,
+                        outDuration: 225,
+                        constrain_width: false, // Does not change width of dropdown to that of the activator
+                        hover: false, // Activate on hover
+                        gutter: 0, // Spacing from edge
+                        belowOrigin: false // Displays dropdown below the button
+                    });
+                    $(".overlay").hide();
+                    if (typeof (searchAfterDeletion) === 'undefined' || searchAfterDeletion === false) {
+                        // toast.show('success', "Search Result");
+                    } else {
+                        searchAfterDeletion = false;
+                    }
+                    if (data['searchedVacancyName'] != "") {
+                        $("#navBarHeading").text(candidatesString + " - " + data['searchedVacancyName']);
+                    } else {
+                        $("#navBarHeading").text(candidatesString);
+                    }
+                });
+                $('.tooltipped').tooltip();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    });
+    $('.dataColumn').live('click', function (event) {
+        var nextColCount = $(this).nextAll("td");
+        if (nextColCount.length <= 1) {
+            return;
+        }
+        var row = $(this).parent('tr');
+        event.stopPropagation();
+        var candidateId = $(row).data('candidate-id');
+        var vacancyId = $(row).data('vacancy-id');
+        openCandidateProfileWindowForVacancy(candidateId, vacancyId);
+    });
+
+
+    $('.candidateStageDropDownOption a').live('click', function (event) {
+        event.preventDefault();
+        var selectedItemId = $(this).parent().parent("ul").attr("id");
+        var selectedText = $(this).text();
+        var selectedStage = $(this).parent().attr("value");
+
+        saveStageChanges(selectedItemId.split("_")[1], selectedItemId.split("_")[2], selectedStage, $(this).parent());
+    });
+
+    $('.candidateStageColumn').live('click', function (event) {
+        event.preventDefault();
+        if ($(this).hasClass("unEditable")) {
+            $("#" + $(this).data("activates")).removeClass("active");
+            event.stopImmediatePropagation();
+        }
+    });
+    $('.toastRemoveButton').live('click', function (event) {
+        $(this).parent("div.toast").remove();
+    });
+
+    $("#candidateSearchForm").validate({
+        rules: {
+            'from_date': {
+                fromDateValidate: true,
+                date: false
+            },
+            'to_date': {
+                toDateValidate: true,
+                date: false
+            }
+        },
+        messages: {
+            'from_date': {
+                fromDateValidate: fromDateValidMsg
+            },
+            'to_date': {
+                toDateValidate: toDateValidMsg
+            }
+        },
+
+    });
+
+    $.validator.addMethod('fromDateValidate', function (value, element) {
+        var inputDate = new Date($('input[name=from_date_submit]').val());
+        var minDate = new Date($('input[name=to_date_submit]').val());
+        if (!($("#to_date").val()) || !(value) || inputDate.getTime() <= minDate.getTime()) {
+            return true;
+        }
+        return false;
+    });
+    $.validator.addMethod('toDateValidate', function (value, element) {
+        var inputDate = new Date($('input[name=to_date_submit]').val());
+        var minDate = new Date($('input[name=from_date_submit]').val());
+        if (!($("#from_date").val()) || !(value) || inputDate.getTime() >= minDate.getTime()) {
+            return true;
+        }
+        return false;
+    });
+
+    $.validator.addMethod('requiredFromCustom', function (value, element) {
+        if (!($("#to_date").val()) && !(value)) {
+            return true;
+        } else if ($("#to_date").val() && !(value)) {
+            return false;
+        }
+        return true;
+
+    });
+
+    $.validator.addMethod('requiredToCustom', function (value, element) {
+        if (!($("#from_date").val()) && !(value)) {
+            return true;
+        } else if ($("#from_date").val() && !(value)) {
+            return false;
+        }
+        return true;
+    });
+
+    $("input[name=from_date]").change(function () {
+
+        $("input[name=from_date]").valid()
+        $("input[name=to_date]").valid()
+    });
+
+    $("input[name=to_date]").change(function () {
+
+        $("input[name=from_date]").valid();
+        $("input[name=to_date]").valid();
+    });
+
+});
+
+function searchCandidates() {
+    $("#candidateSearchForm").attr("action", viewCandidatesUrl);
+    $("#candidateSearchDropDown").addClass("customHidden");
+    $(".overlay").show();
+//        $("#candidateSearchForm").submit();
+    $.ajax({
+        url: viewCandidatesUrl,
+        type: "POST",
+        data: $('#candidateSearchForm').serialize(),
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+            updateTable($('.pagination-config'), data, function () {
+                $('#candidateDropDowns').html(data['candidateDropDowns']);
+                $('.dropdown-button').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: false, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: false // Displays dropdown below the button
+                });
+                $(".overlay").hide();
+                if (typeof (searchAfterDeletion) === 'undefined' || searchAfterDeletion === false) {
+                    // toast.show('success', "Search Result");
+                } else {
+                    searchAfterDeletion = false;
+                }
+                if (data['searchedVacancyName'] != "") {
+                    $("#navBarHeading").text(candidatesString + " - " + data['searchedVacancyName']);
+                } else {
+                    $("#navBarHeading").text(candidatesString);
+                }
+            });
+            $('.tooltipped').tooltip();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        }
+    });
+}
+
+function saveStageChanges(candidateId, vacancyId, selectedStage, element) {
+    var postData = {
+        'candidateId': candidateId,
+        'vacancyId': vacancyId,
+        'level': selectedStage
+    };
+    $.ajax(
+        {
+            url: changeCandidateStageUrl,
+            type: "POST",
+            data: postData,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                if (data['changed'] == true) {
+                    if (data['candidateName'] != null) {
+                        var selectedText = element.children("a").text();
+                        element.parent("ul").prev("a").html(selectedText + "<i class=\"candidateStageDropDownIcon mdi-navigation-arrow-drop-down right material-icons\">arrow_drop_down</i>");
+                        element.parent("ul").prev("a").addClass("edited");
+                        toast.show('success', data['message']);
+                    }
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+}
+
+function openCandidateProfileWindowForVacancy(candidateId, vacancyId) {
+    var tab = window.open(candidateProfileUrl + "?candidateId=" + candidateId + '&vacancyId=' + vacancyId, candidateId + '_blank' + vacancyId);
+    tab.focus();
+    return false;
+}
+
+function selectVacancyForCandidate() {
+    if (vacancyId) {
+        $('#addCandidate_vacancy_input')
+            .closest('.materializeWidgetObjectMultySelect-container')
+            .find('.searchSingleObjectLi p[competancy-id="'+vacancyId+'"]')
+            .click();
+    }
+}
+
+function checkSessionTimeoutAndDelete() {
+    $.ajax(
+        {
+            url: IsSessionTimedOutAjaxAction,
+            type: "POST",
+            data: '',
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                if (data['Successful']) {
+                    $("#modal-delete-candidate").openModal();
+                } else {
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+}
+
+function checkSessionTimeoutAndArchive() {
+    $.ajax(
+        {
+            url: IsSessionTimedOutAjaxAction,
+            type: "POST",
+            data: '',
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                if (data['Successful']) {
+                    $("#modal-archive-candidate").openModal();
+                } else {
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+}
+
+function checkSessionTimeoutAndAdd() {
+    $.ajax(
+        {
+            url: IsSessionTimedOutAjaxAction,
+            type: "POST",
+            data: '',
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                if (data['Successful']) {
+                    $("#modalAddCandidate").openModal();
+                    resetAddCandidateForm();
+                    selectVacancyForCandidate();
+                } else {
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+}
+
+function sortCandidates(pageNo, sortField, sortOrder, rowsPerPage) {
+    if (vacancyId != null && vacancyId != "") {
+        var sortCandidateUrl = viewCandidatesUrl + "?vacancyId=" + vacancyId + "&pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder + "&rowsPerPage=" + rowsPerPage;
+    } else {
+        var sortCandidateUrl = viewCandidatesUrl + "?pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder + "&rowsPerPage=" + rowsPerPage;
+    }
+
+    updatePageContent(sortCandidateUrl, $('.pageholder'), hideLoader);
+
+    //var postData = {
+    //    'pageNo': pageNo,
+    //    'sortField': sortField,
+    //    'sortOrder': sortOrder
+    //};
+    //$.ajax(
+    //    {
+    //        url: viewJobVacancyUrl,
+    //        type: "POST",
+    //        data: postData,
+    //        dataType: "json",
+    //        success: function (data, textStatus, jqXHR)
+    //        {
+    //            updatePageContent(sortVacancyUrl, $('.pageholder'));
+    //        },
+    //        error: function (jqXHR, textStatus, errorThrown)
+    //        {
+    //                //location.reload();
+    //        }
+    //    });
+}
+
+function hideLoader(data) {
+    $('.pageholder').html(data['page']);
+    updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+    $(".overlay").hide();
+    $('#candidateDropDowns').html(data['candidateDropDowns']);
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+    $('.dropdown-button-noOfRows').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: false, // Activate on hover
+            gutter: -20,
+        }
+    );
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 130, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+}
+
+function updateExtraPageContent(data) {
+    $('.pageholder').html(data['page']);
+    updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+    $('#candidateDropDowns').html(data['candidateDropDowns']);
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+    $('.dropdown-button-noOfRows').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: false, // Activate on hover
+            gutter: -20,
+        }
+    );
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 130, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+}

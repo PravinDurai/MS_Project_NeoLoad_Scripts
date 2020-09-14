@@ -1,0 +1,10 @@
+GET https://yt3.ggpht.com:443/3OeG2bXa7O5YDy1FAznIKm4ogJSjrCQGqmE1omC_o7v0HDliKNSnozDpHR0U8LlGy_bDDn6cCw=s88-c-k-c0xffffffff-no-nd-rj HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: yt3.ggpht.com
+DNT: 1
+Connection: Keep-Alive
+

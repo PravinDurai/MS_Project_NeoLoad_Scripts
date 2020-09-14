@@ -1,0 +1,301 @@
+var OHRM = (function (parent) {
+
+    parent.accessToken = null;
+    parent.getAccessToken = function(callBack) {
+        if (parent.accessToken) {
+            callBack(parent.accessToken.access_token);
+            return;
+        }
+
+        var jqxr = $.ajax({
+            url: '/core/getAccessToken',
+            dataType: 'json'
+        }).done(function(data) {
+            parent.accessToken = data;
+            callBack(parent.accessToken.access_token);
+        }).fail(function(data) {
+            callBack(false);
+        });
+    };
+
+    return parent;
+} (OHRM || {}));
+
+var OHRM = (function (parent) {
+    parent.MaterializeEmployeeMultySelectWidgets = {};
+    return parent;
+} (OHRM || {}));
+
+function MaterializeWidgetEmployeeMultySelect($root, parameters) {
+    var randId = $root.data('rand-id');
+
+    if (!(randId in OHRM.MaterializeEmployeeMultySelectWidgets)) {
+        OHRM.MaterializeEmployeeMultySelectWidgets[randId] =
+            new MaterializeWidgetEmployeeMultySelectCore($root, parameters.selectedEmployees,
+                parameters.defaultPhotoURL, parameters.disabled, parameters.includeSelf);
+    }
+    return OHRM.MaterializeEmployeeMultySelectWidgets[randId];
+    
+    function MaterializeWidgetEmployeeMultySelectCore($root, selectedEmployees, defaultPhotoURL, disabled, includeSelf) {
+
+        var $holder = $root.find('.materialize-contenteditable');
+        var $choices = $root.find('.employee-choices');
+        var employeeSearchCache = {};
+        var photoCache = {};
+        var employeeChoices = {};
+
+        var getFullName = function (employee) {
+            var name = '';
+            if (employee.firstName && employee.lastName) {
+                if (employee.middleName != '') {
+                    name = employee.firstName + ' ' + employee.middleName + ' ' + employee.lastName
+                } else {
+                    name = employee.firstName + ' ' + employee.lastName;
+                }
+                if(employee.termination_id){
+                    name = name + ' (Past Employee)' ;
+                }
+            }
+            return name;
+        };
+
+        var fetchEmployeePhotos = function(employees) {
+
+            var photosToFetch = [];
+
+            for (var i = 0; i < employees.length; i++) {
+                var empNumber = employees[i];
+                if (!photoCache[empNumber]) {
+                    photosToFetch.push(empNumber);
+                }
+            }
+
+            var fetchPhotosFunction = (function() {
+                return function(token) {
+                    var params = {
+                        'filter[id]': photosToFetch,
+                        'filter[size]': 'small'
+                    };
+
+                    $.ajax({
+                        url: "/api/employeePhotos",
+                        headers: {'Authorization': 'Bearer ' + token},
+                        data: params
+                    }).done(function(data) {
+                        for (var i = 0; i < data.data.length; i++) {
+                            var photo = data.data[i];
+                            var newSrc = "data:" + photo.type + ";base64," + photo.image;
+
+                            photoCache[photo.id] = photo;
+
+                            // Update in drop down
+                            var liId = randId + '_search_' + photo.id;
+                            $('li#' + liId).find('img').attr('src', newSrc);
+
+                            // Update in selected list
+                            $holder.find('.selected-employee').each(function () {
+                                if ($(this).data('emp-number') == photo.id) {
+                                    $(this).find('img').attr('src', newSrc);
+                                }
+                            });
+                        }
+                    })
+                }
+            })();
+
+            if (photosToFetch.length > 0) {
+                OHRM.getAccessToken(fetchPhotosFunction);
+            }
+        };
+
+
+        this.init = function() {
+            var selectedEmpNumbers = Object.keys(selectedEmployees);
+            var encodeHelper = $('<div/>');
+
+            for (var i = 0; i < selectedEmpNumbers.length; i++) {
+                var empNumber = selectedEmpNumbers[i];
+                employeeChoices[empNumber] = encodeHelper.text(selectedEmployees[empNumber]).html();
+                this.selectOne(empNumber);
+            }
+
+            fetchEmployeePhotos(selectedEmpNumbers);
+        };
+
+        this.renderList = function(inputString) {
+
+            this.fetchEmployees(inputString, function(employeeList) {
+
+                var encodeHelper = $('<div/>');
+                var employeeNumbers = [];
+                $choices.empty();
+
+
+                for (var i = 0; i < employeeList.length; i++) {
+
+                    var empNumber = employeeList[i].empNumber;
+                    employeeNumbers.push(empNumber);
+
+                    if (empNumber in selectedEmployees) {
+                        continue;
+                    }
+
+                    var photoSrc = defaultPhotoURL;
+                    var employeeName = encodeHelper.text(getFullName(employeeList[i])).html();
+                    employeeChoices[empNumber] = employeeName;
+
+                    if (photoCache[empNumber]) {
+                        photoSrc = "data:" + photoCache[empNumber].type + ";base64," + photoCache[empNumber].image;
+                    }
+
+                    $choices.append('<li id="' +randId+ '_search_' + empNumber + '" class="searchEmployeeLi">'+
+                        '<a class="searchEmployeeA">'+
+                        '<img src="' + photoSrc +'" alt="" ' +
+                        'class="circle responsive-img right searchEmployeeImg" style="width:25px; height:25px;">'+
+                        '<p class="search-row searchListEmployeeName">'+ employeeName +'</p></a></li>');
+                }
+
+                fetchEmployeePhotos(employeeNumbers);
+            });
+        };
+
+        this.fetchEmployees = function(userInputString, callback) {
+            var selectedCount = Object.keys(selectedEmployees).length;
+            var pageLimit = 10 + selectedCount;
+
+            // Use cache if available
+            if (employeeSearchCache[userInputString + pageLimit]) {
+                callback(employeeSearchCache[userInputString + pageLimit]);
+                return;
+            }
+
+
+            // Fetch extra selected count employees since we may be excluding them from the auto complete if they are in the list
+            // Implemented this way since api/employees does not support an exclude list of emp_numbers.
+
+            var fetchEmployeeFunction = (function() {
+                return function(token) {
+                    var params = {
+                        'fields': 'empNumber,firstName,middleName,lastName,employeeId,termination_id',
+                        'filter[employee_name]': userInputString,
+                        'page[limit]': pageLimit,
+                        'page[offset]': 0,
+                        'includeSelf': includeSelf,
+                        'sort': 'fullName'
+                    };
+
+                    $.ajax({
+                        url: "/api/employees",
+                        headers: {'Authorization': 'Bearer ' + token},
+                        data: params
+                    }).done(function(data) {
+                        employeeSearchCache[userInputString + pageLimit] = data.data;
+                        callback(data.data);
+                    })
+                }
+            })();
+
+            OHRM.getAccessToken(fetchEmployeeFunction);
+        };
+
+        this.selectOne = function (empNumber) {
+            if (empNumber in employeeChoices) {
+                var empName = employeeChoices[empNumber];
+                var photoSrc = defaultPhotoURL;
+                if (photoCache[empNumber]) {
+                    photoSrc = "data:" + photoCache[empNumber].type + ";base64," + photoCache[empNumber].image;
+                }
+
+                var html = '<div class="col l3 grey lighten-4 selected-employee valign-wrapper choice-item" data-emp-number="' + empNumber + '" style="border-radius: 30px; height: 40px; width: auto;">'
+                    + '<img src="' + photoSrc + '" width="30" height="30" alt="" class="circle responsive-img left" style="width:40px; height:40px; margin-left:-10px">'
+                    + '<p class="grey-text text-darken-2 choice-text" style="margin-left: 10px;">' + empName + '</p>';
+                if (!disabled) {
+                    html += '<div class="black-text" style="margin-left: 10px"><i class="mdi-navigation-cancel remove-employee material-icons small-icon-font">close</i></div>';
+                }
+                html += '</div>';
+
+                $holder.append(html);
+                var elementId = $root.data('rand-id') + '_search_' + empNumber;
+                $root.find('#' + elementId).remove();
+                $root.append('<input class="materialize-widget-employee-hidden-input" id="'
+                    + $root.data('id') + '_' + empNumber + '" name="' + $root.data('name') + '[' + empNumber + ']'
+                    + '" value="' + empNumber + '"style="display:none"></input>');
+
+                selectedEmployees[empNumber] = empName;
+            }
+        };
+
+        this.unselectOne = function (empNumber) {
+
+            // remove the input hidden element.
+            $root.find('#' + $root.data('id') + '_' + empNumber).remove();
+
+            // Remove the displayed element
+            $holder.blur();
+            $holder.find('.selected-employee').each(function () {
+                if ($(this).data('emp-number') == empNumber) {
+                    $(this).remove();
+                }
+            });
+            $root.find('.dropdownEmployeeSearch').hide();
+            delete selectedEmployees[empNumber];
+        };
+
+        this.reset = function(newlySelectedEmployees) {
+            for(var key in selectedEmployees){
+                this.unselectOne(key);
+            }
+            if (typeof newlySelectedEmployees !== "undefined") {
+                for (var id in newlySelectedEmployees) {
+                    this.selectOne(id);
+                }
+            }
+        };
+
+        this.init();
+    }
+}
+
+$(document).ready(function () {
+    initDropDown();
+
+    $('.employee-search').live('click', function (e) {
+        e.stopPropagation();
+    });
+    $('.materialize-contenteditable').live('click', function (e) {
+        var $root = $(this).closest('.materializeWidgetEmployeeMultySelect-container');
+        if ($(e.target).hasClass('remove-employee')) {
+            var empNoToRemove = $(e.target).closest('.selected-employee').data('emp-number');
+            MaterializeWidgetEmployeeMultySelect($root).unselectOne(empNoToRemove);
+        } else {
+            $root.find('.employee-search').focus();
+            $root.find('.employee-search').keyup();
+        }
+    });
+
+
+    $('.employee-multiselect-input').live('keyup', function (e) {
+        var text = $(this).val();
+        var $root = $(this).closest(".materializeWidgetEmployeeMultySelect-container");
+        if ($root.length) {
+            MaterializeWidgetEmployeeMultySelect($root).renderList(text);
+        }
+    });
+
+    $('.dropdownEmployeeSearch > div > .searchEmployeeLi').live('click', function () {
+        $root = $(this).closest(".materializeWidgetEmployeeMultySelect-container");
+        var empNumber = this.id.split($root.data('rand-id') + "_search_")[1];
+        MaterializeWidgetEmployeeMultySelect($root).selectOne(empNumber);
+    });
+});
+
+function initDropDown(){
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 200, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+}

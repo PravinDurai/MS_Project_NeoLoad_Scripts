@@ -1,0 +1,15 @@
+POST https://fls-eu.amazon.in:443/1/batch/1/OE/ HTTP/1.1
+Accept: */*
+Content-Type: text/plain
+Referer: https://www.amazon.in/b/?_encoding=UTF8&node=976392031&ref_=sv_top_elec_mega_2
+Accept-Language: en-IN
+Origin: https://www.amazon.in
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: fls-eu.amazon.in
+Content-Length: 304
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+{"rid":"23HK1CH58PFD9PGKY672","sid":"259-5549146-3116120","mid":"A21TJRUUN4KGV","sn":"www.amazon.in","reqs":[{"cel":{"w":1366,"h":650,"x":0,"y":3471,"t":13854,"k":"vpi"}},{"cel":{"k":"hrt","t":15600}},{"csm":{"k":"chk","f":4,"l":{"csmcount":86,"cel":85,"navigation":1,"csm":5,"jserr-rw":2},"s":"full"}}]}

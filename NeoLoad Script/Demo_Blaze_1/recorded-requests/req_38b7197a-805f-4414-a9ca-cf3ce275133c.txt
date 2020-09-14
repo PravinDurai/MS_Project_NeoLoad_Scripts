@@ -1,0 +1,7 @@
+GET https://classify-client.services.mozilla.com/api/v1/classify_client/ HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: application/json
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+te: trailers
+

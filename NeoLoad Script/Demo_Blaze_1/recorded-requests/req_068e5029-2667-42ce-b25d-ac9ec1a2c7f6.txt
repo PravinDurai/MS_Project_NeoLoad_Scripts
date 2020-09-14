@@ -1,0 +1,9 @@
+GET https://www.msn.com:443/spartan/ientpgbconfig?locale=en-in&market=gb HTTP/1.1
+Accept: */*
+UA-CPU: AMD64
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko
+Host: www.msn.com
+DNT: 1
+Connection: Keep-Alive
+

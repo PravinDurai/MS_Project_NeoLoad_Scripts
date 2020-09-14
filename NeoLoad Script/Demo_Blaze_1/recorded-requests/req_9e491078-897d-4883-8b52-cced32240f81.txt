@@ -1,0 +1,13 @@
+GET https://dpm.demdex.net:443/demconf.jpg?et:ibs%7cdata:dpid=420&dpuuid=5ee9601f44709aa0&redir=https%3A%2F%2Fsu.addthis.com%2Fred%2Fusync%3Fpid%3D16%26puid%3D%24%7BDD_UUID%7D%26ssrc%3D3 HTTP/1.1
+Host: dpm.demdex.net
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: https://s7.addthis.com/static/sh.f48a1a04fe8dbf021b4cda1d.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: demdex=35832661933251148523508789806263853592
+

@@ -1,0 +1,21 @@
+POST https://shavar.services.mozilla.com:443/downloads?client=navclient-auto-ffox&appver=63.0&pver=2.2 HTTP/1.1
+Host: shavar.services.mozilla.com
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: text/plain
+Content-Length: 349
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+
+allow-flashallow-digest256;a:1490633678
+base-track-digest256;a:1512580265
+block-flash-digest256;a:1496263270
+block-flashsubdoc-digest256;a:1512160865
+except-flash-digest256;a:1494877265
+except-flashallow-digest256;a:1490633678
+except-flashsubdoc-digest256;a:1517935265
+mozplugin-block-digest256;a:1471849627
+mozstd-trackwhite-digest256;a:1524157865

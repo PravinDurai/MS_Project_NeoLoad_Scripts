@@ -1,0 +1,18 @@
+POST https://api.twitter.com/1.1/jot/client_event.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://twitter.com/settings/about
+authorization: Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA
+x-guest-token: 1287370416399331328
+x-twitter-client-language: en
+x-twitter-active-user: yes
+content-type: application/x-www-form-urlencoded
+x-csrf-token: 2c4047c7fffc08090de9a4867b55e1dc
+content-length: 438
+origin: https://twitter.com
+cookie: personalization_id="v1_g/va0h8xH2P/NTcSMMWIGA=="; guest_id=v1%3A159576800009951976; gt=1287370416399331328; ct0=2c4047c7fffc08090de9a4867b55e1dc; _ga=GA1.2.1618188819.1595768008; _gid=GA1.2.1485472748.1595768008; _twitter_sess=BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7AA%253D%253D--1164b91ac812d853b877e93ddb612b7471bebc74
+te: trailers
+
+debug=true&log=%5B%7B%22_category_%22%3A%22client_event%22%2C%22format_version%22%3A2%2C%22triggered_on%22%3A1595768117797%2C%22items%22%3A%5B%5D%2C%22event_namespace%22%3A%7B%22page%22%3A%22settings%22%2C%22section%22%3A%22about%22%2C%22action%22%3A%22show%22%2C%22client%22%3A%22m5%22%7D%2C%22client_event_sequence_start_timestamp%22%3A1595768005125%2C%22client_event_sequence_number%22%3A192%2C%22client_app_id%22%3A%223033300%22%7D%5D

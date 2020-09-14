@@ -1,0 +1,10 @@
+GET https://ie.search.yahoo.com:443/os HTTP/1.1
+Accept: */*
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: ie.search.yahoo.com
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+

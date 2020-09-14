@@ -1,0 +1,10 @@
+GET https://aax-eu.amazon-adsystem.com:443/s/iu3?d=amazon.in&slot=navFooter&a2=010182fa767851d72bfe291b19e7d0c9e5a04f82805a4546ecdb36aa4903dd0d0bf9&old_oo=0&ts=1596047604590&s=AYRds6uXzJg-1gxjBglHw6zFe34seuo_UFuQuXDQGIHB&cb=1596047604590 HTTP/1.1
+Accept: text/html, application/xhtml+xml, */*
+Referer: https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: aax-eu.amazon-adsystem.com
+DNT: 1
+Connection: Keep-Alive
+

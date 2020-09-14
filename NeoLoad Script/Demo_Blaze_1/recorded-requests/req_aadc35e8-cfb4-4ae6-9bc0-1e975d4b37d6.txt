@@ -1,0 +1,9 @@
+GET https://www.google.com/xjs/_/js/k=xjs.s.en_GB.v2QFhXrPpNY.O/ck=xjs.s.kVjuJhQ4UO8.L.F4.O/am=AAAAAAABAAAAS8DcDQDAfxAA4IISBwAAACBAS4KNBdIICQkBCAAAwCxMEAAE/d=1/exm=IvlUe,MC8mtf,TJw5qb,Y33vzc,cdos,cr,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe/ed=1/dg=2/ct=zgms/rs=ACT90oHAVWYR6fNcXkn2PBLUZFdVXJbSjA/m=RMhBfe,aa,abd,async,cvn5cb,dvl,foot,lu,m,mUpTid,mu,sb_wiz,sf,xiqEse,xz7cCd?xjs=s1 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://www.google.com/
+cookie: 1P_JAR=2020-07-28-01; NID=204=SJ05TmjdlCr-Smmknqtg4PkKk-5TDBCPU23KHsz4btHifX6ypaaA2wX0iCKIeE1KpDs12lTfmXCHHoS2C3upL5Mqz4LjR_FUQYiVJYouwIcmwrxlk9HaTJUgfiy4oHoGrLO8NkyP_Oq-dJ1NABVgJaCFRW6-AOSes7pTIZ7-SPc
+te: trailers
+

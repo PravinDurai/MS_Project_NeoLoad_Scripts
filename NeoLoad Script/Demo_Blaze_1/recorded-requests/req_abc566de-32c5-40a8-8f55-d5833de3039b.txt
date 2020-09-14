@@ -1,0 +1,18 @@
+POST https://api.twitter.com/1.1/jot/client_event.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+authorization: Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA
+x-guest-token: 1287524212534464512
+x-twitter-client-language: en
+x-twitter-active-user: yes
+content-type: application/x-www-form-urlencoded
+x-csrf-token: 25defc106bc55dc1f74bc6dc9a894257
+Content-Length: 308
+origin: https://twitter.com
+referer: https://twitter.com/explore/tabs/entertainment
+cookie: ct0=25defc106bc55dc1f74bc6dc9a894257; personalization_id="v1_oB/JhqEYwxBsmd4IIanBPg=="; guest_id=v1%3A159580466796466701; _ga=GA1.2.194021044.1595804668; _gid=GA1.2.1612449998.1595804668; gt=1287524212534464512
+te: trailers
+
+category=perftown&log=%5B%7B%22description%22%3A%22rweb%3Aurt%3Ageneric%3Afetch_Initial%3Asuccess%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A1016%7D%2C%7B%22description%22%3A%22rweb%3Aurt%3Ageneric%3Afetch_Initial%3Aformat%3Asuccess%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A1033%7D%5D

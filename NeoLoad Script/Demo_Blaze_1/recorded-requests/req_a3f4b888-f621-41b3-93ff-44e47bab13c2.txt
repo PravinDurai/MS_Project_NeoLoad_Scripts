@@ -1,0 +1,15 @@
+POST https://unagi-eu.amazon.com:443/1/events/com.amazon.csm.nexusclient.prod HTTP/1.1
+Accept: */*
+Content-Type: text/plain
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+Origin: https://www.amazon.in
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: unagi-eu.amazon.com
+Content-Length: 476
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+{"cs":{"dct":{"#0":"requestId","#1":"69TG6AVCW9A4WY3XQGA1","#2":"server","#3":"www.amazon.in","#4":"obfuscatedMarketplaceId","#5":"A21TJRUUN4KGV","#6":"producerId","#7":"csm","#8":"schemaId","#9":"csm.CSMBaselineEvent.4","#10":"timestamp","#11":"messageId","#12":"sessionId","#13":"259-5549146-3116120"}},"events":[{"data":{"#0":"#1","#2":"#3","#4":"#5","#6":"#7","#8":"#9","#10":"2020-07-29T18:33:09.642Z","#11":"69TG6AVCW9A4WY3XQGA1-1596047589642-8395360177","#12":"#13"}}]}

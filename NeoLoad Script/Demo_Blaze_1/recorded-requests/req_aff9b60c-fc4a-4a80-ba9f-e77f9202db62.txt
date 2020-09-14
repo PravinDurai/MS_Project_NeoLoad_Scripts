@@ -1,0 +1,10 @@
+GET https://analytics.twitter.com:443/i/adsct?p_id=985&p_user_id=TOAqqD8lT7qfaq6XP3Y_Lg&twitter_redir=https%3A%2F%2Faax-eu.amazon-adsystem.com%2Fs%2Fecm3%3Fex%3Dtwca%26id%3DTOAqqD8lT7qfaq6XP3Y_Lg HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://aax-eu.amazon-adsystem.com/s/v3/pr?exlist=bsw_aold_n-telaria_n-zeotap-4_fw_imdb_twca_adb_mp_af_sx_n-sk_g_kr_ox_index_an_rb_n-g-hmt_nsln_fbca_y_n-sc_rlsa_pm&fv=1.0&ex-pl-fbca=t_PzJtTOSEmoj3G3QBIQtw&ex-pl-twca=TOAqqD8lT7qfaq6XP3Y_Lg&a=cm&ex-pl-n-g-hmt=8S3AM01iQtK8wXtVLOQ3CA&ep=SEr2qS9g7ShmblMYH4lq4O6T9B1jRhSLg-zti6JzuNiAQCY0rUPZBHkN_W0xwouF5ANsl0JjaCVYoVd2lAtMg81FxiVOIRFbpQFLwtEX8WH9TLRvhIqYuXWtaD4adE1ZPJKLuOJRBQI2ANhS9y_KHd-sxQpBiB7tIc1VmFBFzgWgCyvuBwX3FwbuxLOra1OqT_xGBiAA8sjuYxtaa97ksQ
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: analytics.twitter.com
+DNT: 1
+Connection: Keep-Alive
+

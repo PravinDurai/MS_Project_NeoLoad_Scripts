@@ -1,0 +1,10 @@
+GET https://c1.adform.net:443/serving/cookie/match?party=1153&redirect_url=https%3A%2F%2Faax-eu.amazon-adsystem.com%2Fs%2Fecm3%3Fex%3Dadform.net%26id%3D%24%7BUUID%7D HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://aax-eu.amazon-adsystem.com/s/v3/pr?exlist=n-zeotap-4_nsln_af_sx_twca_bsw&fv=1.0&ex-pl-twca=TOAqqD8lT7qfaq6XP3Y_Lg&a=cm
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: c1.adform.net
+DNT: 1
+Connection: Keep-Alive
+

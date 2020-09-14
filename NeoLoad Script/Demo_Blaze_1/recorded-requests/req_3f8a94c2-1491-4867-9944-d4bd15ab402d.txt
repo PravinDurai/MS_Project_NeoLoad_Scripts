@@ -1,0 +1,10 @@
+GET https://images-eu.ssl-images-amazon.com:443/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,019tf1maCwL.css,11qCI+Y+sBL.css,01CH1pCmYCL.css,410iOIpxjqL.css,11rkuLsEFQL.css,01ElnPiDxWL.css,11kR7aY29CL.css,01gtsdRETQL.css,01IdKcBuAdL.css,01y-XAlI+2L.css,01RgENaJKWL.css,01Q48KXvqCL.css,01K+Ps1DeEL.css,41mrYtlcZrL.css,01gHtvD-BhL.css,5196JS-zAAL.css,11W1qxAlXLL.css,21VGMbCbf7L.css,11BHZ0bWckL.css,21ugv+CDRhL.css,0117I5qmNpL.css,01YhS3Cs-hL.css,21R-IHth0oL.css,01O8SHk5fgL.css,11LoqFihnqL.css,21Upd-ZcZBL.css,11X17kCPZNL.css,01IZMVtllgL.css,11OIOt1XidL.css,011W31jTTCL.css,11AW5f+T2iL.css,01eaBDnVntL.css,31rwK42HApL.css,01EqjcrG3VL.css,11YBKEDeqQL.css,01cbS3UK11L.css,21kZwnjgOSL.css,0116OOHSwvL.css_.css?AUIClients/AmazonUI HTTP/1.1
+Accept: text/css, */*
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-eu.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

@@ -1,0 +1,8 @@
+GET http://download.mozilla.org/?product=firefox-78.0.2-complete&os=win&lang=en-US HTTP/1.1
+Host: download.mozilla.org
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Range: bytes=41400000-
+Connection: keep-alive
+

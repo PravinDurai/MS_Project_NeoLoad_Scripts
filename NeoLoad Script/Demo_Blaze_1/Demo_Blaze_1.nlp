@@ -1,0 +1,13 @@
+# Project description file
+
+project.name=Demo_Blaze_1
+project.version=8.0
+project.original.version=8.0
+product.name=NeoLoad
+product.original.name=NeoLoad
+product.version=7.4.0
+product.original.version=7.4.0
+project.id=bac942ca-8671-4980-a055-2c92241de558
+project.config.path=config.zip
+project.config.storage=ZIP
+team.server.enabled=false

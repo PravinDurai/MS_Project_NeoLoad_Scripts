@@ -1,0 +1,14 @@
+POST https://www.amazon.in:443/ah/ajax/record-impressions?c4i=ePm_fHprndFPC0FBFAXwT3TK_DF3ZolCsZJY35m5g-g98SR8eU8p9VjZnMXZnd95dISznPdNffwBPeFGrnzreg_UajiYh-W8vx4Nx139Wd1MMVoucGp3bKrdXTK4yrhUn-KflUaUjX2VUDQxLCsCFyaQcT0RnwKx70q4qHpJXAJxsbCZFEKmAk0SnfNF2PqP1hsCDR8O2MqpxvgL0NtitWlvN8YE2KQNog-hDcnkddRE8kJ-AlA5btU&rId=69TG6AVCW9A4WY3XQGA1&mkId=A21TJRUUN4KGV&exp=1596047701036&h=cc0d982c770f29d48417947c240cedbc9c241081480c383126d1bdbc9507c349 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Accept: */*
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: www.amazon.in
+Content-Length: 0
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: session-id=259-5549146-3116120; session-id-time=2082758401l; i18n-prefs=INR; ubid-acbin=261-5392048-5305355; x-wl-uid=1CMgkMD+lwTMjFwV0IQsm4ngLqu5vsl9zMx3QYLakUzVDNNP6MdvIDKHKrlqgRJKCNrXy7dSS1us=; csm-hit=tb:s-69TG6AVCW9A4WY3XQGA1|1596047588753&t:1596047588753
+

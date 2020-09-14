@@ -1,0 +1,9 @@
+GET https://pbs.twimg.com/hashflag/config-2020-07-26-23.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+origin: https://twitter.com
+referer: https://twitter.com/search
+te: trailers
+

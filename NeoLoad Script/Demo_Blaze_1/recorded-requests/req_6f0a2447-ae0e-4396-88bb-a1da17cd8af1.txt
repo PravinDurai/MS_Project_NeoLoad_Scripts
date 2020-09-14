@@ -1,0 +1,11 @@
+GET https://fonts.gstatic.com:443/s/roboto/v20/KFOjCnqEu92Fr1Mu51TzBic6CsI.woff HTTP/1.1
+Accept: */*
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Origin: https://www.youtube.com
+Accept-Encoding: gzip, deflate
+Host: fonts.gstatic.com
+DNT: 1
+Connection: Keep-Alive
+

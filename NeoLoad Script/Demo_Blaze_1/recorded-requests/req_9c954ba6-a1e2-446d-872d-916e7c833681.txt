@@ -1,0 +1,9 @@
+GET https://aus5.mozilla.org/update/6/Firefox/72.0.2/20200117190643/WINNT_x86-msvc-x64/en-US/release/Windows_NT%206.3.0.0.9600%20(x64)/ISET:SSE4_2,MEM:8096/default/default/update.xml?mig64=1 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+cache-control: no-cache
+pragma: no-cache
+te: trailers
+

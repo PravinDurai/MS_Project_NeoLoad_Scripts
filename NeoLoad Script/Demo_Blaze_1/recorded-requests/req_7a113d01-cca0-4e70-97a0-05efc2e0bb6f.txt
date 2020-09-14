@@ -1,0 +1,11 @@
+GET https://www.youtube.com:443/pagead/paralleladview?ai=CxMppdTseX7KdHvKH3LUPp4ObiAoAnYe0-9QLABABIABg5QKCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MagDBKoEF0_QcM4xnDkxHxzShy0AGz7kjXgIVvG90ggCEAGwCwG6CxgIAxADGAwgCygFMAVAAUgAWBxgAGgAcAE&sigh=sWGx78JIyD8&cid=CAASFeRoTS7KMDwV1-cyGhyCJPw0FFwBVQ&vt=0 HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.youtube.com/results?search_query=javascript
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.youtube.com
+DNT: 1
+Connection: Keep-Alive
+Cookie: YSC=F0B4IJmkuqQ; GPS=1; VISITOR_INFO1_LIVE=q2GLwj1B8cU
+

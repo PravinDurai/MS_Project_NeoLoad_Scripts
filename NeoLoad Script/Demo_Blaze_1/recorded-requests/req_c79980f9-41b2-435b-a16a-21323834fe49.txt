@@ -1,0 +1,10 @@
+GET https://query.prod.cms.msn.com:443/cms/api/amp/search?$filter='$type'eq'list'and'_locale'eq'en-in'and'_name'eq'IE%20NTP%20Goldbar'&tenant=amp&$select=list HTTP/1.1
+Accept: */*
+UA-CPU: AMD64
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko
+Host: query.prod.cms.msn.com
+DNT: 1
+Connection: Keep-Alive
+Cookie: _EDGE_S=F=1; _EDGE_V=1; MUID=23A15A1460E462FF130955126149638C
+

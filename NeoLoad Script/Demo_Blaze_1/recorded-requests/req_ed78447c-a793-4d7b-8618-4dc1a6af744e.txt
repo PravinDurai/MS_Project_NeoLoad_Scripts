@@ -1,0 +1,10 @@
+GET https://apiprxy.com/proxy/?proxyurl=http%3A%2F%2Fecx25.siteplug.com%2Fqlapi%3Fo%3Decx25%26s%3D24970%26u%3D123%26f%3Djson%26n%3D20%26i%3D1%26is%3D192x192%26af%3D0%26subid%3Dbgy_aqrrrni_19_02_a%26itype%3Dss%26ip%3D59.98.51.132%26ua%3DMozilla%252F5.0%2520(Windows%2520NT%25206.3%253B%2520Win64%253B%2520x64)%2520AppleWebKit%252F537.36%2520(KHTML%252C%2520like%2520Gecko)%2520Chrome%252F83.0.4103.106%2520Safari%252F537.36%26di%3D7928fcab-7bc2-468e-8173-9b053a2159cd HTTP/2.0
+x-custom-proxy-auth: 9CE4DC287E7934BC4D80267EFE42F4CC
+accept: application/json, text/plain, */*
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+sec-fetch-site: none
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+

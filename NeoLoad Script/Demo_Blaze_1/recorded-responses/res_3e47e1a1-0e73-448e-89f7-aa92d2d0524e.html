@@ -1,0 +1,341 @@
+<script type="text/javascript">
+    if (typeof(JQuery) === 'undefined') {
+        window.location.href = '/client/#/dashboard';
+    }
+</script>
+
+<script type="text/javascript" src="/webres_5e7985529ea946.31965054/orangehrmDashboardPlugin/js/dashboard.min.js"></script>
+<div class="dashboard-outline row">
+        <div id="interviewAssistantNotEnabledModal" class="modal confirm-dialog">
+<!--    <div class="modal-content customized-modal-header"
+         style="text-align: center; margin-top: 0px; margin-bottom: 10px; padding-top:16px; padding-bottom:16px">
+        <h4></h4>
+    </div>-->
+    <div class="modal-content">
+        <h4></h4>
+        <p>Interview assistant is disabled in the license. Please request a license upgrade to enable the feature.</p>
+    </div>
+    
+    <div class="modal-footer confirm-dialog-footer">
+
+                <a  style="float: none !important;text-align: center" id="btnOk" class="modal-action modal-close waves-effect btn right cancel-btn" >Ok</a>
+         
+            </div>
+</div>   
+
+
+            
+                                                     
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_0_4" >
+                        <div id="panel_resizable_0_4" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">Employee Distribution by Subunit</div>
+                                 
+
+
+    <div class="card-image waves-effect waves-block waves-light">
+        <div style="width: 70%; margin: 0px 90px 0px auto;">
+            
+
+    <div id="div_ohrmReportVisualizer_Display_emp_distribution" style="margin-top: 10px; width: 370px; height: 260px; "></div>
+        <div id="div_ohrmReportVisualizer_Display_emp_distribution_legend" style="width:100px;display:block;float:left;"></div>
+    <br class="clear"/>
+    <div id="hover_div_ohrmReportVisualizer_Display_emp_distribution" style="width:auto;"></div>
+    <div class="graph_title">
+        <span></span>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var data = {"Not assigned to Subunits":9,"Administration":8,"Architecture Team":2,"Customer Success":2,"Engineering":18,"Finance":6,"IT":8,"Marketing":11,"Product and Training":1,"Production":2,"QA Team":15,"Sales":11,"Sample Sub Unit":0};
+            var graph = {"xAxisLabels":[],"yAxisLabels":[],"legend":{"labels":["Not assigned to Subunits","Administration","Architecture Team","Customer Success","Engineering","Finance","IT","Marketing","Product and Training","Production","QA Team","Sales","Sample Sub Unit"],"noOfColumns":13,"useSeparateContainer":true,"legendDivId":"div_legend_pim_employee_distribution"},"barWidth":1,"barOpacity":1,"yAxisMinValue":0,"yAxisMaxValue":null,"yAxisMinTickSize":1};
+
+
+            var properties = {"show-legend":true,"show-labels":true,"interactive":true,"suffixForValueHover":"Employee(s)"};
+
+            visualizePieChart(data, graph, properties, 'div_ohrmReportVisualizer_Display_emp_distribution','');        });
+    </script>
+
+            
+        </div>
+    </div>
+    <div class="card-content">            
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons moreIcon right">more_vert</i></span>            
+    </div>
+    <div class="card-reveal">
+        <div class="card-title card-title-reveal" style="margin-top: -20px;margin-left: -30px;">Legends <i class="material-icons right closeIcon handCurser" style="margin-top: 12px;margin-right: -30px">close</i></div>
+
+        <div id="task-list-group-panel-menu_holder-legend" style="" class="legend-holder">
+            <div id="div_legend_pim_employee_distribution_legend" style="width:100%;display:block;height:90%;overflow-y: auto"></div>
+        </div>
+    </div>
+    
+                        </div> 
+                    </div>
+                </div>
+                                                                 
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_0_5" >
+                        <div id="panel_resizable_0_5" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">Leave Taken from January by Subunit</div>
+                                
+
+    <div class="card-image waves-effect waves-block waves-light">
+        <div class="activator" style="width: 70%;margin: 0px 90px 0px auto;">
+            
+
+    <div id="div_ohrmReportVisualizer_Display_leaveGraph" style="margin-top: 10px; display: block; float: left; width: 370px; height: 270px; "></div>
+        <div id="div_ohrmReportVisualizer_Display_leaveGraph_legend" style="width:100px;display:block;float:left;"></div>
+    <br class="clear"/>
+    <div id="hover_div_ohrmReportVisualizer_Display_leaveGraph" style="width:auto;"></div>
+    <div class="graph_title">
+        <span></span>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var data = [["2.0000"],["5.5000"],[0],["2.0000"],["1.0000"],["0.5000"],[0],["7.0000"],[0],[0],["9.0000"],["4.0000"],[0]];
+            var graph = {"xAxisLabels":[],"yAxisLabels":[],"legend":{"labels":["Not assigned to Subunits","Administration","Architecture Team","Customer Success","Engineering","Finance","IT","Marketing","Product and Training","Production","QA Team","Sales","Sample Sub Unit"],"noOfColumns":13,"useSeparateContainer":true,"legendDivId":"bar_chart_legend","legendVerticalAlignment":true},"barWidth":1,"barOpacity":1,"yAxisMinValue":0,"yAxisMaxValue":null,"yAxisMinTickSize":1};
+
+
+            var properties = {"show-legend":true,"show-labels":true,"interactive":true,"suffixForValueHover":"day(s)","suffixForLabelForHover":"Leave Taken"};
+
+            visualizeBarChart(data, graph, properties, 'div_ohrmReportVisualizer_Display_leaveGraph','1');        });
+    </script>
+
+            
+        </div>
+    </div>
+    <div class="card-content">            
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>            
+    </div>
+    <div class="card-reveal">
+        <span class="card-title card-title-reveal" style="margin-top: -20px;margin-left: -30px;">Legends <i class="material-icons right" style="margin-top: 12px;margin-right: -30px">close</i></span>
+        <div id="legend" class="legend-holder">
+            <div id="bar_chart_legend_legend" style="width:100%;display:block;height:90%;overflow-y: auto"></div>
+        </div>
+    </div>
+    
+
+                        </div> 
+                    </div>
+                </div>
+                                                        
+            
+                                                                             
+                <div id='dropdownLeave'>
+                    <div id="panel_draggable_1_1" class="" style="height:auto;">
+                        <div id="panel_resizable_1_1" class="panel_resizable panel-preview card ohrm-card" style="height:auto">
+                            <div class="dashboardCard-title">Pending Leave Requests                                    <a id="viewLeaveListDashboardIcon" style="display:none" class="handCurser view-all-link tooltipped" href="/client/#/leave/view_leave_list" data-tooltip="View All"><span class="dashboardCard-title view-all-icon quickAccessIcon material-icons">ohrm_shortcuts</span></a>
+                            </div>
+                            
+
+<div  class="dashboardNotification collection-container " >
+    <ul class="collection" id="pending-leave-collection">
+    <li class="collection-item noRecordsMsg">No Records are Available</li>
+    </ul>
+
+</div>
+<div class="dashboardDropDownFooter">
+            <span style="text-align:left; cursor: pointer;float: left;">
+             <span title = "Fri, 01 May 2020 to Fri, 31 Jul 2020">3 month(s)</span>        </span>
+    
+    
+</div>
+      <script type="text/javascript">
+          $('#leaveList').hide();
+      </script>
+                        </div> 
+                    </div>
+                </div>
+                                       
+                                                         
+                <div id='dropdown1'>
+                    <div id="panel_draggable_1_2" class="" style="height:auto;">
+                        <div id="panel_resizable_1_2" class="panel_resizable panel-preview card ohrm-card" style="height:auto">
+                            <div class="dashboardCard-title">Pending Timesheets                                    <a id="viewTimesheetsDashboardIcon" style="display:none"  class="handCurser tooltipped view-all-link" href="/client/#/noncore/time/viewEmployeeTimesheet" data-tooltip="View All"><span class="dashboardCard-title view-all-icon quickAccessIcon material-icons">ohrm_shortcuts</span></a>
+                                </div>
+                            
+
+<div class="collection-container dashboardNotification">
+    <ul class="collection" id="pending-timesheet-collection">
+                    <li class="collection-item noRecordsMsg">No Records are Available</li>
+            </ul>  
+
+</div>
+
+<div class="dashboardDropDownFooter">
+                <span style="text-align:left; cursor: pointer;float: left;"> 
+                 <span title = "Mon, 16 Mar 2020 to Sun, 21 Jun 2020">3 month(s)</span>            </span>
+            </div>
+
+
+        <script type="text/javascript">
+            $('#timeSheet').hide();
+        </script>
+                            </div> 
+                    </div>
+                </div>  
+                                                                                         
+                <div id='dropdownInterview'>
+                    <div id="panel_draggable_1_3" class="" style="height:auto;">
+                        <div id="panel_resizable_1_3" class="panel_resizable panel-preview card ohrm-card" style="height:auto">
+                            <div class="dashboardCard-title">Scheduled Interviews</div>
+                            
+
+    <div id="task-list-group-panel-container-int" class="task-list-group-panel-container" style="height:100%; ">
+        <ul id="task-list-group-panel-menu_holder-int" class="task-list-group-panel-menu_holder collection"
+            style="line-height:1.5;overflow-x: hidden; overflow-y: auto; border-left: 0;border-right: 0;max-height: 300px;">
+                            <li class="collection-item loadmask">Loading</li>
+                    </ul>
+        <ul id="interview_footer" class="dashboardDropDownFooter">
+                            <span style="text-align:right;float: right; display: none;">
+        Showing: <span id="interview-record-count"></span> of <span
+                            id="interview-total-record-count">36</span>
+    </span>
+                    </ul>
+
+    </div>
+
+
+            <script type="text/javascript">
+            $('#dropDownRecruitmentTrigger').find('.noOfNotifications').html(36);
+
+            var OHRM = (function (parent) {
+
+                parent.lang = parent.lang || {};
+                parent.lang.to = 'to';
+
+                parent.scheduledInterviews = {
+                    interviewAssistantEnabled: true,
+                    interviewAssistantDisabledToast: 'Interview Assistant Is Disabled in the License. Please Request a License Upgrade to Enable the Feature.',
+                    moduleUrl: '/dashboard-tasklist-group-scheduled-interviews',
+                    itemTemplate: '<li class="collection-item">'
+                    + '<a style="width: 100%;;" href="#">'
+                    + '<p class="pending-timesheet-title truncate tooltipped" data-tooltip="" data-position="bottom"></p><p class="pending-timesheet-content truncate"></p></a>'
+                    + '</li>',
+
+                    getInterviewUrl: function (eventId, candidateId) {
+                        return '/recruitment/liveInterview' + "/eventId/" + eventId + "/candidateId/" + candidateId;
+                    },
+
+                    getProfileUrl: function (eventId, candidateId, vacancyId) {
+                        return '/recruitment/candidateProfile' + "?candidateId=" + candidateId
+                            + "&vacancyId=" + vacancyId + "&eventId=" + eventId;
+                    }
+
+                };
+
+                return parent;
+            }(OHRM || {}));
+        </script>
+
+                            </div> 
+                    </div>
+                </div>
+                        
+            
+                                                     
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_2_8" >
+                        <div id="panel_resizable_2_8" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">Documents</div>
+                            
+    <div class="loadmask" style="height: 100%;" id="dashboard__viewDocumentsOnDashboard">
+    </div>
+    <script type="text/javascript">
+
+        if (OHRM.angularInitialized) {
+            $(document).ready(function () {
+                var moduleUrl = '/dashboard/viewDocumentsOnDashboard';
+                var divId = 'dashboard__viewDocumentsOnDashboard';
+
+                $.ajax({
+                    url: moduleUrl,
+                    cache: true,
+                    success: function (obj) {
+                        $.ajaxSetup({
+                            // Enable caching of AJAX responses
+                            cache: true
+                        });
+                        $("#" + divId).html(obj);
+                    },
+                    complete: function () {
+                        $("#" + divId).removeClass('loadmask');
+                    }
+                });
+
+            });
+        }
+    </script>
+                        </div> 
+                    </div>
+                </div>
+                                                                 
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_2_9" >
+                        <div id="panel_resizable_2_9" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">News</div>
+                            
+    <div class="loadmask" style="height: 100%;" id="dashboard__viewNewsOnDashboard">
+    </div>
+    <script type="text/javascript">
+
+        if (OHRM.angularInitialized) {
+            $(document).ready(function () {
+                var moduleUrl = '/dashboard/viewNewsOnDashboard';
+                var divId = 'dashboard__viewNewsOnDashboard';
+
+                $.ajax({
+                    url: moduleUrl,
+                    cache: true,
+                    success: function (obj) {
+                        $.ajaxSetup({
+                            // Enable caching of AJAX responses
+                            cache: true
+                        });
+                        $("#" + divId).html(obj);
+                    },
+                    complete: function () {
+                        $("#" + divId).removeClass('loadmask');
+                    }
+                });
+
+            });
+        }
+    </script>
+                        </div> 
+                    </div>
+                </div>
+                        
+    </div>
+
+<script type="text/javascript">
+
+    var OHRM = (function (parent) {
+        parent.dashboard = parent.dashboard || {};
+
+        parent.dashboard.employeePhotosUrl = '/pim/getEmployeePhotosAjax';
+
+        return parent;
+    }(OHRM || {}));
+
+    $(document).ready(function () {
+
+        $('#dashboard-navbar .dropdown-button').click(function (event) {
+            $('.material-tooltip').hide();
+        }).dropdown();
+        $('a.view-all-link').tooltip();
+        $('a.view-all-link').click(function () {
+            $('.material-tooltip').hide();
+            $('a.view-all-link').tooltip('remove');
+        })
+    });
+
+
+
+</script>

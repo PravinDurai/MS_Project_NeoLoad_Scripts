@@ -1,0 +1,770 @@
+/**
+ * OrangeHRM Enterprise is a closed sourced comprehensive Human Resource Management (HRM)
+ * System that captures all the essential functionalities required for any enterprise.
+ * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
+ *
+ * OrangeHRM Inc is the owner of the patent, copyright, trade secrets, trademarks and any
+ * other intellectual property rights which subsist in the Licensed Materials. OrangeHRM Inc
+ * is the owner of the media / downloaded OrangeHRM Enterprise software files on which the
+ * Licensed Materials are received. Title to the Licensed Materials and media shall remain
+ * vested in OrangeHRM Inc. For the avoidance of doubt title and all intellectual property
+ * rights to any design, new software, new protocol, new interface, enhancement, update,
+ * derivative works, revised screen text or any other items that OrangeHRM Inc creates for
+ * Customer shall remain vested in OrangeHRM Inc. Any rights not expressly granted herein are
+ * reserved to OrangeHRM Inc.
+ *
+ * Please refer http://www.orangehrm.com/Files/OrangeHRM_Commercial_License.pdf for the license which includes terms and conditions on using this software.
+ *
+ */
+
+function updateExtraPageContent(data) {
+    $('.pageholder').html(data['page']);
+    updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+
+    $("#vacancyDropDowns").html(data['dropdowns']);
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+    $('.dropdown-button-noOfRows').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: false, // Activate on hover
+            gutter: -20,
+        }
+    );
+}
+
+function resetVacancyForm() {
+    $('#addJobVacancyForm')[0].reset();
+    $('#addVacancyFormDiv').find("h5").html(addJobVacancyHeader);
+    var $widgetRoot = $('#addJobVacancyForm').find('.materializeWidgetEmployeeMultySelect-container');
+    MaterializeWidgetEmployeeMultySelect($widgetRoot).reset();
+
+    var $widgetRoot = $('#addJobVacancyForm').find("#textarea_addJobVacancy_jobTitle").parent('.materializeWidgetObjectMultySelect-container');
+    MaterializeWidgetSelect($widgetRoot).unselectAll();
+
+    var $widgetRoot = $('#addJobVacancyForm').find("#textarea_addJobVacancy_location").parent('.materializeWidgetObjectMultySelect-container');
+    MaterializeWidgetSelect($widgetRoot).unselectAll();
+
+    var $widgetRoot = $('#addJobVacancyForm').find("#textarea_addJobVacancy_sub_unit").parent('.materializeWidgetObjectMultySelect-container');
+    MaterializeWidgetSelect($widgetRoot).unselectAll();
+
+    formVacancyValidator.resetForm();
+    $('#addJobVacancyForm input.validation-error').removeClass('validation-error');
+    $('.materialize-contenteditable.materialize-textarea').removeClass('validation-error');
+}
+
+$(document).ready(function () {
+    initMaterialSelect('select');
+    addVacancyBtnHoverFunction();
+    $('.dropdown-managers').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 200, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 130, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+    $('#addJobVacancy_sub_unit').siblings('ul.dropdown-content').find('li span').each(function () {
+        var spaceCount = ($(this).html().match(/&nbsp;/g) || []).length;
+        if (spaceCount > 0) {
+            $(this).html($(this).html().replace(/&nbsp;/g, ''));
+            $(this).css('margin-left', 15 * spaceCount + 'px');
+        }
+    });
+
+    $(document).live('keypress', function (e) {
+        if (e.which == 13 && $('#vacancySearchForm').is(":visible")) {
+            searchVacancy();
+        }
+    });
+
+
+    var saveFunction = function (e) {
+        if (formVacancyValidator.form()) {
+            $('#saveVacancy').off('click');
+            var locationDisabledAttrib = $('#addJobVacancy_location').attr("disabled")
+            $('#addJobVacancy_location').removeAttr("disabled");
+            $("#addVacancyFormDiv").closeModal();
+            $(".overlay").show();
+            $.ajax({
+                url: saveVacancyUrl,
+                type: "POST",
+                data: $("#addJobVacancyForm").serialize(),
+                dataType: "json",
+                success: function (data1, textStatus, jqXHR) {
+                    if (data1["template"] == "true") {
+                        $(".overlay").hide();
+                        toast.show('success', msgSuccessfullySaved);
+                    } else {
+                        updateTable($('.pagination-config'), data1, function (data) {
+                            $('.pageholder').html(data['page']);
+                            vacancyNames = data['vacancyNames'];
+                            updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+
+                            //$("#vacancyTableContainer").show();
+                            //$("#preloderHiddneDiv").hide();
+                            $('.dropdown-button').dropdown({
+                                inDuration: 300,
+                                outDuration: 225,
+                                constrain_width: false, // Does not change width of dropdown to that of the activator
+                                hover: false, // Activate on hover
+                                gutter: 0, // Spacing from edge
+                                belowOrigin: false // Displays dropdown below the button
+                            });
+                            $(".overlay").hide();
+                            toast.show('success', msgSuccessfullySaved);
+                        });
+                    }
+                    if (locationDisabledAttrib == "disabled") {
+                        $('#addJobVacancy_location').attr("disabled", locationDisabledAttrib)
+                    }
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                }
+            });
+        }
+    }
+
+    var arrow_upward = "arrow_upward";
+    $("th.sortableHeader").live('click', function () {
+        var rowsPerPage = $('#rowsperpage').html();
+        var sortField = $(this).attr('sortValue');
+        var pageNo = 1;
+        var arrow = $(this).find("i").html();
+        var sortOrder = "ASC";
+        if (trim(arrow) == arrow_upward) {
+            sortOrder = "DESC";
+        }
+        //$("#vacancyTableContainer").hide();
+        //$("#preloderHiddneDiv").show();
+        $(".overlay").show();
+        sortVacancies(pageNo, sortField, sortOrder, rowsPerPage);
+        //window.location.href = viewJobVacancyUrl + "?pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder;
+    });
+
+    $('#vacancySearchBtn').live('click', function (e) {
+        $("#vacancySearchDropDown").removeClass("customHidden");
+    });
+    $(document).mouseup(function (e) {
+        var container = $("#vacancySearchDropDown");
+
+        if (!container.is(e.target) // if the target of the click isn't the container...
+            && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            container.addClass("customHidden");
+        }
+    });
+
+    var searchFormValidator = $('#vacancySearchForm').validate({
+        rules: {
+            'vacancySearch[publishedDateFrom]': {
+                date_range: function () {
+                    return {
+                        format: datepickerDateFormat,
+                        displayFormat: displayDateFormat,
+                        toDate: $("#publishedDateTo").val()
+                    };
+                }
+            },
+            'vacancySearch[publishedDateTo]': {
+                date_range: function () {
+                    return {
+                        format: datepickerDateFormat,
+                        displayFormat: displayDateFormat,
+                        fromDate: $("#publishedDateFrom").val()
+                    }
+                }
+            }
+        }, messages: {
+            'vacancySearch[publishedDateFrom]': {
+                date_range: lang_fromDateInvalid
+            },
+            'vacancySearch[publishedDateTo]': {
+                date_range: lang_dateValidationError,
+            }
+        }
+    });
+
+    $(document).on('change', '.datepicker.picker__input', function () {
+        $(this).valid();
+        if ($(this).val() === '') {
+            $(this).removeClass('active');
+        }
+    });
+
+    $('#addFromTemplateButton').on('click', function () {
+        resetAddVacancyFromTemplateForm();
+    });
+
+    function resetAddVacancyFromTemplateForm() {
+        var formValidator = $("#importFromVacancyTemplateForm").validate();
+        formValidator.resetForm();
+        $('#textarea_selectVacancyTemplate_vacancyTemplate').html('');
+        $('label[for=selectVacancyTemplate_vacancyTemplate]').removeClass("active");
+        $('#vacancyTemplateDescriptionDiv').hide();
+        $('#customVacancyNameDiv').hide();
+    }
+
+    $('#searchVacancyFormBtn').live('click', function (event) {
+        if ($("#publishedDateFrom").valid() && $("#publishedDateTo").valid()) {
+            searchVacancy();
+        }
+    });
+    $('#resetVacancyFormBtn').live('click', function (event) {
+        $('#vacancySearch_jobVacancy').val("");
+        $("label[for='vacancySearch_jobVacancy']").removeClass("active");
+        var $root = $('#vacancySearchForm').find('.materializeWidgetEmployeeMultySelect-container');
+        MaterializeWidgetEmployeeMultySelect($root).reset();
+        $('#vacancySearch_jobTitle').prev().prev(".select-dropdown").val("All");
+        $('#vacancySearch_jobTitle').val("");
+        $('#vacancySearch_sub_unit').prev().prev(".select-dropdown").val("All");
+        $('#vacancySearch_sub_unit').val("");
+        $('#vacancySearch_location').prev().prev(".select-dropdown").val("All");
+        $('#vacancySearch_location').val("");
+        $('#vacancySearch_status').prev().prev(".select-dropdown").val("All");
+        $('#vacancySearch_status').val("");
+
+        $('#textarea_vacancySearch_jobTitle').text("");
+        $('#textarea_vacancySearch_jobTitle').parent('div').siblings('.label').removeClass("active");
+
+        $('#textarea_vacancySearch_sub_unit').text("");
+        $('#textarea_vacancySearch_sub_unit').parent('div').siblings('.label').removeClass("active");
+
+        $('#textarea_vacancySearch_location').text("");
+        $('#textarea_vacancySearch_location').parent('div').siblings('.label').removeClass("active");
+
+        $('#textarea_vacancySearch_status').text("");
+        $('#textarea_vacancySearch_status').parent('div').siblings('.label').removeClass("active");
+
+
+        $("#vacancySearch_jobTitle_input").remove();
+        $("#vacancySearch_sub_unit_input").remove();
+        $("#vacancySearch_location_input").remove();
+        $("#vacancySearch_status_input").remove();
+
+        $('#vacancySearchForm').clearForm();
+        $('#vacancySearchForm').validate().resetForm();
+        $('#publishedDateFrom').val("");
+        $('#publishedDateFrom').val("");
+
+        $("#vacancySearchForm").find(".employee-search").val("");
+        $("#vacancySearchForm .validation-error").removeClass('validation-error');
+
+        $("#includeClosedVacancies").attr('checked', false);
+        resetSearchVacancy();
+    });
+
+    $.validator.addMethod('requiredSelect', widgetValidators.requiredSelect);
+    $.validator.addMethod('requiredObject', widgetValidators.requiredObject);
+    $.validator.addMethod('uniqueValue', widgetValidators.uniqueValue);
+    formVacancyValidator = $("#addJobVacancyForm").validate({
+        rules: {
+            'addJobVacancy[name]': {
+                required: true,
+                uniqueValue: true,
+                maxlength: 100
+            },
+            'inputRepresenter_addJobVacancy[jobTitle]': {
+                requiredObject: true
+            },
+            'inputRepresenter_addJobVacancy[location]': {
+                requiredObject: true
+            },
+            'addJobVacancy[noOfPositions]': {
+                digits: true
+            },
+            'inputRepresenter_addJobVacancy[hiringManagers]': {
+                requiredObject: true
+            }
+        },
+        messages: {
+            'addJobVacancy[name]': {
+                required: lang_required,
+                uniqueValue: lang_unique,
+                maxlength: lang_tooLargeVacancyName
+            },
+            'inputRepresenter_addJobVacancy[jobTitle]': {
+                requiredObject: lang_required
+            },
+            'inputRepresenter_addJobVacancy[location]': {
+                requiredObject: lang_required
+            },
+            'addJobVacancy[noOfPositions]': {
+                digits: lang_onlyDigits
+            },
+            'inputRepresenter_addJobVacancy[hiringManagers]': {
+                requiredObject: lang_required
+            }
+        }
+
+    });
+
+    importFromVacancyTemplateValidator = $("#importFromVacancyTemplateForm").validate({
+        rules: {
+            'customVacancyName': {
+                required: true,
+                uniqueValue: true,
+                maxlength: 100
+            },
+            'selectVacancyTemplate[vacancyTemplate]': {
+                requiredObject: true
+            }
+        },
+        messages: {
+            'customVacancyName': {
+                required: lang_required,
+                uniqueValue: lang_unique,
+                maxlength: lang_tooLargeVacancyName
+            },
+            'selectVacancyTemplate[vacancyTemplate]': {
+                requiredObject: lang_required
+            }
+        }
+
+    });
+
+    $(".searchObjectA").live('click', function () {
+        var name = $(this).closest('ul.dropdown-content').next().attr('name');
+        setTimeout(function () {
+            $("#addJobVacancyForm").validate().element("input[name='" + name + "']");
+        }, 500);
+    });
+    $(".searchEmployeeA,.remove-employee").live('click', function () {
+        setTimeout(function () {
+            $("#addJobVacancyForm").validate().element("input[name='inputRepresenter_addJobVacancy[hiringManagers]']");
+        }, 200);
+    });
+    $(".mdi-content-add").live('click', function () {
+        if (screenName == "vacancyTemplates") {
+            window.location.href = saveVacancyUrl + "/template/true"
+        } else {
+            if ($(this).hasClass("secondLevelAddButton")) {
+                checkSessionTimeoutAndAdd("addNewVacancy");
+                $("#saveTemplateASVacancyBtn").removeAttr('disabled');
+                $("#saveVacancy").off("click").on('click', saveFunction);
+            }
+        }
+    });
+
+    $(".mdi-action-receipt").live('click', function () {
+        if (screenName == "vacancies") {
+            checkSessionTimeoutAndAdd("addFromTemplate");
+        }
+    });
+
+    $("#vacancyTemplateDescriptionDiv").hide();
+    $("#customVacancyNameDiv").hide();
+    $('#addVacancyTemplateSelectDiv > div  > .dropdownObjectSearch > div > .searchSingleObjectLi').live('click', function (e) {
+        $root = $(this).closest(".materializeWidgetObjectMultySelect-container");
+        var vacancyId = this.id.split($root.data('rand-id') + "_search_")[1];
+        var dataArray = {
+            'vacancyId': vacancyId
+        }
+        $.ajax({
+            url: getVacancyTemplateDetailUrl,
+            type: "POST",
+            data: dataArray,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                $("#vacancyTemplateDescriptionDiv").show();
+                if (data["templateDescription"]) {
+                    $("#vacancyTemplateDescription").text(data["templateDescription"]);
+                    $("#vacancyTemplateDescriptionDiv").show();
+                } else {
+                    $("#vacancyTemplateDescriptionDiv").hide();
+                }
+
+                $("#customVacancyNameDiv").show();
+                $("#customVacancyName").val(data["vacancyName"]);
+                $("label[for='customVacancyName']").addClass("active");
+                importFromVacancyTemplateValidator.form();
+                if (data["locationId"] == null) {
+                    $('#saveTemplateASVacancyBtn').addClass('disabled');
+                    $("#saveTemplateASVacancyBtn").attr("disabled", true);
+                    toast.remove();
+                    toast.show('error', lang_no_location_for_template);
+                } else {
+                    $('#saveTemplateASVacancyBtn').removeClass('disabled');
+                    $("#saveTemplateASVacancyBtn").removeAttr("disabled");
+                    toast.remove();
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+
+    });
+
+    $("#saveTemplateASVacancyBtn").on('click', function (event) {
+
+        if (!this.hasAttribute('disabled')) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            var vacancyId = $("#selectVacancyTemplate_vacancyTemplate_input").val();
+            var dataArray = {
+                'vacancyId': vacancyId,
+                'vacancyName': $("#customVacancyName").val(),
+                'importWorkflow': $("#importWorkflowToVacancyCheckbox").is(":checked") ? "on" : "off",
+                'importJobPostingData': $("#importJobPostingToVacancyCheckbox").is(":checked") ? "on" : "off",
+                'copyFromTemplate': "true"
+            }
+
+            if (importFromVacancyTemplateValidator.form()) {
+                $("#saveTemplateASVacancyBtn").attr('disabled', 'disabled');
+                $("#modal-add-vacancy-from-template").closeModal();
+                $(".overlay").show();
+                $.ajax({
+                    url: saveVacancyUrl,
+                    type: "POST",
+                    data: dataArray,
+                    dataType: "json",
+                    success: function (data, textStatus, jqXHR) {
+                        if (data['vacancyId'] != null || data['vacancyId'] != "") {
+                            window.location.href = saveVacancyUrl + "/vacancyId/" + data['vacancyId'];
+                        } else {
+                            $(".overlay").hide();
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    }
+                });
+            }
+        }
+    });
+
+    $(".mdi-action-delete").live('click', function () {
+        checkSessionTimeoutAndDelete();
+    });
+    $("#vacancy-delete-button").live('click', function () {
+        var idsToDelete = [];
+        $("[id^='checkbox']:checkbox:checked").each(function () {
+            idsToDelete.push(this.id.split('checkbox_')[1]);
+        });
+        var formData = {
+            '_csrf_token': $("#defaultMaterialList__csrf_token").val()
+        }
+
+        var dataArray = {
+            'chkSelectedIds': JSON.stringify(idsToDelete),
+            'defaultMaterialList': formData
+        }
+
+
+        $.ajax({
+            url: deleteContentUrl,
+            type: "POST",
+            data: dataArray,
+            dataType: "json",
+            success: function (data1, textStatus, jqXHR) {
+                updatePageContent(viewJobVacancyUrl, $('.pageholder'), function (data) {
+                    $('.pageholder').html(data['page']);
+                    vacancyNames = data['vacancyNames'];
+                    updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+
+                    $('.dropdown-button-noOfRows').dropdown({
+                        inDuration: 300,
+                        outDuration: 225,
+                        constrain_width: false, // Does not change width of dropdown to that of the activator
+                        hover: false, // Activate on hover
+                        gutter: 0, // Spacing from edge
+                        belowOrigin: false // Displays dropdown below the button
+                    });
+                });
+                $("#list_item_delete").hide();
+                $("#list_item_add").show();
+                toast.show('success', data1['status']);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    });
+
+
+    $('i.mdi-action-settings').live('click', function () {
+        window.location.href = settingsIconUrl + $(this).closest('tr').data('vacancy-id');
+    });
+    $('.dataRaw').live('click', function (e) {
+        if (e.target.tagName != "LABEL" && e.target.tagName != "INPUT"
+            && e.target.tagName != "I" && e.target.tagName != "A" && e.target.tagName != "SPAN") {
+
+            //resetVacancyForm();
+            //$tr = $(this);
+            //$('#addVacancyFormDiv').find("h5").html(editJobVacancyHeader);
+            //$('#addJobVacancy_id').val($tr.data('vacancy-id'));
+            //$('#addJobVacancy_noOfPositions').val($tr.data('no-of-positions'));
+            //if ($tr.data('no-of-positions') != "") {
+            //    $("label[for='addJobVacancy_noOfPositions']").addClass('active');
+            //} else {
+            //    $("label[for='addJobVacancy_noOfPositions']").removeClass('active');
+            //}
+            //tds = $(this).children('.dataColumn');
+            //for (var i = 0; i < tds.length; i++) {
+            //    if (i == 0) {
+            //        $('#addJobVacancy_name').val($(tds[i]).text());
+            //        $('#addJobVacancy_name').attr("valid-value", $(tds[i]).text());
+            //        $("label[for='addJobVacancy_name']").addClass('active');
+            //    } else if (i == 1 && $tr.data('job-title-id') != "") {
+            //        //$('#addJobVacancy_jobTitle').parent().find('.select-dropdown').val($(tds[i]).text());
+            //        var $widgetRoot = $('#addJobVacancyForm').find("#textarea_addJobVacancy_jobTitle").parent('.materializeWidgetObjectMultySelect-container');
+            //        MaterializeWidgetSelect($widgetRoot).selectOne($tr.data('job-title-id'),$(tds[i]).text());
+            //        //$('#addJobVacancy_jobTitle').val($tr.data('job-title-id'));
+            //    } else if (i == 3 && $tr.data('location-id') != "") {
+            //        //$('#addJobVacancy_location').parent().find('.select-dropdown').val($(tds[i]).text());
+            //        //var currentlocationOption = $('#addJobVacancy_location').find('option[value="' + $tr.data('location-id') + '"]');
+            //        //if (currentlocationOption.length == 0) {
+            //        //    $('#addJobVacancy_location').append('<option selected="" value="' + $tr.data('location-id') + '">' + $(tds[i]).text() + '</option>')
+            //        //}
+            //        //$('#addJobVacancy_location').val($tr.data('location-id'));
+            //        var $widgetRoot = $('#addJobVacancyForm').find("#textarea_addJobVacancy_location").parent('.materializeWidgetObjectMultySelect-container');
+            //        MaterializeWidgetSelect($widgetRoot).selectOne($tr.data('location-id'),$(tds[i]).text());
+            //
+            //    } else if (i == 4 && $tr.data('sub-unit-id') != "") {
+            //        //$('#addJobVacancy_sub_unit').parent().find('.select-dropdown').val($(tds[i]).text());
+            //        //$('#addJobVacancy_sub_unit').val($tr.data('sub-unit-id'));
+            //
+            //        var $widgetRoot = $('#addJobVacancyForm').find("#textarea_addJobVacancy_sub_unit").parent('.materializeWidgetObjectMultySelect-container');
+            //        MaterializeWidgetSelect($widgetRoot).selectOne($tr.data('sub-unit-id'),$(tds[i]).text());
+            //    } else if (i == 2) {
+            //        if ($tr.data('manager-ids') != "") {
+            //            var selectedEmployees = [];
+            //            var managerIds = $tr.data('manager-ids').toString().split(',');
+            //            var managerNames = $(tds[i]).text().toString().split(', ');
+            //            for (var j = 0; j < managerIds.length; j++) {
+            //                selectedEmployees[managerIds[j]] = managerNames[j];
+            //            }
+            //            var $widgetRoot = $('#addJobVacancyForm').find('.materializeWidgetEmployeeMultySelect-container');
+            //            MaterializeWidgetEmployeeMultySelect($widgetRoot).reset(selectedEmployees);
+            //        }
+            //    }
+            //}
+            //if (vacancyPermission['updatePermission']) {
+            //    $("#saveVacancy").show();
+            //} else {
+            //    $("#textarea_addJobVacancy_hiringManagers").removeClass("materialize-contenteditable");
+            //    $("#saveVacancy").hide();
+            //}
+            //$("#addVacancyFormDiv").openModal();
+            var vacancyId = $(this).data("vacancy-id");
+            if (screenName == "vacancyTemplates") {
+                window.location.href = saveVacancyUrl + "/vacancyId/" + vacancyId + "/template/true";
+            } else {
+                window.location.href = viewCandidatesUrl + "?vacancyId=" + vacancyId;
+            }
+
+        }
+    });
+    $('.mdi-social-group').live('click', function (event) {
+        var vacancyId = $(this).data("activates").split("_")[1];
+        if ($("#stages_" + vacancyId).html() != "") {
+            return;
+        }
+        var postData = {
+            'vacancyId': vacancyId,
+        };
+        $.ajax({
+            url: getVacancyStageDropDownAjaxUrl,
+            type: "POST",
+            data: postData,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                $("#stages_" + vacancyId).html(data["element"]);
+//                        $("#stages_"+vacancyId).addClass("active");
+//                        $("#stages_"+vacancyId).css("display","block");
+//                        $("#stages_"+vacancyId).css("opacity","1")
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    });
+    setTimeout(function () {
+        $('.dropdown-button').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: false, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false // Displays dropdown below the button
+        });
+    }, 300);
+});
+
+function checkSessionTimeoutAndDelete() {
+    $.ajax(
+        {
+            url: IsSessionTimedOutAjaxAction,
+            type: "POST",
+            data: '',
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                if (data['Successful']) {
+                    $("#modal-delete-vacancy").openModal();
+                } else {
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+}
+
+function checkSessionTimeoutAndAdd(mode) {
+    $.ajax(
+        {
+            url: IsAllowedToAddNewVacancyAction,
+            type: "POST",
+            data: '',
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                if (data['sessionExists']) {
+                    resetVacancyForm();
+                    $('#addJobVacancy_name').removeAttr("valid-value");
+                    if (vacancyPermission['createPermission']) {
+                        $("#saveVacancy").show();
+                    } else {
+                        $("#saveVacancy").hide();
+                    }
+                    if (mode == "addFromTemplate") {
+                        $("#modal-add-vacancy-from-template").openModal();
+                    } else {
+                        $("#addVacancyFormDiv").openModal();
+                    }
+                } else {
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+}
+
+function showSuccessMassage() {
+
+}
+
+function sortVacancies(pageNo, sortField, sortOrder, rowsPerPage) {
+    var sortVacancyUrl = viewJobVacancyUrl + "?pageNo=" + pageNo + "&sortField=" + sortField + "&sortOrder=" + sortOrder + "&rowsPerPage=" + rowsPerPage;
+    updatePageContent(sortVacancyUrl, $('.pageholder'), hideLoader);
+
+    //var postData = {
+    //    'pageNo': pageNo,
+    //    'sortField': sortField,
+    //    'sortOrder': sortOrder
+    //};
+    //$.ajax(
+    //    {
+    //        url: viewJobVacancyUrl,
+    //        type: "POST",
+    //        data: postData,
+    //        dataType: "json",
+    //        success: function (data, textStatus, jqXHR)
+    //        {
+    //            updatePageContent(sortVacancyUrl, $('.pageholder'));
+    //        },
+    //        error: function (jqXHR, textStatus, errorThrown)
+    //        {
+    //                //location.reload();
+    //        }
+    //    });
+}
+
+function hideLoader(data) {
+    $('.pageholder').html(data['page']);
+    $("#vacancyDropDowns").html(data['dropdowns']);
+    updatePageNavigationButtons(data['pageConfig'], $pageHolder);
+
+    $(".overlay").hide();
+    //$("#vacancyTableContainer").show();
+    //$("#preloderHiddneDiv").hide();
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+    $('.dropdown-button-noOfRows').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: false, // Activate on hover
+            gutter: -20,
+        }
+    );
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 130, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+}
+
+function searchVacancy() {
+    $("#vacancySearchDropDown").addClass("customHidden");
+    $(".overlay").show();
+    //$("#vacancyTableContainer").hide();
+    //$("#preloderHiddneDiv").show();
+    $.ajax({
+        url: viewJobVacancyUrl,
+        type: "POST",
+        data: $('#vacancySearchForm').serialize(),
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+            updateTable($('.pageholder'), data, hideLoader);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        }
+    });
+}
+
+function resetSearchVacancy() {
+    $("#vacancySearchDropDown").addClass("customHidden");
+    $(".overlay").show();
+    //$("#vacancyTableContainer").hide();
+    //$("#preloderHiddneDiv").show();
+    $.ajax({
+        url: viewJobVacancyUrl + "?reset=true",
+        type: "POST",
+        data: "",
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+            updateTable($('.pageholder'), data, hideLoader);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        }
+    });
+}
+
+function addVacancyBtnHoverFunction() {
+    $(".addVacancyBtn").hover(
+        function () {
+            $("#addItemBtn").find('i').removeClass("mdi-content-add");
+            $("#addItemBtn").find('i').addClass("mdi-navigation-close");
+        }, function () {
+            $("#addItemBtn").find('i').addClass("mdi-content-add");
+            $("#addItemBtn").find('i').removeClass("mdi-navigation-close");
+        }
+    );
+}

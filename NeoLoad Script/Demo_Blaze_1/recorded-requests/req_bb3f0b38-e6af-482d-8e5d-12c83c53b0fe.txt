@@ -1,0 +1,10 @@
+GET https://images-na.ssl-images-amazon.com:443/images/I/41EatlRrf3L._RC%7C71nMNFojXUL.js,61b7nFf9AiL.js,41W9ohA0e+L.js,11vrNkbdcvL.js,21qaguVEGfL.js,41g5X89rw2L.js,51MzEF-M1PL.js,313jWehHlpL.js_.js?AUIClients/NavDesktopMetaAsset HTTP/1.1
+Accept: text/css, */*
+Referer: https://www.amazon.in/b/?_encoding=UTF8&node=976392031&ref_=sv_top_elec_mega_2
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-na.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

@@ -1,0 +1,10 @@
+GET https://www.google.com:443/gen_204?oq=aws%20certification&gs_l=youtube.12..0i433k1j0l13.1812.8943.0.16625.19.11.1.6.7.0.1614.4001.3-2j2j0j1j0j1.6.0....0...1ac.1.64.youtube..6.13.5325...0i433i131k1j0i10k1j0i13k1.0.6LoGwgUfMrQ HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.google.com
+DNT: 1
+Connection: Keep-Alive
+

@@ -1,0 +1,8 @@
+GET https://adservice.google.co.in/adsid/google/ui?gadsid=AORoGNTpjSf-EnF3Zz66ikJ-jnqo1P11UokNQZd4IAyxL1AZYGE5Bo0YK3bA7YmKFOeg5Ko3POfs9859r086 HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: image/webp,*/*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://www.google.com/
+te: trailers
+

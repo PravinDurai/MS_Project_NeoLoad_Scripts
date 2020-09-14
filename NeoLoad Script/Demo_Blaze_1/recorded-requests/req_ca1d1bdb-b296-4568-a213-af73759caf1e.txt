@@ -1,0 +1,10 @@
+GET https://images-eu.ssl-images-amazon.com:443/images/I/61-6nKPKyWL._RC%7C11-BZEJ8lnL.js,61ZlOK692aL.js,21Of0-9HPCL.js,012FVc3131L.js,11S5WBtBslL.js,51CF7BmbF2L.js,11AHlQhPRjL.js,016iHgpF74L.js,11bt9oJdqWL.js,116tgw9TSaL.js,211-p4GRUCL.js,01PoLXBDXWL.js,61C85Z0PXTL.js,01ezj5Rkz1L.js,11BOgvnnntL.js,31UWuPgtTtL.js,01rpauTep4L.js,01iyxuSGj4L.js,01nZw0IOzSL.js_.js?AUIClients/AmazonUI HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-eu.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

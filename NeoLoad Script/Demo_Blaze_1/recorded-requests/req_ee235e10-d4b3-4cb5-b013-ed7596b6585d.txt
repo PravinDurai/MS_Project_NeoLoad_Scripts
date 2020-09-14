@@ -1,0 +1,15 @@
+POST https://unagi-eu.amazon.com:443/1/events/com.amazon.csm.nexusclient.prod HTTP/1.1
+Accept: */*
+Content-Type: text/plain
+Referer: https://www.amazon.in/gp/bestsellers/books/?ie=UTF8&ref_=sv_ba_3
+Accept-Language: en-IN
+Origin: https://www.amazon.in
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: unagi-eu.amazon.com
+Content-Length: 1012
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+{"cs":{"dct":{"#0":"requestId","#1":"CFXZ8BVEXKQ9WWJDPH9C","#2":"server","#3":"www.amazon.in","#4":"obfuscatedMarketplaceId","#5":"A21TJRUUN4KGV","#6":"producerId","#7":"csm","#8":"schemaId","#9":"csm.CSMBaselineEvent.4","#10":"timestamp","#11":"messageId","#12":"sessionId","#13":"259-5549146-3116120","#14":"domains","#15":"images-eu.ssl-images-amazon.com","#16":"m.media-amazon.com","#17":"fls-eu.amazon.in","#18":"unagi.amazon.fr","#19":"images-na.ssl-images-amazon.com","#20":"pageType","#21":"zeitgeist","#22":"subPageType","#23":"pageTypeId","#24":"books","#25":"csm.CrossOriginDomains.2"}},"events":[{"data":{"#0":"#1","#2":"#3","#4":"#5","#6":"#7","#8":"#9","#10":"2020-07-29T18:37:15.894Z","#11":"CFXZ8BVEXKQ9WWJDPH9C-1596047835894-1433518989","#12":"#13"}},{"data":{"#14":{"#15":68,"#16":7,"#3":2,"#17":3,"#18":1,"#19":2},"#20":"#21","#22":"bs","#23":"#24","#6":"csm","#8":"#25","#10":"2020-07-29T18:37:16.183Z","#11":"CFXZ8BVEXKQ9WWJDPH9C-1596047836183-5239250926","#12":"#13","#0":"#1","#4":"#5"}}]}

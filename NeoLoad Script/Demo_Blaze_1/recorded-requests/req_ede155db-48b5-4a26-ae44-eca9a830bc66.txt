@@ -1,0 +1,18 @@
+POST https://api.twitter.com/1.1/jot/client_event.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+content-type: application/x-www-form-urlencoded
+content-length: 705
+x-guest-token: 1287524195291656192
+x-twitter-client-language: en
+x-twitter-active-user: yes
+x-csrf-token: 255c2c9f7c6cab04eaa8445a711fcfda
+origin: https://twitter.com
+authorization: Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA
+referer: https://twitter.com/search
+cookie: gt=1287524195291656192; personalization_id="v1_Fj44PYPLCs0vRDgEuA3QGA=="; guest_id=v1%3A159590085757709831; ct0=255c2c9f7c6cab04eaa8445a711fcfda
+te: trailers
+
+category=perftown&log=%5B%7B%22description%22%3A%22rweb%3Ainit%3AstorePrepare%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A109%7D%2C%7B%22description%22%3A%22rweb%3Attft%3AperfSupported%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A1%7D%2C%7B%22description%22%3A%22rweb%3Attft%3Aconnect%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A3282%7D%2C%7B%22description%22%3A%22rweb%3Attft%3Aprocess%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A0%7D%2C%7B%22description%22%3A%22rweb%3Attft%3Aresponse%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A0%7D%2C%7B%22description%22%3A%22rweb%3Attft%3Ainteractivity%22%2C%22product%22%3A%22rweb%22%2C%22duration_ms%22%3A3405%7D%5D

@@ -1,0 +1,25 @@
+POST https://petstore.swagger.io:443/v2/user HTTP/1.1
+Host: petstore.swagger.io
+Connection: keep-alive
+Content-Length: 205
+accept: application/json
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Content-Type: application/json
+Origin: https://petstore.swagger.io
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://petstore.swagger.io/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+{
+  "id": 100,
+  "username": "Pravin",
+  "firstName": "Pravin",
+  "lastName": "Durai",
+  "email": "pravin_s_m_9_4@yahoo.com",
+  "password": "Password@1212",
+  "phone": "+91 8610212590",
+  "userStatus": 1
+}

@@ -1,0 +1,18 @@
+POST https://api.twitter.com/1.1/jot/client_event.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+authorization: Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA
+x-guest-token: 1287524212534464512
+x-twitter-client-language: en
+x-twitter-active-user: yes
+content-type: application/x-www-form-urlencoded
+x-csrf-token: 25defc106bc55dc1f74bc6dc9a894257
+Content-Length: 405
+origin: https://twitter.com
+referer: https://twitter.com/login
+cookie: ct0=25defc106bc55dc1f74bc6dc9a894257; personalization_id="v1_oB/JhqEYwxBsmd4IIanBPg=="; guest_id=v1%3A159580466796466701; _ga=GA1.2.194021044.1595804668; _gid=GA1.2.1612449998.1595804668; gt=1287524212534464512; _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoHaWQiJWM4ODNlZWU4MWVmMDg2MWJkOTg4MjM4%250ANzhjN2Y3Yjc4Og9jcmVhdGVkX2F0bCsIMJVgjXMBOgxjc3JmX2lkIiU4MDY4%250AM2I1NGM2NjIyZWFlNzdmZDE5NDU3Y2EzOWRhZQ%253D%253D--82cdad55cc1461ae7aee2787e6871ac1ec53bd64
+te: trailers
+
+debug=true&log=%5B%7B%22_category_%22%3A%22client_event%22%2C%22format_version%22%3A2%2C%22triggered_on%22%3A1595804784853%2C%22items%22%3A%5B%5D%2C%22event_namespace%22%3A%7B%22page%22%3A%22login%22%2C%22action%22%3A%22show%22%2C%22client%22%3A%22m5%22%7D%2C%22client_event_sequence_start_timestamp%22%3A1595804665645%2C%22client_event_sequence_number%22%3A198%2C%22client_app_id%22%3A%223033300%22%7D%5D

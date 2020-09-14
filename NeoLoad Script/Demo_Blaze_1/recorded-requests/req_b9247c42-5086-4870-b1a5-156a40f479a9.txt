@@ -1,0 +1,5 @@
+GET http://en-gb.appex-rf.msn.com/cgtile/v1/en-GB/News/Today.xml HTTP/1.1
+User-Agent: Microsoft-WNS/6.3
+Host: en-GB.appex-rf.msn.com
+Pragma: no-cache
+

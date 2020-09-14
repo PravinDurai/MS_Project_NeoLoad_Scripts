@@ -1,0 +1,11 @@
+GET https://static.doubleclick.net:443/instream/ad_status.js HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: static.doubleclick.net
+DNT: 1
+Connection: Keep-Alive
+Cookie: IDE=AHWqTUkpTSUtPpbLdZcZU312nKjCx2SkMUrBewej9h-xpfnCNe_YKyqXloUjVUdb
+

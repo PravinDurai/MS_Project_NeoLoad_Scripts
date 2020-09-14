@@ -1,0 +1,18 @@
+POST https://api.twitter.com/1.1/jot/client_event.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+referer: https://twitter.com/explore/tabs/fun
+authorization: Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA
+x-guest-token: 1287370416399331328
+x-twitter-client-language: en
+x-twitter-active-user: yes
+content-type: application/x-www-form-urlencoded
+x-csrf-token: 2c4047c7fffc08090de9a4867b55e1dc
+content-length: 1357
+origin: https://twitter.com
+cookie: personalization_id="v1_g/va0h8xH2P/NTcSMMWIGA=="; guest_id=v1%3A159576800009951976; gt=1287370416399331328; ct0=2c4047c7fffc08090de9a4867b55e1dc; _ga=GA1.2.1618188819.1595768008; _gid=GA1.2.1485472748.1595768008
+te: trailers
+
+debug=true&log=%5B%7B%22_category_%22%3A%22client_event%22%2C%22format_version%22%3A2%2C%22triggered_on%22%3A1595768060945%2C%22items%22%3A%5B%7B%22event_details%22%3A%7B%22event_id%22%3A%221287080715427835905%22%7D%2C%22guide_item_details%22%3A%7B%22item_type%22%3A%22DAABDAABCwABAAAACXN1cGVyaGVybwsAAgAAAAZldmVudHMAAA8AAgwAAAABDAABCwABAAAACXN1cGVyaGVybwsAAgAAAAZldmVudHMAAAA%3D%22%2C%22source_data%22%3A%22CwABAAAAJDJjZjg1YWFiLTBjYTEtNDJhZC1iMTVhLTNmOTY3MmI1YTVhYgsAAgAAABMxMjg3MDgwNzE1NDI3ODM1OTA1BgADAAAKAAQR3KMaddTwAAsABQAAABdtb21lbnRfY2FuZGlkYXRlX3NvdXJjZQoABhHcoRdoVPABAA%3D%3D%22%2C%22transparentGuideDetails%22%3A%7B%22eventMetadata%22%3A%7B%22impressionId%22%3A%222cf85aab-0ca1-42ad-b15a-3f9672b5a5ab%22%2C%22position%22%3A0%2C%22sourceId%22%3A%221287082927562485760%22%2C%22sourceName%22%3A%22moment_candidate_source%22%2C%22eventId%22%3A%221287080715427835905%22%7D%7D%7D%2C%22impression_details%22%3A%7B%22visibility_start%22%3A1595768057917%2C%22visibility_end%22%3A1595768060944%7D%7D%5D%2C%22event_namespace%22%3A%7B%22page%22%3A%22guide%22%2C%22section%22%3A%22fun%22%2C%22component%22%3A%22stream%22%2C%22element%22%3A%22linger%22%2C%22action%22%3A%22results%22%2C%22client%22%3A%22m5%22%7D%2C%22client_event_sequence_start_timestamp%22%3A1595768005125%2C%22client_event_sequence_number%22%3A137%2C%22client_app_id%22%3A%223033300%22%7D%5D

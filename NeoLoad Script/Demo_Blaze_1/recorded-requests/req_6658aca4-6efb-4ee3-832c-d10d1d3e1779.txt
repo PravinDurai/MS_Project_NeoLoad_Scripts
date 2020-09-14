@@ -1,0 +1,10 @@
+OPTIONS https://api.twitter.com/1.1/branch/init.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+access-control-request-method: POST
+access-control-request-headers: authorization,content-type,x-csrf-token,x-guest-token,x-twitter-active-user,x-twitter-client-language
+origin: https://twitter.com
+te: trailers
+

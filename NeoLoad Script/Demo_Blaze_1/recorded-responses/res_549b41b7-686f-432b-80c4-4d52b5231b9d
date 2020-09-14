@@ -1,0 +1,1 @@
+{"data":{"viewer":{"user_features":[{"feature":"mediatool_studio_library","enabled":false}]}},"errors":[{"message":"Authentication: Not authenticated","path":["viewer","user"],"locations":[{"line":135,"column":5}],"source":"Client","retry_after":0,"code":32,"kind":"Permissions","extensions":{"source":"Client","retry_after":0,"code":32,"kind":"Permissions"}}]}

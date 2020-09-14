@@ -1,0 +1,8 @@
+GET https://snippets.cdn.mozilla.net:443/media/icons/1ec03c70-6d42-4079-82de-5035f9e84d67.png HTTP/1.1
+Host: snippets.cdn.mozilla.net
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: image/webp,*/*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+

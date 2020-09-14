@@ -1,0 +1,12 @@
+GET https://validator.swagger.io:443/validator?url=https%3A%2F%2Fpetstore.swagger.io%2Fv2%2Fswagger.json HTTP/1.1
+Host: validator.swagger.io
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: https://petstore.swagger.io/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+

@@ -1,0 +1,9 @@
+GET http://r8---sn-cnoa-h55l.gvt1.com/edgedl/release2/AKW4WwYcSVaa7Fbhq4E4vRE_1420/AJzOr-bHJkSqrEWHXr7uc5w?cms_redirect=yes&mh=tP&mip=117.217.189.164&mm=28&mn=sn-cnoa-h55l&ms=nvh&mt=1592369356&mv=m&mvi=7&pl=21&shardbypass=yes HTTP/1.1
+Accept: */*
+Accept-Encoding: identity
+If-Unmodified-Since: Wed, 17 Jun 2020 04:32:13 GMT
+Range: bytes=0-8959
+User-Agent: Microsoft BITS/7.7
+Proxy-Connection: Keep-Alive
+Host: r8---sn-cnoa-h55l.gvt1.com
+

@@ -1,0 +1,10 @@
+GET https://images-na.ssl-images-amazon.com:443/images/I/41yGejc0UpL.css?AUIClients/ACSWidgetAssets-contentGrid HTTP/1.1
+Accept: text/css, */*
+Referer: https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-na.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

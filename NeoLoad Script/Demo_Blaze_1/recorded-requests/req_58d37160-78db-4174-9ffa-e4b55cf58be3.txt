@@ -1,0 +1,11 @@
+GET https://www.amazon.in:443/gp/uedata?ul&v=0.213507.0&id=69TG6AVCW9A4WY3XQGA1&m=1&sc=69TG6AVCW9A4WY3XQGA1&ue=25&bb=3270&ns=3294&cf=3415&ne=3418&be=3907&af=7355&fn=7355&pc=22821&tc=-1454&na_=-1454&ul_=-1596047585489&_ul=-1596047585489&rd_=-1596047585489&_rd=-1596047585489&fe_=-1453&lk_=-1453&_lk=-1453&co_=-1453&_co=-1453&rq_=-155&rs_=-132&_rs=46&dl_=-132&di_=4326&de_=4327&_de=4331&_dc=-1596047585489&ld_=-1596047585489&_ld=-1596047585489&ntd=-1&ty=0&rc=0&hob=10&hoe=25&ul=22822&t=1596047608311&ctb=1&rt=cf:25-0-3-22-2-0-1_af:110-6-3-101-2-0-1_&ec=1&ecf=0&csmtags=aui|aui:aui_build_date:3.20.5-2020-07-27|navbar|gwCFImgCache|fls-eu-amazon-in|ABPStatusUnknown:Gateway:right-2:desktop|ABPStatusUnknown:Gateway:desktop-ad-center-1:desktop|csm:xperf:queued|csm:htmlsize:unsupported|csm:xperf:unsupported|csm-feature-touch-enabled:false|iss-on-time|csm:xprld:mode:aui|noadrender:Gateway:right-2:desktop|noadrender:589e332a-17d0-4382-b320-05e6f4ddc521|noadrender:Gateway:desktop-ad-center-1:desktop|noadrender:e44985f6-46f4-4231-90aa-f5c16f7c50aa|aui:ajax&viz=visible:23&pty=Gateway&spty=desktop&pti=desktop&tid=69TG6AVCW9A4WY3XQGA1&aftb=1&ui=2 HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.amazon.in
+DNT: 1
+Connection: Keep-Alive
+Cookie: session-id=259-5549146-3116120; session-id-time=2082787201l; i18n-prefs=INR; ubid-acbin=261-5392048-5305355; x-wl-uid=1CMgkMD+lwTMjFwV0IQsm4ngLqu5vsl9zMx3QYLakUzVDNNP6MdvIDKHKrlqgRJKCNrXy7dSS1us=; session-token=q8yZUOdhZN1NeLM0YIxRinW0/HWfI+pt2oamb6iPzjL3yx4v1xdyP4XWm4Ak4vnOiMQpL/1bB18B3UzvYeM6aSGUI1xGpCccLL0CtyEJG2wLSS+3FI1MzMKDOOXxGRp5xkoT0QU3sTiJl9yfIaTJE/hH/bjZ0Jwf+pekXDzHhNl3Cexz2P2fUbI2gQvv82rU; visitCount=1; csm-hit=tb:69TG6AVCW9A4WY3XQGA1+s-69TG6AVCW9A4WY3XQGA1|1596047608298&t:1596047608299
+

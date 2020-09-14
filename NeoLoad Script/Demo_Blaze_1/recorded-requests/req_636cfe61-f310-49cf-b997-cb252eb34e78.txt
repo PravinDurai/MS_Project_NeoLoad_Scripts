@@ -1,0 +1,11 @@
+OPTIONS https://api.twitter.com/1.1/account/personalization/sync_optout_settings.json HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+access-control-request-method: POST
+access-control-request-headers: authorization,x-csrf-token,x-guest-token,x-twitter-active-user,x-twitter-client-language
+referer: https://twitter.com/settings/account/personalization
+origin: https://twitter.com
+te: trailers
+

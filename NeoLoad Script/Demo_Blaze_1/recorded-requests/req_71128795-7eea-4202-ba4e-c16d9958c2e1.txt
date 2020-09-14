@@ -1,0 +1,10 @@
+GET https://outlook.live.com:443/apc/100k.gif?0cd145e82ca1d2269d8fafba9ed1299a HTTP/1.1
+Host: outlook.live.com
+Connection: keep-alive
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: cross-site
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Skype/8.62.0.83 Chrome/78.0.3904.130 Electron/7.3.1 Safari/537.36
+

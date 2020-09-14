@@ -1,0 +1,77 @@
+function MaterializeWidgetMultySelect($root) {
+    var $holder = $root.find('.materialize-contenteditable');
+    var unselectAll = function () {
+        $root.find('.materialize-contenteditable').html("");
+        $root.find('.materialize-widget-employee-hidden-input').remove();
+        $root.find('.searchObjectLi').addClass("not-selected");
+    }
+    var selectOne = function (empNumber, empName) {
+        $holder.append('<div class="col l3 grey lighten-4 selected-employee valign-wrapper choice-item" data-emp-number="' + empNumber + '" style="border-radius: 30px; height: auto; width: auto;">'
+            + '<span class="grey-text text-darken-2 choice-text" style="margin-left: 10px;">' + empName + '</span>'
+            + '<div  class="black-text text-darken-2" style="margin-left: 10px"><i class="mdi-navigation-cancel remove-employee material-icons small-icon-font">close</i></div></div>');
+
+        $root.append('<input class="materialize-widget-employee-hidden-input" id="' + $root.data('id') + '_' + empNumber + '" name="' + $root.data('name') + '[' + empNumber + ']' + '" value="' + empNumber + '"style="display:none"></input>');
+        $root.find('#' + $root.data('rand-id') + '_search_' + empNumber).removeClass('not-selected').hide();
+    }
+    var unselectOne = function (empNumber) {
+        $root.find('#' + $root.data('id') + '_' + empNumber).remove();
+        $root.find('#' + $root.data('rand-id') + '_search_' + empNumber).addClass('not-selected');
+        $holder.blur();
+        $holder.find('.selected-employee').each(function () {
+            if ($(this).data('emp-number') == empNumber) {
+                $(this).remove();
+            }
+        });
+        $root.find('.dropdownObjectSearch').hide();
+    }
+    return {unselectAll: unselectAll, selectOne: selectOne, unselectOne: unselectOne};
+}
+
+
+$(document).ready(function () {
+    $('.dropdown-employees').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 200, // Spacing from edge
+        belowOrigin: false // Displays dropdown below the button
+    });
+
+    $('.employee-search').live('click', function (e) {
+        e.stopPropagation();
+    });
+
+    $('.materialize-contenteditable').live('click', function (e) {
+        var $root = $(this).closest('.materializeWidgetObjectMultySelect-container');
+        if ($(e.target).hasClass('remove-employee')) {
+            $empNoToRemove = $(e.target).closest('.selected-employee').data('emp-number');
+            MaterializeWidgetMultySelect($root).unselectOne($empNoToRemove);
+        } else {
+            $root.find('.employee-search').focus();
+            $root.find('.employee-search').keyup();
+        }
+    });
+
+
+    $('.employee-search').live('keyup', function (e) {
+        var text = $(this).val();
+        var employees = $(this).closest(".materializeWidgetObjectMultySelect-container").find('.searchListObjectName');
+
+        for (var i = 0; i < employees.length; i++) {
+            var candidateName = $(employees[i]).text();
+            if (candidateName.toLowerCase().indexOf(text.toLowerCase()) >= 0) {
+                $(employees[i]).closest('.searchObjectLi.not-selected').show();
+            } else {
+                $(employees[i]).closest('.searchObjectLi.not-selected').hide();
+            }
+        }
+    });
+
+    $('.dropdownObjectSearch > div > .searchObjectLi').live('click', function () {
+        $root = $(this).closest(".materializeWidgetObjectMultySelect-container");
+        var empNumber = this.id.split($root.data('rand-id') + "_search_")[1];
+        var empName = $(this).find('p').html();
+        MaterializeWidgetMultySelect($root).selectOne(empNumber, empName);
+    });
+});

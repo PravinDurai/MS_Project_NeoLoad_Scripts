@@ -1,0 +1,10 @@
+GET https://meta.wikimedia.org:443/w/index.php?title=Special:BannerLoader&campaign=wikipedia_wanting_photos_2020&banner=wikipedia_wanting_photos_2020&uselang=en&debug=false HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://en.wikipedia.org/wiki/Wikipedia:Statistics
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: meta.wikimedia.org
+DNT: 1
+Connection: Keep-Alive
+

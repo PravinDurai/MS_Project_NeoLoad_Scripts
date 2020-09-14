@@ -1,0 +1,12 @@
+GET https://www.demoblaze.com/bm.png HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+if-none-match: "TTo8pA"
+accept: image/webp,image/apng,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: https://www.demoblaze.com/index.html
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: user=dd941a80-ce1d-e5dd-72fd-2c4165a2ff64
+

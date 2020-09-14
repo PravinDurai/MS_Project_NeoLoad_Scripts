@@ -1,0 +1,17 @@
+GET https://westeurope.notifications.teams.microsoft.com/users/8:orgid:d151cf69-5f6f-4390-841a-062b1ef3d306/endpoints/ba19024d-ce1d-4a63-9ef8-4ad95e680ddb/events/poll HTTP/2.0
+accept: json
+accept-encoding: gzip, deflate, br
+accept-language: en-US
+authentication: skypetoken=eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwMiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTIzNDA4MTYsImV4cCI6MTU5MjQyNzIxNSwic2t5cGVpZCI6Im9yZ2lkOmQxNTFjZjY5LTVmNmYtNDM5MC04NDFhLTA2MmIxZWYzZDMwNiIsInNjcCI6NzgwLCJjc2kiOiIxNTkyMzQwNTE1IiwidGlkIjoiNTY5ZGYwOTEtYjAxMy00MGUzLTg2ZWUtYmQ5Y2I5ZTI1ODE0IiwicmduIjoiZW1lYSJ9.gz82ONxpVsaB1WpBzDje6ffwlHKH0mj9nOpXr0wIs7dZXA3SWCjuncFmIpDceYX8zTFd74JEoWZZA_BnLbkZKzZrgfEcIRrITFEXg4OdYTiLIYvwNPqLTpi6KUF3qE2l1H_ClirNoIk6J6ve0kr5u8PGMFSJhLFVOssWD-O8pe4Dt7VEM40qavzu_MiOwg8RyBoy-y_VRh-8bhrgmpf_EXY_P7oWqY2Tcr2AYvO5EArNG07r7I6_-goz0NHhAtNIR4UFRfJ8QbrlCvyZkFGvq3nTc6dyPF8glKk99WSKa3KC1yP7fTh3a-kjskv40QA6qnXBKvdnpkc4ygYQA1YYhQ
+behavioroverride: redirectAs404
+clientinfo: os=windows; osVer=8.1; proc=x86; lcid=en-us; deviceType=1; country=us; clientName=skypeteams; clientVer=27/1.0.0.2020052836; utcOffset=+01:00
+origin: https://teams.microsoft.com
+referer: https://teams.microsoft.com/_
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.3.00.13565 Chrome/69.0.3497.128 Electron/4.2.12 Safari/537.36
+x-ms-client-env: pckgsvc-prod-c2-asse-02
+x-ms-client-type: desktop
+x-ms-client-version: 27/1.0.0.2020052836
+x-ms-query-params: cursor=1592340116&epfs=srt&sca=2&activeTimeout=135
+x-ms-session-id: 2773234c-65e1-7a89-0e9a-add36ae262ef
+x-ms-user-type: user
+

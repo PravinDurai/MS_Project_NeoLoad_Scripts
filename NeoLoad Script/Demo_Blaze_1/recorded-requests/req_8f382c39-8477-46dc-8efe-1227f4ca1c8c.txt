@@ -1,0 +1,10 @@
+GET http://opencart.abstracta.us/image/cache/catalog/demo/samsung_tab_1-228x228.jpg HTTP/1.1
+Host: opencart.abstracta.us
+Proxy-Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Referer: http://opencart.abstracta.us/index.php?route=product/category&path=57
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=40l6ead24llvu0mf2msi4fhbm5; default=cdcq37f2j8vvgo8jvfrgvk9c64; language=en-gb; currency=USD; __atuvc=1%7C25; __atuvs=5ee96022cce8ea2d000
+

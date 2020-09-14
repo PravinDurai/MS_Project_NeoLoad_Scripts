@@ -1,0 +1,1 @@
+{"messageType":"hello","broadcasts":{"remote-settings/monitor_changes":"\"1595622078915\""},"use_webpush":true}

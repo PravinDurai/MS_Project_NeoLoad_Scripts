@@ -1,0 +1,12 @@
+GET https://cm.g.doubleclick.net/pixel?google_nid=addthis&google_cm=&pid=23&puidKey=google_gid&ssrc=1&google_tc= HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept: image/webp,image/apng,image/*,*/*;q=0.8
+x-client-data: CIm2yQEIo7bJAQjBtskBCKmdygEI58bKAQjoyMoBGJu+ygE=
+sec-fetch-site: cross-site
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: https://s7.addthis.com/static/sh.f48a1a04fe8dbf021b4cda1d.html
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: test_cookie=CheckForPermission
+

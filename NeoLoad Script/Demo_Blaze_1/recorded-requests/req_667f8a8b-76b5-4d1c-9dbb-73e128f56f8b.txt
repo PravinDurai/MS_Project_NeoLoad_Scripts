@@ -1,0 +1,18 @@
+POST https://petstore.octoperf.com/actions/Order.action HTTP/2.0
+content-length: 595
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+origin: https://petstore.octoperf.com
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+sec-fetch-site: same-origin
+sec-fetch-mode: navigate
+sec-fetch-user: ?1
+sec-fetch-dest: document
+referer: https://petstore.octoperf.com/actions/Order.action?newOrderForm=
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+cookie: JSESSIONID=3AEB30779A15BE0C50AF98A83EB3AF35
+
+order.cardType=Visa&order.creditCard=999+9999+9999+9999&order.expiryDate=12%2F03&order.billToFirstName=Pravin&order.billToLastName=Durai&order.billAddress1=Flat+Number+11%2C+Claredale+House&order.billAddress2=Claredale+Street&order.billCity=London&order.billState=London&order.billZip=E2+6PE&order.billCountry=United+Kingdom&newOrder=Continue&_sourcePage=g0z1SG__A5qajkFfjznrlMEnyoGxf0I4Em4Rsz8LHSof1EmBzKYW-jwLbkXAibpfeZaqnaAjUYZQUwBKH9QdhY8ta0IPj8g8GZQPB4wxYIw%3D&__fp=N3No6zpP17OXfNMOIapu99B4kN3r6IHym2d__1nlfNjS8pEND-LJsNdvA4W-SkDzoyli5WJs4uohMJ36ru4MaWVppNBlcikNcFIM2B7CLVjpisb28j8Drw%3D%3D

@@ -1,0 +1,14 @@
+POST http://opencart.abstracta.us/mod_pagespeed_beacon?url=http%3A%2F%2Fopencart.abstracta.us%2Findex.php%3Froute%3Dproduct%2Fcategory%26path%3D33 HTTP/1.1
+Host: opencart.abstracta.us
+Proxy-Connection: keep-alive
+Content-Length: 83
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Accept: */*
+Origin: http://opencart.abstracta.us
+Referer: http://opencart.abstracta.us/index.php?route=product/category&path=33
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=40l6ead24llvu0mf2msi4fhbm5; default=cdcq37f2j8vvgo8jvfrgvk9c64; language=en-gb; currency=USD; __atuvc=2%7C25; __atuvs=5ee96022cce8ea2d001
+
+oh=YddRYU7ik1&n=RfrU_58c2t0&ci=903987600,2368760042,183590158,3972309982,2976808140

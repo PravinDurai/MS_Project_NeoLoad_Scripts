@@ -1,0 +1,12 @@
+POST https://api2.branch.io/v1/pageview HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+accept: */*
+accept-language: en-US,en;q=0.5
+accept-encoding: gzip, deflate, br
+content-type: application/x-www-form-urlencoded
+content-length: 1105
+origin: https://twitter.com
+referer: https://twitter.com/
+te: trailers
+
+event=pageview&metadata=%7B%22url%22%3A%22https%3A%2F%2Ftwitter.com%2Fexplore%22%2C%22user_agent%22%3A%22Mozilla%2F5.0%20(Windows%20NT%206.3%3B%20Win64%3B%20x64%3B%20rv%3A78.0)%20Gecko%2F20100101%20Firefox%2F78.0%22%2C%22language%22%3A%22en-US%22%2C%22screen_width%22%3A1366%2C%22screen_height%22%3A768%2C%22window_device_pixel_ratio%22%3A1%2C%22og_data%22%3A%7B%22%24og_title%22%3A%22Explore%20%2F%20Twitter%22%7D%2C%22title%22%3A%22Explore%20%2F%20Twitter%22%2C%22canonical_url%22%3A%22https%3A%2F%2Ftwitter.com%2Fexplore%22%7D&initial_referrer=&is_iframe=false&user_language=en&open_app=false&has_app_websdk=false&feature=journeys&callback_string=branch_view_callback__1&data=%7B%22%24canonical_url%22%3A%22https%3A%2F%2Ftwitter.com%2Fexplore%22%2C%22%24og_title%22%3A%22Explore%20%2F%20Twitter%22%2C%22%24og_description%22%3Anull%2C%22%24og_image_url%22%3Anull%2C%22%24og_video%22%3Anull%2C%22%24og_type%22%3Anull%7D&source=web-sdk&branch_key=key_live_knJAF6W45vSHVJiP0wn8figpqFePX59K&session_id=816474320062422498&identity_id=816474320037808620&sdk=web2.52.3&browser_fingerprint_id=815917046602375585

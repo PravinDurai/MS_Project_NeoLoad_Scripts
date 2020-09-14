@@ -1,0 +1,11 @@
+GET https://www.youtube.com:443/pagead/paralleladview?ai=CJkuLxToeX6nvCpaW9QPa_4-ABACFlNDXvwsAEAEgAGDlAoIBF2NhLXB1Yi02MjE5ODExNzQ3MDQ5MzcxqAMEqgQXT9DHssUtT72EUarOe5ysaypx-sYrhsrSCAIQAbALAboLGAgDEAMYDCALKAUwBUABSABYHGAAaABwAQ&sigh=iypQPKIBK2Y&cid=CAASFeRo8Ddm8KR_3rQdcHMGslC2XVmxHQ&vt=0 HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.youtube.com/results?search_query=Machine+Learning
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.youtube.com
+DNT: 1
+Connection: Keep-Alive
+Cookie: YSC=F0B4IJmkuqQ; GPS=1; VISITOR_INFO1_LIVE=q2GLwj1B8cU
+

@@ -1,0 +1,10 @@
+GET https://www.demoblaze.com/js/index.js HTTP/2.0
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept: */*
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: script
+referer: https://www.demoblaze.com/
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+

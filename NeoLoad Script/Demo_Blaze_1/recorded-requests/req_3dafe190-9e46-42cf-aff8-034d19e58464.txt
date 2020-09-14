@@ -1,0 +1,11 @@
+POST https://www.googleapis.com/spelling/v2/spelling/check?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw HTTP/2.0
+content-length: 281
+content-type: application/json
+sec-fetch-site: none
+sec-fetch-mode: no-cors
+sec-fetch-dest: empty
+user-agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9
+
+{"text":"{\n  \"id\": 0,\n  \"username\": \"Pravin\",\n  \"firstName\": \"Pravin\",\n  \"lastName\": \"Durai\",\n  \"email\": \"pravin_s_m_9_4@yahoo.com\",\n  \"password\": \"Password@1212\",\n  \"phone\": \"string\",\n  \"userStatus\": 0\n}","language":"en","originCountry":"USA"}

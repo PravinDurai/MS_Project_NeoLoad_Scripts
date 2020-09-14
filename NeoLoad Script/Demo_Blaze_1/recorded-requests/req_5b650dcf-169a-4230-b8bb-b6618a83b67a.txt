@@ -1,0 +1,16 @@
+POST https://www.youtube.com:443/youtubei/v1/search?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8 HTTP/1.1
+Accept: */*
+Content-Type: application/json
+x-goog-visitor-id: CgtxMkdMd2oxQjhjVSjD9vj4BQ%3D%3D
+Referer: https://www.youtube.com/results?search_query=Angular
+Accept-Language: en-IN
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: www.youtube.com
+Content-Length: 1524
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: YSC=F0B4IJmkuqQ; GPS=1; VISITOR_INFO1_LIVE=q2GLwj1B8cU
+
+{"context":{"client":{"hl":"en-IN","gl":"IN","visitorData":"CgtxMkdMd2oxQjhjVSiB9fj4BQ%3D%3D","userAgent":"Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko,gzip(gfe)","clientName":"WEB","clientVersion":"2.20200724.05.01","osName":"Windows","osVersion":"6.3","browserName":"IE","browserVersion":"11.0","screenWidthPoints":1366,"screenHeightPoints":650,"screenPixelDensity":1,"utcOffsetMinutes":60,"userInterfaceTheme":"USER_INTERFACE_THEME_LIGHT"},"request":{"sessionId":"6853980010438181372","internalExperimentFlags":[],"consistencyTokenJars":[]},"user":{},"clientScreenNonce":"QzseX5T3DLKZ3LUP-5yYgAE","clickTracking":{"clickTrackingParams":"CBcQui8iEwi2pZresOzqAhWCCbcAHXqJC4E="}},"continuation":"EsIEEgdBbmd1bGFyGpgEU0JTQ0FTSlFURU16ZVRndGNrWklkbmRvUWxKQlowWnBia3BTT0V0SVNYSkRaRlJyV21OYWdnRUxhelZGTWtGV2NIZHphMi1DQVFzNVRFNWhVV3h1TVRGQ1FZSUJJbEJNTm00NVptaDFPVFI1YUZkeFIwUTRRblZMZFZndFZsUkxjV3hPUW1vdGJUYUNBU0pRVERod01razVSMnRzVmpRMVIxQXlNMjFzYVc1WVlXSndOR1EwUVZOa2RIcExnZ0VMVlhoRmEzTjJNbTk1V1hPQ0FTSlFURjl4YVhwQlptTndTaTFOYUdsdWJVZHdNMjVKVlc1UWNGOHpjazVYTFZkamdnRUxNazlJWW1wbGNGOVhhbEdDQVF0VVgwWmxORWxoUnpCTFZZSUJJbEJNY1hFdE5sQnhOR3hVVkdJM1NrZENWRzluWVVvNFltMDNaamhXUTNaR2EycUNBUXR3VkdWak1XVTRiM2xqT0lJQkMwWmtaalZoVkZsU1Z6QkZnZ0VMTFdwbGIzbEVTa1J6VTAyQ0FRdEVMVTlWWm1rd1UwRlNWWUlCQzFaQmEybHZOamhrTlRGQmdnRUxNMU5rV0RGaFUwOVFXbWVDQVFzNVRYaFRPRzlPYkc1TlRZSUJDMlpqT1RSV056WlhPRGhaZ2dFTFJ6QmlRa3gyVjFoQ2RtT0NBUXN3Y1VvM1lqbEdNbmRQVlElM0QlM0TKARsaF2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tIgAYgeDoGCILc2VhcmNoLWZlZWQ%3D"}

@@ -1,0 +1,10 @@
+GET https://images-na.ssl-images-amazon.com:443/images/G/01/AUIClients/INRetargetingAsset-fe13df5df0c9265752c892a20feddfc5baaec718.secure.min._V2_.js?AUIClients/INRetargetingAsset HTTP/1.1
+Accept: application/javascript, */*;q=0.8
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-na.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

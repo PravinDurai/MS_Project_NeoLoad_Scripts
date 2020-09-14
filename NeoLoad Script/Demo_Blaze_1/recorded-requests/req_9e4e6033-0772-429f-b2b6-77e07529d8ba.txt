@@ -1,0 +1,10 @@
+GET https://fonts.googleapis.com:443/css?family=YT%20Sans%3A300%2C500%2C700 HTTP/1.1
+Accept: text/css, */*
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: fonts.googleapis.com
+DNT: 1
+Connection: Keep-Alive
+

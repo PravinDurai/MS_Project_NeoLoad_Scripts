@@ -1,0 +1,24 @@
+POST https://www.youtube.com:443/youtubei/v1/log_event?alt=json&key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8 HTTP/1.1
+Accept: */*
+Content-Type: application/json
+X-Goog-Visitor-Id: CgtxMkdMd2oxQjhjVSiB9fj4BQ%3D%3D
+X-YouTube-Client-Name: 1
+X-YouTube-Client-Version: 2.20200724.05.01
+X-YouTube-Device: cbr=IE&cbrver=11.0&ceng=Trident&cengver=7.0&cos=Windows&cosver=6.3
+X-YouTube-Page-CL: 322907731
+X-YouTube-Page-Label: youtube.ytfe.desktop_20200723_5_RC1
+X-YouTube-Variants-Checksum: 73e5789339b2738655c073bc3e4fb9eb
+X-YouTube-Utc-Offset: 60
+X-YouTube-Ad-Signals: dt=1595816595648&flash=0&frm&u_tz=60&u_his=2&u_java=true&u_h=768&u_w=1366&u_ah=728&u_aw=1366&u_cd=24&u_nplug=2&u_nmime=4&bc=1&bih=650&biw=1349&brdim=0%2C78%2C-8%2C-8%2C1366%2C%2C1382%2C744%2C1366%2C650&vis=1&wgl=true&ca_type=image
+Referer: https://www.youtube.com/
+Accept-Language: en-IN
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Host: www.youtube.com
+Content-Length: 2363
+DNT: 1
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: YSC=F0B4IJmkuqQ; GPS=1; VISITOR_INFO1_LIVE=q2GLwj1B8cU
+
+{"context":{"client":{"hl":"en-IN","gl":"IN","clientName":1,"clientVersion":"2.20200724.05.01","browserName":"IE","browserVersion":"11.0","osName":"Windows","osVersion":"6.3"}},"events":[{"eventTimeMs":1595816597808,"visualElementAttached":{"csn":"gToeX_7mE5CowgP4zo2QDQ","parentVe":{"veType":3854},"childVes":[{"veType":70344,"veCounter":10}]},"context":{"lastActivityMs":"1546"}},{"eventTimeMs":1595816597822,"visualElementAttached":{"csn":"gToeX_7mE5CowgP4zo2QDQ","parentVe":{"veType":3854},"childVes":[{"veType":28665,"veCounter":11}]},"context":{"lastActivityMs":"1559"}},{"eventTimeMs":1595816597873,"visualElementAttached":{"csn":"gToeX_7mE5CowgP4zo2QDQ","parentVe":{"veType":3854},"childVes":[{"veType":28664,"veCounter":12}]},"context":{"lastActivityMs":"1610"}},{"eventTimeMs":1595816597881,"visualElementAttached":{"csn":"gToeX_7mE5CowgP4zo2QDQ","parentVe":{"veType":3854},"childVes":[{"veType":86570,"veCounter":13}]},"context":{"lastActivityMs":"1618"}},{"eventTimeMs":1595816597904,"visualElementAttached":{"csn":"gToeX_7mE5CowgP4zo2QDQ","parentVe":{"veType":3854},"childVes":[{"veType":16499,"veCounter":14}]},"context":{"lastActivityMs":"1641"}},{"eventTimeMs":1595816592046,"latencyActionTicked":{"tickName":"vpl","clientActionNonce":"UcjFJfSzaw0DRdp3"},"context":{"lastActivityMs":"-1"}},{"eventTimeMs":1595816592046,"latencyActionTicked":{"tickName":"ol","clientActionNonce":"UcjFJfSzaw0DRdp3"},"context":{"lastActivityMs":"-1"}},{"eventTimeMs":1595816598833,"visualElementShown":{"csn":"gToeX_7mE5CowgP4zo2QDQ","ve":{"trackingParams":"CMkBENwwIhMI6ZPggbDs6gIVSUqPCh0OvwPP"},"eventType":1},"context":{"lastActivityMs":"350"}},{"eventTimeMs":1595816599021,"visualElementShown":{"csn":"gToeX_7mE5CowgP4zo2QDQ","ve":{"trackingParams":"CIUBENwwIhMI6ZPggbDs6gIVSUqPCh0OvwPP"},"eventType":1},"context":{"lastActivityMs":"540"}},{"eventTimeMs":1595816599022,"visualElementShown":{"csn":"gToeX_7mE5CowgP4zo2QDQ","ve":{"trackingParams":"CIABENwwIhMI6ZPggbDs6gIVSUqPCh0OvwPP"},"eventType":1},"context":{"lastActivityMs":"540"}},{"eventTimeMs":1595816599150,"visualElementShown":{"csn":"gToeX_7mE5CowgP4zo2QDQ","ve":{"trackingParams":"CHsQ3DAiEwjpk-CBsOzqAhVJSo8KHQ6_A88="},"eventType":1},"context":{"lastActivityMs":"668"}}],"requestTimeMs":"1595816605728","serializedClientEventId":{"serializedEventId":"gToeX_7mE5CowgP4zo2QDQ","clientCounter":"21803"}}

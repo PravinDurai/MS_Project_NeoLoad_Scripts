@@ -1,0 +1,146 @@
+window.addEventListener("load", function() {
+    if (typeof ohrmNavigationService === 'undefined' && navigationLogConfig && navigationLogConfig.enabled) {
+        ohrmNavigationService = navigationService(navigationLogConfig.enabled,navigationLogConfig.url);
+        ohrmNavigationService.log();
+    }
+});
+
+function navigationService(dataQueueEnabled, navigationLogUrl) {
+
+    var autoLogInterval = 60 * 1000;
+    var autoLogIntervalReference = scheduleAutoLog();
+
+    var service = {
+        log: log,
+        flush: flush
+    };
+
+    function scheduleAutoLog() {
+        return setInterval(function () {
+            var lastLoggedTime = Date.parse(localStorage.getItem("navigation_logged_time"));//NOSONAR
+            if ((!lastLoggedTime) || (lastLoggedTime && (((new Date()) - lastLoggedTime) > autoLogInterval))) {
+                flush();
+            }
+        }, autoLogInterval);
+    }
+
+    function flush() {
+        if (dataQueueEnabled) {
+            localStorage.setItem("navigation_logged_time", new Date());//NOSONAR
+            var navigationLog = JSON.parse(localStorage.getItem("navigation_log"));//NOSONAR
+            if (Array.isArray(navigationLog) && navigationLog.length > 0) {
+                sendNavigationLogs(navigationLog);
+            }
+        }
+    }
+
+    function log(url) {
+        if (dataQueueEnabled) {
+            var navigationLog = JSON.parse(localStorage.getItem("navigation_log"));//NOSONAR
+            if (!Array.isArray(navigationLog)) {
+                navigationLog = [];
+            }
+            navigationLog = putCurrentUrlAsNavigationLog(navigationLog, url);
+            localStorage.setItem("navigation_log", JSON.stringify(navigationLog));//NOSONAR
+        }
+
+    }
+
+    function sendNavigationLogs(navigationLogs) {
+        jQuery.ajax({
+            type: "POST",
+            url: navigationLogUrl,
+            data: JSON.stringify(navigationLogs),
+            contentType: 'application/json',
+            success: function (response) {
+                var navLogArray = [];
+                localStorage.setItem("navigation_log", JSON.stringify(navLogArray));//NOSONAR
+                localStorage.setItem("navigation_logged_time", new Date());//NOSONAR
+            }
+        });
+    }
+
+    function getLatestUrlFromCookies() {
+        var latestUrl = readCookie('navigation_log_latest_url');
+        eraseCookie('navigation_log_latest_url');
+        return latestUrl;
+    }
+
+    function getLatestLog() {
+        var latestLog = sessionStorage.getItem("navigation_log_latest");//NOSONAR
+        if (!latestLog) {
+            latestLog = localStorage.getItem("navigation_log_latest");//NOSONAR
+        }
+        if (latestLog) {
+            return JSON.parse(latestLog);
+        }
+        return false;
+    }
+
+    function setLatestLog(log) {
+        sessionStorage.setItem("navigation_log_latest", JSON.stringify(log));//NOSONAR
+        localStorage.setItem("navigation_log_latest", JSON.stringify(log));//NOSONAR
+    }
+
+    function putCurrentUrlAsNavigationLog(navigationLog, url) {
+        if (typeof url === 'undefined') {
+            url = window.location.pathname + window.location.search + window.location.hash;
+        }
+        var currentTime = (new Date()).toISOString().slice(0, 19).replace('T', ' ');
+
+        var latestUrl = getLatestUrlFromCookies();
+        if (latestUrl) {
+            var log = {from: latestUrl, to: url, time: currentTime};
+            navigationLog.push(log);
+            setLatestLog(log);
+        } else {
+            var latestLog = getLatestLog();
+            var previousUrl = latestLog.to;
+            var previousTime = latestLog.time;
+            if (previousUrl != url && previousTime != currentTime) {
+                var log = {from: previousUrl, to: url, time: currentTime};
+                navigationLog.push(log);
+                setLatestLog(log);
+            } else if (navigationLog.length > 0 && navigationLog[navigationLog.length - 1].to != url && navigationLog[navigationLog.length - 1].time == currentTime) {
+                var log = {
+                    from: navigationLog[navigationLog.length - 1].from,
+                    to: url,
+                    time: currentTime
+                };
+                navigationLog[navigationLog.length - 1] = log;
+                setLatestLog(log);
+            }
+        }
+
+        return navigationLog;
+    }
+
+    function createCookie(name, value, days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toGMTString();
+        }
+        else var expires = "";
+
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name, "", -1);
+    }
+
+    return service;
+}
+

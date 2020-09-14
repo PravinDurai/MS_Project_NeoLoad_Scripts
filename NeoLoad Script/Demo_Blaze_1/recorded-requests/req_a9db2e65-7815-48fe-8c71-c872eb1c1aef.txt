@@ -1,0 +1,11 @@
+GET https://www.amazon.in:443/mn/search/uedata/259-5549146-3116120?ld&v=0.202699.0&id=HXD3S5DDKFEVGJDXY5HG&sw=1366&sh=768&vw=1349&vh=650&m=1&sc=HXD3S5DDKFEVGJDXY5HG&ue=75&bb=3562&ns=3574&ne=3938&af=3939&fn=3939&cf=6971&be=5433&pc=7546&tc=-784&na_=-784&ul_=-1596047609150&_ul=-1596047609150&rd_=-1596047609150&_rd=-1596047609150&fe_=-776&lk_=-776&_lk=-776&co_=-776&_co=-776&rq_=-354&rs_=-352&_rs=697&dl_=-352&di_=6310&de_=6310&_de=7025&_dc=7541&ld_=7545&_ld=-1596047609150&ntd=0&ty=0&rc=0&hob=73&hoe=76&ld=7556&t=1596047616706&ctb=1&rt=cf:114-4-5-96-3-3-0_af:44-2-5-36-3-3-1_ld:120-4-5-96-4-6-1&csmtags=aui|aui:aui_build_date:3.20.1-2020-02-17|navbar|fls-eu|ZeroInViewport&viz=visible:75&pty=Landing&spty=undefined&pti=undefined&tid=69TG6AVCW9A4WY3XQGA1&aftb=1 HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: www.amazon.in
+DNT: 1
+Connection: Keep-Alive
+Cookie: session-id=259-5549146-3116120; session-id-time=2082758401l; i18n-prefs=INR; ubid-acbin=261-5392048-5305355; x-wl-uid=1CMgkMD+lwTMjFwV0IQsm4ngLqu5vsl9zMx3QYLakUzVDNNP6MdvIDKHKrlqgRJKCNrXy7dSS1us=; session-token=q8yZUOdhZN1NeLM0YIxRinW0/HWfI+pt2oamb6iPzjL3yx4v1xdyP4XWm4Ak4vnOiMQpL/1bB18B3UzvYeM6aSGUI1xGpCccLL0CtyEJG2wLSS+3FI1MzMKDOOXxGRp5xkoT0QU3sTiJl9yfIaTJE/hH/bjZ0Jwf+pekXDzHhNl3Cexz2P2fUbI2gQvv82rU; visitCount=1; csm-hit=tb:s-HXD3S5DDKFEVGJDXY5HG|1596047612691&t:1596047612691
+

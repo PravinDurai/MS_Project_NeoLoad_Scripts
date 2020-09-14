@@ -1,0 +1,12 @@
+GET https://petstore.swagger.io:443/v2/pet/findByStatus?status=sold HTTP/1.1
+Host: petstore.swagger.io
+Connection: keep-alive
+accept: application/json
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://petstore.swagger.io/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+

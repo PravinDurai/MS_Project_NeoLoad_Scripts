@@ -1,0 +1,10 @@
+GET https://images-eu.ssl-images-amazon.com:443/images/G/31/ape/sf/whitelisted/desktop/sf-1.50.b1941f9._V410686852_.html HTTP/1.1
+Accept: text/html, application/xhtml+xml, */*
+Referer: https://www.amazon.in/
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: images-eu.ssl-images-amazon.com
+DNT: 1
+Connection: Keep-Alive
+

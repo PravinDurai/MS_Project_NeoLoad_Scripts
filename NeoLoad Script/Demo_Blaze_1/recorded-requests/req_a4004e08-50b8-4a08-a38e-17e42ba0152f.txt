@@ -1,0 +1,9 @@
+GET https://en.wikipedia.org:443/wiki/Wikipedia:Statistics HTTP/1.1
+Accept: text/html, application/xhtml+xml, */*
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: en.wikipedia.org
+DNT: 1
+Connection: Keep-Alive
+

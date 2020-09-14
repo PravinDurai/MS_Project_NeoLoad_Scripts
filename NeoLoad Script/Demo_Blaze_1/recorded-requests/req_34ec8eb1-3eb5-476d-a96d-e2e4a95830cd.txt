@@ -1,0 +1,11 @@
+GET https://amazon.partners.tremorhub.com:443/sync?UIAM&redir=https%3A%2F%2Faax-eu.amazon-adsystem.com%2Fs%2Fecm3%3Fex%3Dtelaria.com%26id%3D%5BPARTNER_ID%5D HTTP/1.1
+Accept: image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5
+Referer: https://aax-eu.amazon-adsystem.com/s/v3/pr?exlist=mp_af_sx_n-sk_g_kr_bsw_ox_index_aold_n-telaria_an_n-zeotap-4_rb_fw_imdb_nsln_fbca_twca_y_n-sc_pm_adb&fv=1.0&ex-pl-fbca=t_PzJtTOSEmoj3G3QBIQtw&ex-pl-twca=TOAqqD8lT7qfaq6XP3Y_Lg&a=cm&ep=SEr2qS9g7ShmblMYH4lq4O6T9B1jRhSLg-zti6JzuNiAQCY0rUPZBHkN_W0xwouF5ANsl0JjaCVYoVd2lAtMg_pemgHBHgNprsxYwDW7WDc
+Accept-Language: en-IN
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Host: amazon.partners.tremorhub.com
+DNT: 1
+Connection: Keep-Alive
+Cookie: tvid=19de9f6375aa4187a6e6b9d453c95b98; tv_UIAM=eba31e6617484aeb83b6f4666febfd4b
+
